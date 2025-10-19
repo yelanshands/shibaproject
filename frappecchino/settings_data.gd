@@ -5,3 +5,4 @@ class_name SettingsData
 @export var volume := 1.0
 @export var high_scores := [["frappie", 0], ["frappie", 0], ["frappie", 0], ["frappie", 0], ["frappie", 0]]
 @export var fov = 75
+@export var aim_assist: bool = true

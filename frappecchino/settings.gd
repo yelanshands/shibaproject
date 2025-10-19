@@ -14,17 +14,13 @@ extends Node
 @onready var mouse_sens_slider: HSlider = $Control/MarginContainer/VBoxContainer/scroll/MouseSens/HBoxContainer/MouseSensSlider
 @onready var fov_slider: HSlider = $Control/MarginContainer/VBoxContainer/scroll/fov/HBoxContainer/fov
 @onready var fov_label: Label = $Control/MarginContainer/VBoxContainer/scroll/fov/HBoxContainer2/Value
-
-#@onready var camera: Camera3D = $Background/SubViewportContainer/SubViewport/Camera3D
+@onready var aim_assist_toggle: CheckButton = $Control/MarginContainer/VBoxContainer/scroll/aimassist/HBoxContainer/CheckButton
+@onready var aim_assist_value: Label = $Control/MarginContainer/VBoxContainer/scroll/aimassist/HBoxContainer2/Value
 
 var rot_x = 0
 var rot_y = 0
 var cam_sens = 0.005
 var hitting: bool = false
-#var logged_x = 0.0
-#var logged_y = 0.0
-#var target_rot_x = 0.0
-#var target_rot_y = 0.0
 	
 signal settingsclosed
 	
@@ -32,6 +28,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	mouse_sens_slider.value = globals.settings_data.mouse_sens
 	fov_slider.value = globals.settings_data.fov
+	aim_assist_toggle.button_pressed = globals.settings_data.aim_assist
 
 func _process(_delta) -> void:
 	if crosshairs.visible == true and Input.is_action_just_pressed("ui_cancel"):
@@ -77,3 +74,7 @@ func _on_mouse_sens_slider_value_changed(value: float) -> void:
 	globals.settings_data.mouse_sens = mouse_sens_slider.value
 	fov_label.text = str(int(fov_slider.value))
 	globals.settings_data.fov = fov_slider.value
+
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	aim_assist_value.text = "on" if toggled_on else "off"
+	globals.settings_data.aim_assist = toggled_on

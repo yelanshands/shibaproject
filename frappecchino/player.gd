@@ -109,6 +109,7 @@ func _ready() -> void:
 	high_scores = globals.settings_data.high_scores
 	default_cam_sens = default_cam_sens_value * globals.settings_data.mouse_sens
 	fov = globals.settings_data.fov
+	aim_assist = globals.settings_data.aim_assist
 	
 func _input(event):
 	if not buttons.visible:
@@ -127,6 +128,7 @@ func _input(event):
 func _process(_delta):
 	default_cam_sens = default_cam_sens_value * settings.mouse_sens_slider.value
 	fov = settings.fov_slider.value
+	aim_assist = settings.aim_assist_toggle.button_pressed
 	
 	var camera_zrot = camera.global_rotation.z
 	if animation.current_animation == "runslide":
@@ -309,7 +311,7 @@ func _physics_process(delta: float) -> void:
 					if on_slope:
 						if abs(yrot) <= PI/3: 
 							if yrot > PI/5:
-								angle += 0.035 * clamp(((PI/3)-(abs(yrot)*1.75))/(PI/3), 0.0, 1.0)
+								angle += 0.037 * clamp(((PI/3)-(abs(yrot)*1.75))/(PI/3), 0.0, 1.0)
 							else:
 								angle += (0.03 if yrot > 0 else 0.027)*clamp(((PI/3)-(abs(yrot)*1.75))/(PI/3), 0.0, 1.0)
 						elif abs(yrot) <= 2*PI/3:
