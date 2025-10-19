@@ -90,7 +90,11 @@ var fov: float = 75.0
 var aim_assist: bool = true
 var target_aim: Vector3
 var target_enemy = null
+var target_node: Node
 var target_dir: Vector3
+var hit_pos: Vector3
+var rot_offset := 0.0
+var current_rot := 0.0
 
 func _init():
 	floor_stop_on_slope = false
@@ -274,9 +278,11 @@ func _physics_process(delta: float) -> void:
 		
 		crosshair.position = Vector2(crosshair_cont.size.x/2.0-(crosshair.size.x/2.0), crosshair_cont.size.y/2.0-(crosshair.size.y/2.0))
 		
+		print(rotation.y)
 		if aim_assist:
 			var camera_pos = camera.global_position
 			if Input.is_action_pressed("left_click"):
+				current_rot = rotation.y
 				if not target_enemy:
 					var space_state = get_world_3d().direct_space_state
 					var query = PhysicsRayQueryParameters3D.create(camera_pos, camera_pos + camera.global_transform.basis.z * -1 * 1000.0, (1 << 11))
@@ -284,13 +290,37 @@ func _physics_process(delta: float) -> void:
 				
 					if result:
 						var collider = result.collider
+						hit_pos = result.position
 						if collider.name == "aimassist":
 							target_enemy = collider.get_owner()
-							target_dir = (target_enemy.global_position - camera_pos).normalized()
+							target_node = target_enemy.upper_torso
+							#target_dir = (target_enemy.global_position - camera_pos).normalized()
+							#var dir = (target_enemy.global_position - (camera_pos + -camera.global_transform.basis.z * (cos(deg_to_rad(20.0))*(spring_arm.spring_length)))).normalized()
+							#var angle = atan2(target_dir.x, target_dir.z)
+							#rotation.y = angle
+							
+				elif target_enemy.hp > 0:
+					#var target_pos = target_enemy.global_position
+					#var start_pos = camera_pos + -camera.global_transform.basis.z * (cos(deg_to_rad(20.0))*(spring_arm.spring_length))
+					#var angle = atan2(target_pos.x - start_pos.x, target_pos.z - start_pos.z)
+					var dir = (target_node.global_position - (camera_pos - camera.global_transform.basis.z * (cos(deg_to_rad(20.0))*(spring_arm.spring_length)))).normalized()
+					var angle = atan2(dir.x, dir.z)
+					var yrot = rotation.y
+					if on_slope:
+						if abs(yrot) <= PI/3: 
+							if yrot > PI/5:
+								angle += 0.035 * clamp(((PI/3)-(abs(yrot)*1.75))/(PI/3), 0.0, 1.0)
+							else:
+								angle += (0.03 if yrot > 0 else 0.027)*clamp(((PI/3)-(abs(yrot)*1.75))/(PI/3), 0.0, 1.0)
+						elif abs(yrot) <= 2*PI/3:
+							if rotation.y > 0:
+								angle += 0.032 * (yrot/(2*PI/3))
+							else:
+								angle -= 0.0285 * (yrot/(2*PI/3))
+					rotation.y = lerp(rotation.y, angle, 0.4)
+					print(dir.x, "    ", dir.z, "     ", angle)
 				else:
-					var target_pos = target_enemy.global_position
-					var angle = atan2(target_pos.x - camera_pos.x, target_pos.z - camera_pos.z)
-					rotation.y = lerp(rotation.y, angle, 0.6)
+					target_enemy = null
 			else:
 				target_cam_roty = 0.0
 				target_enemy = null
@@ -356,6 +386,10 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		if input_enabled or (in_game and in_air):
 			rotation.y -= event.relative.x * cam_sens
+			if Input.is_action_pressed("left_click"):
+				rot_offset -= event.relative.x * cam_sens
+			else:
+				rot_offset = 0.0
 		elif hp <= 0:
 			death_transform -= event.relative.x * cam_sens
 			spring_arm.rotation.y = lerp(spring_arm.rotation.y, death_transform, 0.2)

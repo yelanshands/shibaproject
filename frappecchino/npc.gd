@@ -7,7 +7,7 @@ extends CharacterBody3D
 @onready var fov_collision: CollisionShape3D = $fov/CollisionShape3D
 @onready var attention_timer: Timer = $AttentionTimer
 @onready var pewpew: Node3D = $Pewpew
-
+@onready var aimassist: CollisionShape3D = $aimassist/aimassist
 @export var enemy_type: String = "none"
 @export var max_hp: int = 100
 @export var attention_min: float = 8.0
@@ -27,15 +27,18 @@ var player: CharacterBody3D
 var player_seen: bool = false
 var player_in_fov: bool = false
 var head_bone: Node
+var upper_torso: Node
 var idle_rot_y: float
 var attention_timer_started: bool = true
 var hp: = max_hp
+var target_node
 
 var plane_index: int
 
 func _ready() -> void:
 	animation.play("IdleAiming0")
 	head_bone = skeleton.get_node("mixamorigHeadTop_End")
+	upper_torso = skeleton.get_node("uppertorso/body")
 	if enemy_type == "sharpshooter" or enemy_type == "snowshooter":
 		max_hp = 150 if enemy_type == "sharpshooter" else 100
 		lock_in = 0.35 if enemy_type == "sharpshooter" else 0.6
@@ -63,7 +66,7 @@ func _process(_delta: float) -> void:
 	
 	if alive:
 		if player_seen:
-			var dir = player.global_position - global_position
+			var dir = target_node.global_position - global_position
 			var target_rot_y = atan2(dir.x, dir.z)
 			global_rotation.y = lerp_angle(global_rotation.y, target_rot_y, lock_in)
 			if global_rotation.y <= target_rot_y + fire_confidence and global_rotation.y >= target_rot_y - fire_confidence and animation.current_animation != "FiringRifle0":
@@ -83,6 +86,7 @@ func _process(_delta: float) -> void:
 			alive = false
 			timer.start(30.0)
 			fov_collision.disabled = true
+			aimassist.disabled = true
 			player_seen = false
 			player_in_fov = false
 			set_physics_process(false)
@@ -107,10 +111,8 @@ func _physics_process(delta):
 		
 		if result:
 			var collider = result.collider
-			#print(collider)
 			if collider.name != "Player":
 				if collider.get_owner().name == "frappie":
-					#print(collider.get_owner())
 					player_seen = true
 					attention_timer_started = false
 					attention_timer.stop()
@@ -134,9 +136,11 @@ func _on_fov_body_entered(body: Node3D) -> void:
 		player_in_fov = true
 		if not player:
 			player = body
-		#print(self, "   ", player_in_fov)
+			if target == "head":
+				target_node = player.head_bone
+			elif target == "uppertorso":
+				target_node = player.upper_torso
 
 func _on_fov_body_exited(body: Node3D) -> void:
 	if body.name == "Player":
 		player_in_fov = false
-		#print(self, "   ", player_in_fov)
