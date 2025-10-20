@@ -11,8 +11,8 @@ height = 1.0
 albedo_color = Color(0.2728209, 0.30577514, 0.2851749, 1)
 
 [sub_resource type="Gradient" id="Gradient_v7oki"]
-offsets = PackedFloat32Array(0, 0.13114753, 0.6639344, 1)
-colors = PackedColorArray(0.5803922, 0.21568628, 0.17254902, 0, 0.92978483, 0.7386759, 0.23620185, 1, 0.90588236, 0.42352942, 0.20784314, 0.85490197, 0.12941177, 0, 0, 0)
+offsets = PackedFloat32Array(0, 0.13114753, 0.647541, 0.8852459)
+colors = PackedColorArray(0.5803922, 0.21568628, 0.17254902, 0, 1.6833829, 1.132439, 0.17798713, 1, 0.90588236, 0.42352942, 0.20784314, 1, 0.12941177, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_v8qja"]
 gradient = SubResource("Gradient_v7oki")

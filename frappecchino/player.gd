@@ -15,6 +15,8 @@ extends CharacterBody3D
 @onready var fade_animation = $CanvasLayer/AnimationPlayer
 @onready var green: ColorRect = $CanvasLayer/Health/Green
 @onready var red: ColorRect = $CanvasLayer/Health/Red
+@onready var health_border: ColorRect = $CanvasLayer/Health/Outline
+@onready var health_empty: ColorRect = $CanvasLayer/Health/Outline/Empty
 @onready var hp_timer: Timer = $CanvasLayer/Health/Timer
 @onready var settings: Node = $Settings
 @onready var buttons: VBoxContainer = $CanvasLayer/MarginContainer/ScoreContainer/hbox/Buttons
@@ -27,9 +29,9 @@ extends CharacterBody3D
 @onready var click: AudioStreamPlayer = $Click
 @onready var deadbg_animation: AnimationPlayer = $CanvasLayer/deadbg/AnimationPlayer
 @onready var score_animation: AnimationPlayer = $CanvasLayer/MarginContainer/ScoreContainer/Score/AnimationPlayer
-@onready var players: HBoxContainer = $CanvasLayer/MarginContainer/ScoreContainer/hbox/Leaderboard/vbox/bottom/Players
-@onready var leaderboard: ColorRect = $CanvasLayer/MarginContainer/ScoreContainer/hbox/Leaderboard
-@onready var leaderboard_animation: AnimationPlayer = $CanvasLayer/MarginContainer/ScoreContainer/hbox/Leaderboard/AnimationPlayer
+@onready var players: HBoxContainer = $CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players
+@onready var leaderboard: ColorRect = $CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard
+@onready var leaderboard_animation: AnimationPlayer = $CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/AnimationPlayer
 
 @export var friction: float = 0.25
 @export var slide_accel: float = 100.0
@@ -142,6 +144,9 @@ func _process(_delta):
 		hp_taken = 0.0
 		green.size.y = lerp(green.size.y, (((hp+hp_taken)/max_hp) * green.position.y)-1, 0.2)
 		red.size.y = lerp(red.size.y, 0.0, 0.2)
+		if hp <= 0:
+			health_border.size.y = lerp(health_border.size.y, 0.0, 0.2)
+			health_empty.size.y = lerp(health_empty.size.y, 0.0, 0.2)
 	red.position.y = green.position.y - green.size.y - 1
 	
 	if clicking:
@@ -280,7 +285,7 @@ func _physics_process(delta: float) -> void:
 		
 		crosshair.position = Vector2(crosshair_cont.size.x/2.0-(crosshair.size.x/2.0), crosshair_cont.size.y/2.0-(crosshair.size.y/2.0))
 		
-		print(rotation.y)
+		#print(rotation.y)
 		if aim_assist:
 			var camera_pos = camera.global_position
 			if Input.is_action_pressed("left_click"):
@@ -304,16 +309,15 @@ func _physics_process(delta: float) -> void:
 					if on_slope:
 						if abs(yrot) <= PI/3: 
 							if yrot > PI/5:
-								angle += 0.04 * clamp(((PI/3)-(abs(yrot)*1.75))/(PI/3), 0.0, 1.0)
+								angle += 0.04 * clamp(((PI/3)-(abs(yrot)))/(PI/3), 0.0, 1.0)
 							else:
-								angle += (0.027 if yrot > 0 else 0.025)*clamp(((PI/3)-(abs(yrot)))/(PI/3), 0.0, 1.0)
+								angle += (0.027 if yrot > 0 else 0.0225)*clamp(((PI/3)-(abs(yrot)))/(PI/3), 0.0, 1.0)
 						elif abs(yrot) <= 2*PI/3:
 							if rotation.y > 0:
-								angle += 0.032 * (yrot/(2*PI/3))
+								angle += 0.0375 * (yrot/(2*PI/3))
 							else:
 								angle -= 0.04 * (yrot/(2*PI/3))
 					rotation.y = lerp(rotation.y, angle, 0.4)
-					print(dir.x, "    ", dir.z, "     ", angle)
 				else:
 					target_enemy = null
 			else:

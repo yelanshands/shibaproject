@@ -41,6 +41,9 @@ var area4text = "Now slide and jump at the same time to get through the gap."
 var area5text = "Press C to aim. Aiming zooms in, decreases sensitivity, and decreases recoil, allowing for better accuracy. Shoot the target."
 var area6text = "Slide and jump to break the glass and escape."
 
+var checkpoint: Vector3
+var checkpoint_rot: Vector3
+
 func _ready() -> void:
 	range_enemies = [n1, n2, n3, n4]
 	
@@ -54,7 +57,10 @@ func _ready() -> void:
 	animation.play("slide_in")
 	streamDialogue($Player, area0text)
 	
-func _process(_delta: float) -> void:
+	checkpoint = player.global_position
+	checkpoint_rot = Vector3(0.0, -PI, 0.0)
+	
+func _process(_delta: float) -> void:	
 	if Input.is_action_just_pressed("skip") and not skipped:
 		skipped = true
 		if skip_animation.current_animation_position < 3.25:
@@ -69,8 +75,8 @@ func _process(_delta: float) -> void:
 				player.free()
 				player = PlayerScene.instantiate()
 				add_child(player)
-				player.global_position = Vector3(190.0, 0.0, 200.0)
-				player.global_rotation = Vector3(0.0, 180.0, 0.0)
+				player.global_position = checkpoint
+				player.global_rotation = checkpoint_rot
 		else:
 			player.emit_signal("on_ground")
 	
@@ -84,6 +90,7 @@ func _process(_delta: float) -> void:
 		slide2.global_position = Vector3(213.0, 0.0, -73.0)
 		slide2.global_rotation = Vector3(0.0, -90.0, 0.0)
 		slide_enemies = [slide1, slide2]
+		checkpoint = Vector3(93.0, 0.0, -25.0)
 	if not barrier1 and barrier2 and not enemiesAlive(slide_enemies):
 		barrier2.free()
 		finalnpc = Npc.instantiate()
@@ -92,6 +99,8 @@ func _process(_delta: float) -> void:
 		finalnpc.global_position = Vector3(-14.0, 0.0, 197.0)
 		finalnpc.global_rotation = Vector3(0.0, 180.0, 0.0)
 		final_enemies = [finalnpc]
+		checkpoint = Vector3(90.0, 0.0, -222.0)
+		checkpoint_rot = Vector3(0.0, -PI/2, 0.0)
 	if not barrier2 and finalbarrier and not enemiesAlive(final_enemies):
 		finalbarrier.free()
 
