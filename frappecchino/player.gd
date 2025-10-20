@@ -296,29 +296,22 @@ func _physics_process(delta: float) -> void:
 						if collider.name == "aimassist":
 							target_enemy = collider.get_owner()
 							target_node = target_enemy.upper_torso
-							#target_dir = (target_enemy.global_position - camera_pos).normalized()
-							#var dir = (target_enemy.global_position - (camera_pos + -camera.global_transform.basis.z * (cos(deg_to_rad(20.0))*(spring_arm.spring_length)))).normalized()
-							#var angle = atan2(target_dir.x, target_dir.z)
-							#rotation.y = angle
 							
 				elif target_enemy.hp > 0:
-					#var target_pos = target_enemy.global_position
-					#var start_pos = camera_pos + -camera.global_transform.basis.z * (cos(deg_to_rad(20.0))*(spring_arm.spring_length))
-					#var angle = atan2(target_pos.x - start_pos.x, target_pos.z - start_pos.z)
 					var dir = (target_node.global_position - (camera_pos - camera.global_transform.basis.z * (cos(deg_to_rad(20.0))*(spring_arm.spring_length)))).normalized()
 					var angle = atan2(dir.x, dir.z)
 					var yrot = rotation.y
 					if on_slope:
 						if abs(yrot) <= PI/3: 
 							if yrot > PI/5:
-								angle += 0.037 * clamp(((PI/3)-(abs(yrot)*1.75))/(PI/3), 0.0, 1.0)
+								angle += 0.04 * clamp(((PI/3)-(abs(yrot)*1.75))/(PI/3), 0.0, 1.0)
 							else:
-								angle += (0.03 if yrot > 0 else 0.027)*clamp(((PI/3)-(abs(yrot)*1.75))/(PI/3), 0.0, 1.0)
+								angle += (0.027 if yrot > 0 else 0.025)*clamp(((PI/3)-(abs(yrot)))/(PI/3), 0.0, 1.0)
 						elif abs(yrot) <= 2*PI/3:
 							if rotation.y > 0:
 								angle += 0.032 * (yrot/(2*PI/3))
 							else:
-								angle -= 0.0285 * (yrot/(2*PI/3))
+								angle -= 0.04 * (yrot/(2*PI/3))
 					rotation.y = lerp(rotation.y, angle, 0.4)
 					print(dir.x, "    ", dir.z, "     ", angle)
 				else:

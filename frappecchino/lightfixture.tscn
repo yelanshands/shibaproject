@@ -104,7 +104,7 @@ points = PackedVector3Array(-0.25004894, 0.18748777, -0.375, -0.375, 0.18748777,
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
 
 [node name="lightfixture" type="StaticBody3D" parent="."]
-collision_layer = 15
+collision_layer = 1039
 collision_mask = 15
 
 [node name="beveled_cuboid" type="MeshInstance3D" parent="lightfixture"]

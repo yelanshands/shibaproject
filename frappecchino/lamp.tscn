@@ -321,6 +321,7 @@ points = PackedVector3Array(-0.03125, 0.06247553, -0.010418706, -0.015631117, 0,
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, -1.75, 0)
 
 [node name="lamp" type="StaticBody3D" parent="."]
+collision_layer = 1025
 
 [node name="lampshade" type="MeshInstance3D" parent="lamp"]
 transform = Transform3D(-1, 1.2246469e-16, 0, -1.2246469e-16, -1, 0, 0, 0, 1, 0, 0.875, 0)

@@ -1017,6 +1017,7 @@ shadow_enabled = true
 [node name="Background" type="Node3D" parent="."]
 
 [node name="Ground" type="StaticBody3D" parent="Background"]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Ground"]
 visible = false
@@ -1347,7 +1348,7 @@ shape = SubResource("BoxShape3D_eow3j")
 
 [node name="Slope1" type="StaticBody3D" parent="Background"]
 transform = Transform3D(-8.742278e-08, 0, 1.5, 0, 2, 0, -2, 0, -6.556708e-08, 0, 0, 0)
-collision_layer = 7
+collision_layer = 1031
 collision_mask = 7
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Slope1"]
@@ -1368,7 +1369,7 @@ skeleton = NodePath("../../..")
 
 [node name="Slope2" type="StaticBody3D" parent="Background"]
 transform = Transform3D(-8.742278e-08, 0, 1.5, 0, 2, 0, -2, 0, -6.556708e-08, 0, -300, 1400)
-collision_layer = 7
+collision_layer = 1031
 collision_mask = 7
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Slope2"]
@@ -1389,7 +1390,7 @@ skeleton = NodePath("../../..")
 
 [node name="Slope3" type="StaticBody3D" parent="Background"]
 transform = Transform3D(-8.742278e-08, 0, 1.5, 0, 2, 0, -2, 0, -6.556708e-08, 0, -600, 2800)
-collision_layer = 7
+collision_layer = 1031
 collision_mask = 7
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Slope3"]
@@ -1410,7 +1411,7 @@ skeleton = NodePath("../../..")
 
 [node name="Slope4" type="StaticBody3D" parent="Background"]
 transform = Transform3D(-8.742278e-08, 0, 1.5, 0, 2, 0, -2, 0, -6.556708e-08, 0, -900, 4200)
-collision_layer = 7
+collision_layer = 1031
 collision_mask = 7
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Slope4"]
@@ -1431,7 +1432,7 @@ skeleton = NodePath("../../..")
 
 [node name="Slope5" type="StaticBody3D" parent="Background"]
 transform = Transform3D(-8.742278e-08, 0, 1.5, 0, 2, 0, -2, 0, -6.556708e-08, 0, -1200, 5600)
-collision_layer = 7
+collision_layer = 1031
 collision_mask = 7
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Slope5"]
@@ -1452,7 +1453,7 @@ skeleton = NodePath("../../..")
 
 [node name="Slope6" type="StaticBody3D" parent="Background"]
 transform = Transform3D(-8.742278e-08, 0, 1.5, 0, 2, 0, -2, 0, -6.556708e-08, 0, -1500, 7000)
-collision_layer = 7
+collision_layer = 1031
 collision_mask = 7
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Slope6"]

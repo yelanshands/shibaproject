@@ -3779,7 +3779,7 @@ metadata/extras = {
 },
 "rotation": [-6.106665959038212e-13, 3.727213109764534e-17, 1.5494000164161758e-17],
 "scale": [0.99999994, 1.0, 0.99999994],
-"translation": [6.938893903907226e-18, 4.973799e-14, 0.37499952]
+"translation": [6.938893903907225e-18, 4.973799e-14, 0.37499952]
 }
 }
 
@@ -3813,7 +3813,7 @@ metadata/extras = {
 },
 "rotation": [-6.106665959038212e-13, 3.727213109764534e-17, 1.5494000164161758e-17],
 "scale": [0.99999994, 1.0, 0.99999994],
-"translation": [6.938893903907226e-18, 4.2632564e-14, 0.5]
+"translation": [6.938893903907225e-18, 4.2632564e-14, 0.5]
 }
 }
 
@@ -4042,7 +4042,7 @@ bone_idx = 68
 
 [node name="head" type="StaticBody3D" parent="Node/Armature/Skeleton3D/head"]
 transform = Transform3D(10.000015, 0, 0, 0, 10.000032, 0, 0, 0, 10.000014, 0, 0, 0)
-collision_layer = 64
+collision_layer = 1088
 collision_mask = 64
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Node/Armature/Skeleton3D/head/head"]
@@ -4056,7 +4056,7 @@ bone_idx = 66
 
 [node name="head" type="StaticBody3D" parent="Node/Armature/Skeleton3D/neck"]
 transform = Transform3D(10.000015, 0, 0, 0, 10.000032, 0, 0, 0, 10.000014, 0, 0, 0)
-collision_layer = 64
+collision_layer = 1088
 collision_mask = 64
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Node/Armature/Skeleton3D/neck/head"]
@@ -4070,7 +4070,7 @@ bone_idx = 16
 
 [node name="body" type="StaticBody3D" parent="Node/Armature/Skeleton3D/uppertorso"]
 transform = Transform3D(9.999996, 0, 4.7683716e-07, -2.3841858e-07, 10, 2.3841858e-07, 5.9604645e-07, 2.3841858e-07, 10.000006, 0, 0, 0)
-collision_layer = 64
+collision_layer = 1088
 collision_mask = 64
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Node/Armature/Skeleton3D/uppertorso/body"]
@@ -4092,7 +4092,7 @@ bone_idx = 14
 
 [node name="body" type="StaticBody3D" parent="Node/Armature/Skeleton3D/midtorso"]
 transform = Transform3D(10, 0, 0, 0, 10.000002, 0, 0, 0, 10.000006, 0, 0, 0)
-collision_layer = 64
+collision_layer = 1088
 collision_mask = 64
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Node/Armature/Skeleton3D/midtorso/body"]
@@ -4106,7 +4106,7 @@ bone_idx = 12
 
 [node name="body" type="StaticBody3D" parent="Node/Armature/Skeleton3D/lowertorso"]
 transform = Transform3D(10.000008, 0, 0, 0, 10.00001, 0, 0, 0, 10.00001, 0, 0, 0)
-collision_layer = 64
+collision_layer = 1088
 collision_mask = 64
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Node/Armature/Skeleton3D/lowertorso/body"]
@@ -4124,7 +4124,7 @@ bone_idx = 2
 
 [node name="leg" type="StaticBody3D" parent="Node/Armature/Skeleton3D/leftthigh"]
 transform = Transform3D(10.000002, 0, 0, 0, 10.000003, 0, 0, 0, 10.000001, 0, 0, 0)
-collision_layer = 64
+collision_layer = 1088
 collision_mask = 64
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Node/Armature/Skeleton3D/leftthigh/leg"]
@@ -4138,7 +4138,7 @@ bone_idx = 120
 
 [node name="leg" type="StaticBody3D" parent="Node/Armature/Skeleton3D/rightthigh"]
 transform = Transform3D(10, 0, 0, 0, 10.000006, 0, 0, 0, 9.999998, 0, 0, 0)
-collision_layer = 64
+collision_layer = 1088
 collision_mask = 64
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Node/Armature/Skeleton3D/rightthigh/leg"]
@@ -4152,7 +4152,7 @@ bone_idx = 4
 
 [node name="leg" type="StaticBody3D" parent="Node/Armature/Skeleton3D/leftcalf"]
 transform = Transform3D(10.000009, 0, 0, 0, 10.0000105, 0, 0, 0, 10.000012, 0, 0, 0)
-collision_layer = 64
+collision_layer = 1088
 collision_mask = 64
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Node/Armature/Skeleton3D/leftcalf/leg"]
@@ -4166,7 +4166,7 @@ bone_idx = 122
 
 [node name="leg" type="StaticBody3D" parent="Node/Armature/Skeleton3D/rightcalf"]
 transform = Transform3D(10.000007, 0, 0, 0, 10.000008, 0, 0, 0, 10.000003, 0, 0, 0)
-collision_layer = 64
+collision_layer = 1088
 collision_mask = 64
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Node/Armature/Skeleton3D/rightcalf/leg"]
@@ -4180,7 +4180,7 @@ bone_idx = 6
 
 [node name="leg" type="StaticBody3D" parent="Node/Armature/Skeleton3D/leftfoot"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-collision_layer = 64
+collision_layer = 1088
 collision_mask = 64
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Node/Armature/Skeleton3D/leftfoot/leg"]
@@ -4194,7 +4194,7 @@ bone_idx = 124
 
 [node name="leg" type="StaticBody3D" parent="Node/Armature/Skeleton3D/rightfoot"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-collision_layer = 64
+collision_layer = 1088
 collision_mask = 64
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Node/Armature/Skeleton3D/rightfoot/leg"]
@@ -4208,7 +4208,7 @@ bone_idx = 74
 
 [node name="body" type="StaticBody3D" parent="Node/Armature/Skeleton3D/rightarm"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-collision_layer = 64
+collision_layer = 1088
 collision_mask = 64
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Node/Armature/Skeleton3D/rightarm/body"]
@@ -4222,7 +4222,7 @@ bone_idx = 76
 
 [node name="body" type="StaticBody3D" parent="Node/Armature/Skeleton3D/rightforearm"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-collision_layer = 64
+collision_layer = 1088
 collision_mask = 64
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Node/Armature/Skeleton3D/rightforearm/body"]
@@ -4236,7 +4236,7 @@ bone_idx = 78
 
 [node name="body" type="StaticBody3D" parent="Node/Armature/Skeleton3D/righthand"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-collision_layer = 64
+collision_layer = 1088
 collision_mask = 64
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Node/Armature/Skeleton3D/righthand/body"]
@@ -4250,7 +4250,7 @@ bone_idx = 20
 
 [node name="body" type="StaticBody3D" parent="Node/Armature/Skeleton3D/leftarm"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-collision_layer = 64
+collision_layer = 1088
 collision_mask = 64
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Node/Armature/Skeleton3D/leftarm/body"]
@@ -4264,7 +4264,7 @@ bone_idx = 22
 
 [node name="body" type="StaticBody3D" parent="Node/Armature/Skeleton3D/leftforearm"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-collision_layer = 64
+collision_layer = 1088
 collision_mask = 64
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Node/Armature/Skeleton3D/leftforearm/body"]
@@ -4278,7 +4278,7 @@ bone_idx = 24
 
 [node name="body" type="StaticBody3D" parent="Node/Armature/Skeleton3D/lefthand"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-collision_layer = 64
+collision_layer = 1088
 collision_mask = 64
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Node/Armature/Skeleton3D/lefthand/body"]
