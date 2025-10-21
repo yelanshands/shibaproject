@@ -1,0 +1,289 @@
+[gd_scene load_steps=8 format=3 uid="uid://cni0o27ay0kyj"]
+
+[ext_resource type="Material" uid="uid://dmnablfa3o5ma" path="res://buildings/building.tres" id="1_5bpc0"]
+[ext_resource type="Material" uid="uid://ci4h013j56ocv" path="res://buildings/buildinglight.tres" id="2_ck4ko"]
+[ext_resource type="PackedScene" uid="uid://daiyf82t58v7s" path="res://player.tscn" id="3_q2am5"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_u7k2n"]
+material = ExtResource("1_5bpc0")
+left_to_right = 0.0
+size = Vector3(10, 10, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_i4dc2"]
+material = ExtResource("1_5bpc0")
+size = Vector3(10, 10, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3wac5"]
+material = ExtResource("2_ck4ko")
+size = Vector3(10, 10, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1hs8t"]
+material = ExtResource("2_ck4ko")
+size = Vector3(10, 10, 10)
+
+[node name="obstacle" type="Node3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="entrance" type="StaticBody3D" parent="."]
+
+[node name="frontleft" type="MeshInstance3D" parent="entrance"]
+transform = Transform3D(5.7275653, 0, -0.7071067, 0, 6, 0, 5.7275653, 0, 0.7071067, 30.000004, 30, 52)
+mesh = SubResource("PrismMesh_u7k2n")
+skeleton = NodePath("../..")
+
+[node name="frontright" type="MeshInstance3D" parent="entrance"]
+transform = Transform3D(5.7275653, 0, 0.7071067, 0, 6, 0, -5.7275653, 0, 0.7071067, 30, 30, -52)
+mesh = SubResource("PrismMesh_u7k2n")
+skeleton = NodePath("../..")
+
+[node name="frontcenter" type="MeshInstance3D" parent="entrance"]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 4.1, 0, 45, 0)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="leftwall" type="MeshInstance3D" parent="entrance"]
+transform = Transform3D(-4.371139e-08, 0, -8, 0, 6, 0, 1, 0, -3.496911e-07, -35, 30, 24.999998)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="rightwall" type="MeshInstance3D" parent="entrance"]
+transform = Transform3D(-4.371139e-08, 0, -8, 0, 6, 0, 1, 0, -3.496911e-07, -35, 30, -25.000002)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="floor" type="MeshInstance3D" parent="entrance"]
+transform = Transform3D(-1.7484555e-07, 0, -8, 0, 0.5, 0, 4, 0, -3.496911e-07, -35, -2.5, -1.5298986e-06)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="ceiling" type="MeshInstance3D" parent="entrance"]
+transform = Transform3D(-1.7484555e-07, 0, -8, 0, 0.5, 0, 4, 0, -3.496911e-07, -35, 62.5, -1.5298986e-06)
+visible = false
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="exit" type="StaticBody3D" parent="."]
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, -581, 0, -2.5396317e-05)
+
+[node name="frontleft" type="MeshInstance3D" parent="exit"]
+transform = Transform3D(5.7275653, 0, -0.7071067, 0, 6, 0, 5.7275653, 0, 0.7071067, 30.000004, 30, 52)
+mesh = SubResource("PrismMesh_u7k2n")
+skeleton = NodePath("../..")
+
+[node name="frontright" type="MeshInstance3D" parent="exit"]
+transform = Transform3D(5.7275653, 0, 0.7071067, 0, 6, 0, -5.7275653, 0, 0.7071067, 30, 30, -52)
+mesh = SubResource("PrismMesh_u7k2n")
+skeleton = NodePath("../..")
+
+[node name="frontcenter" type="MeshInstance3D" parent="exit"]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 4.1, 0, 45, 0)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="leftwall" type="MeshInstance3D" parent="exit"]
+transform = Transform3D(-4.371139e-08, 0, -8, 0, 6, 0, 1, 0, -3.496911e-07, -35, 30, 24.999998)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="rightwall" type="MeshInstance3D" parent="exit"]
+transform = Transform3D(-4.371139e-08, 0, -8, 0, 6, 0, 1, 0, -3.496911e-07, -35, 30, -25.000002)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="floor" type="MeshInstance3D" parent="exit"]
+transform = Transform3D(-1.7484555e-07, 0, -8, 0, 0.5, 0, 4, 0, -3.496911e-07, -35, -2.5, -1.5298986e-06)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="ceiling" type="MeshInstance3D" parent="exit"]
+transform = Transform3D(-1.7484555e-07, 0, -8, 0, 0.5, 0, 4, 0, -3.496911e-07, -35, 62.5, -1.5298986e-06)
+visible = false
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="enterroom" type="StaticBody3D" parent="."]
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, -70, 0, -3.059797e-06)
+
+[node name="frontright" type="MeshInstance3D" parent="enterroom"]
+transform = Transform3D(5.7275653, 0, -0.7071067, 0, 6, 0, 5.7275653, 0, 0.7071067, 30.000004, 30, 52)
+mesh = SubResource("PrismMesh_u7k2n")
+skeleton = NodePath("../..")
+
+[node name="rightlight" type="MeshInstance3D" parent="enterroom"]
+transform = Transform3D(0.35355335, 0, 5.6568546, 0, 6.7, 0, -0.3535534, 0, 5.6568537, 29.999992, 34, 52.00005)
+mesh = SubResource("BoxMesh_3wac5")
+skeleton = NodePath("../..")
+
+[node name="frontright2" type="MeshInstance3D" parent="enterroom"]
+transform = Transform3D(-5.7275624, 5.2453663e-07, -0.70710707, -5.007196e-07, -6, -6.1817246e-08, -5.7275677, 1.1606032e-13, 0.7071065, 30.000008, 38, 52)
+mesh = SubResource("PrismMesh_u7k2n")
+skeleton = NodePath("../..")
+
+[node name="rightwalllight" type="MeshInstance3D" parent="enterroom"]
+transform = Transform3D(-8.146034e-08, 0, 16, 0, 6.7, 0, -0.5, 0, -2.606731e-06, 133.99998, 32, 80.00008)
+mesh = SubResource("BoxMesh_3wac5")
+skeleton = NodePath("../..")
+
+[node name="rightwall" type="MeshInstance3D" parent="enterroom"]
+transform = Transform3D(16, 0, 0, 0, 6, 0, 0, 0, 1, 141.8, 38, 81.80002)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="rightwallbottom" type="MeshInstance3D" parent="enterroom"]
+transform = Transform3D(16, 0, 0, 0, 0.5, 0, 0, 0, 1, 137.8, -1.3, 81)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="leftwallbottom" type="MeshInstance3D" parent="enterroom"]
+transform = Transform3D(16, 0, 0, 0, 0.5, 0, 0, 0, 1, 137.8, -1.3, -81)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="leftwalllight" type="MeshInstance3D" parent="enterroom"]
+transform = Transform3D(-8.146034e-08, 0, 16, 0, 6.7, 0, -0.5, 0, -2.606731e-06, 133.99998, 32, -80)
+mesh = SubResource("BoxMesh_3wac5")
+skeleton = NodePath("../..")
+
+[node name="leftwall" type="MeshInstance3D" parent="enterroom"]
+transform = Transform3D(16, 0, 0, 0, 6, 0, 0, 0, 1, 141.8, 38, -81.8)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="frontleft" type="MeshInstance3D" parent="enterroom"]
+transform = Transform3D(5.7275653, 0, 0.7071067, 0, 6, 0, -5.7275653, 0, 0.7071067, 30, 30, -52)
+mesh = SubResource("PrismMesh_u7k2n")
+skeleton = NodePath("../..")
+
+[node name="leftlight" type="MeshInstance3D" parent="enterroom"]
+transform = Transform3D(0.35355338, 0, -5.656854, 0, 6.7, 0, 0.35355338, 0, 5.656854, 30, 34, -52)
+mesh = SubResource("BoxMesh_1hs8t")
+skeleton = NodePath("../..")
+
+[node name="frontleft2" type="MeshInstance3D" parent="enterroom"]
+transform = Transform3D(-5.7275653, -3.7090342e-07, 0.70710677, 7.081245e-07, -6, 0, 5.7275653, 3.7090342e-07, 0.70710677, 30, 38, -52)
+mesh = SubResource("PrismMesh_u7k2n")
+skeleton = NodePath("../..")
+
+[node name="frontcenter" type="MeshInstance3D" parent="enterroom"]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 4.1, 0, 45, 0)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="floor" type="MeshInstance3D" parent="enterroom"]
+transform = Transform3D(1.1702175e-06, 0, 21.6, 0, 0.5, 0, -15.5, 0, 1.6307547e-06, 112.89998, -2.5, 1.4805047e-05)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="ceiling" type="MeshInstance3D" parent="enterroom"]
+transform = Transform3D(1.1702175e-06, 0, 21.6, 0, 0.5, 0, -15.5, 0, 1.6307547e-06, 112.89998, 60.5, 1.4805047e-05)
+visible = false
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="pillars" type="StaticBody3D" parent="."]
+
+[node name="rightwall" type="MeshInstance3D" parent="pillars"]
+transform = Transform3D(1.5, 0, 0, 0, 7, 0, 0, 0, 4, -290.2, 33, -66.8)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="up" type="MeshInstance3D" parent="pillars"]
+transform = Transform3D(1.5, 0, 0, 0, 3, 0, 0, 0, 13.7, -290.2, 53, -0.6)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="leftwall" type="MeshInstance3D" parent="pillars"]
+transform = Transform3D(1.5, 0, 0, 0, 7, 0, 0, 0, 4, -290.2, 33, 65.799995)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="leftwalllight" type="MeshInstance3D" parent="pillars"]
+transform = Transform3D(0.5, 0, 0, 0, 6.7, 0, 0, 0, 1, -290, 32, 41.99998)
+mesh = SubResource("BoxMesh_3wac5")
+skeleton = NodePath("../..")
+
+[node name="rightwalllight" type="MeshInstance3D" parent="pillars"]
+transform = Transform3D(0.5, 0, 0, 0, 6.7, 0, 0, 0, 1, -290, 32, -42)
+mesh = SubResource("BoxMesh_3wac5")
+skeleton = NodePath("../..")
+
+[node name="exitroom" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 1.7484552e-07, 0, 1, 0, -1.7484552e-07, 0, 1, -511, 0, -2.2336519e-05)
+
+[node name="frontright" type="MeshInstance3D" parent="exitroom"]
+transform = Transform3D(5.7275653, 0, -0.7071067, 0, 6, 0, 5.7275653, 0, 0.7071067, 30.000004, 30, 52)
+mesh = SubResource("PrismMesh_u7k2n")
+skeleton = NodePath("../..")
+
+[node name="rightlight" type="MeshInstance3D" parent="exitroom"]
+transform = Transform3D(0.35355335, 0, 5.6568546, 0, 6.7, 0, -0.3535534, 0, 5.6568537, 29.999992, 34, 52.00005)
+mesh = SubResource("BoxMesh_3wac5")
+skeleton = NodePath("../..")
+
+[node name="frontright2" type="MeshInstance3D" parent="exitroom"]
+transform = Transform3D(-5.7275624, 5.2453663e-07, -0.70710707, -5.007196e-07, -6, -6.1817246e-08, -5.7275677, 1.1606032e-13, 0.7071065, 30.000008, 38, 52)
+mesh = SubResource("PrismMesh_u7k2n")
+skeleton = NodePath("../..")
+
+[node name="rightwalllight" type="MeshInstance3D" parent="exitroom"]
+transform = Transform3D(-8.146034e-08, 0, 16, 0, 6.7, 0, -0.5, 0, -2.606731e-06, 133.99998, 32, 80.00008)
+mesh = SubResource("BoxMesh_3wac5")
+skeleton = NodePath("../..")
+
+[node name="rightwall" type="MeshInstance3D" parent="exitroom"]
+transform = Transform3D(16, 0, 0, 0, 6, 0, 0, 0, 1, 141.8, 38, 81.80002)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="rightwallbottom" type="MeshInstance3D" parent="exitroom"]
+transform = Transform3D(16, 0, 0, 0, 0.5, 0, 0, 0, 1, 137.8, -1.3, 81)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="leftwallbottom" type="MeshInstance3D" parent="exitroom"]
+transform = Transform3D(16, 0, 0, 0, 0.5, 0, 0, 0, 1, 137.8, -1.3, -81)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="leftwalllight" type="MeshInstance3D" parent="exitroom"]
+transform = Transform3D(-8.146034e-08, 0, 16, 0, 6.7, 0, -0.5, 0, -2.606731e-06, 133.99998, 32, -80)
+mesh = SubResource("BoxMesh_3wac5")
+skeleton = NodePath("../..")
+
+[node name="leftwall" type="MeshInstance3D" parent="exitroom"]
+transform = Transform3D(16, 0, 0, 0, 6, 0, 0, 0, 1, 141.8, 38, -81.8)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="frontleft" type="MeshInstance3D" parent="exitroom"]
+transform = Transform3D(5.7275653, 0, 0.7071067, 0, 6, 0, -5.7275653, 0, 0.7071067, 30, 30, -52)
+mesh = SubResource("PrismMesh_u7k2n")
+skeleton = NodePath("../..")
+
+[node name="leftlight" type="MeshInstance3D" parent="exitroom"]
+transform = Transform3D(0.35355338, 0, -5.656854, 0, 6.7, 0, 0.35355338, 0, 5.656854, 30, 34, -52)
+mesh = SubResource("BoxMesh_1hs8t")
+skeleton = NodePath("../..")
+
+[node name="frontleft2" type="MeshInstance3D" parent="exitroom"]
+transform = Transform3D(-5.7275653, -3.7090342e-07, 0.70710677, 7.081245e-07, -6, 0, 5.7275653, 3.7090342e-07, 0.70710677, 30, 38, -52)
+mesh = SubResource("PrismMesh_u7k2n")
+skeleton = NodePath("../..")
+
+[node name="frontcenter" type="MeshInstance3D" parent="exitroom"]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 4.1, 0, 45, 0)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="floor" type="MeshInstance3D" parent="exitroom"]
+transform = Transform3D(1.1702175e-06, 0, 21.6, 0, 0.5, 0, -15.5, 0, 1.6307547e-06, 112.89998, -2.5, 1.4805047e-05)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="ceiling" type="MeshInstance3D" parent="exitroom"]
+transform = Transform3D(1.1702175e-06, 0, 21.6, 0, 0.5, 0, -15.5, 0, 1.6307547e-06, 112.9, 60.5, 0)
+visible = false
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../..")
+
+[node name="Player" parent="." instance=ExtResource("3_q2am5")]

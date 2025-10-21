@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://yvqyh56yxyq7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxbo3"]
+albedo_color = Color(0.15758952, 0.029708104, 0.21857256, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_i4dc2"]
+material = SubResource("StandardMaterial3D_rxbo3")
+size = Vector3(10, 10, 10)
+
+[node name="obstacle" type="StaticBody3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+disable_mode = 2
+
+[node name="frontright" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 20, 0, 100, -140)
+mesh = SubResource("BoxMesh_i4dc2")
+
+[node name="frontleft" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 20, 0, 100, 140)
+mesh = SubResource("BoxMesh_i4dc2")
+
+[node name="frontcenter" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 16, 0, 0, 0, 8, 0, 120, 0)
+mesh = SubResource("BoxMesh_i4dc2")
+
+[node name="sideright" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 44, 0, 20, 0, -1, 0, -1.9233012e-06, -224.99998, 100, -235.00002)
+mesh = SubResource("BoxMesh_i4dc2")
+
+[node name="sideleft" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 44, 0, 20, 0, -1, 0, -1.9233012e-06, -225.00002, 100, 234.99998)
+mesh = SubResource("BoxMesh_i4dc2")
+
+[node name="sideleft2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -7.247799e-06, 0, 20, 0, 1.5099579e-07, 0, -48, -450, 100, -1.9670124e-05)
+mesh = SubResource("BoxMesh_i4dc2")
