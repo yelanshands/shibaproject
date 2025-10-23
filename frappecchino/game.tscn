@@ -1,9 +1,8 @@
-[gd_scene load_steps=98 format=4 uid="uid://bc8j31swr481q"]
+[gd_scene load_steps=97 format=4 uid="uid://bc8j31swr481q"]
 
 [ext_resource type="Texture2D" uid="uid://ddqvntm0oc6d1" path="res://assets/models/structures/skyscraper_0.png" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://csvim2fw7hoyd" path="res://game.gd" id="1_ryrav"]
 [ext_resource type="PackedScene" uid="uid://daiyf82t58v7s" path="res://player.tscn" id="3_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://cni0o27ay0kyj" path="res://buildings/bunker.tscn" id="4_eow3j"]
 [ext_resource type="PackedScene" uid="uid://dhgsv5tanr7eu" path="res://assets/models/structures/snow.glb" id="6_j5wjh"]
 [ext_resource type="AudioStream" uid="uid://dxpcidya168dw" path="res://assets/audio/music.mp3" id="7_eow3j"]
 [ext_resource type="Shader" uid="uid://chvpc4h71brtm" path="res://snowfall.gdshader" id="8_j5wjh"]
@@ -1388,9 +1387,6 @@ mesh = SubResource("PlaneMesh_7jktm")
 [node name="snow" parent="Background/Slope2" instance=ExtResource("6_j5wjh")]
 transform = Transform3D(-6.5567085e-09, -0.10480927, -0.35004646, 0, 0.48889163, -0.07504345, 0.15, -4.581359e-09, -1.5301017e-08, 0, 0.5, 0)
 skeleton = NodePath("../../..")
-
-[node name="obstacle" parent="Background/Slope2" instance=ExtResource("4_eow3j")]
-transform = Transform3D(0.58667, -0.12577115, 0, 0.12577115, 0.58667, 0, 0, 0, 0.6, 0, 1.5, 0)
 
 [node name="Slope3" type="StaticBody3D" parent="Background"]
 transform = Transform3D(-8.742278e-08, 0, 1.5, 0, 2, 0, -2, 0, -6.556708e-08, 0, -600, 2800)

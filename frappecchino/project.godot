@@ -17,8 +17,8 @@ warnings/check_invalid_track_paths=false
 config/name="Frappecchino"
 run/main_scene="uid://mlr277p0vj6k"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-boot_splash/bg_color=Color(0.30066934, 0.23851728, 0.46257478, 1)
-boot_splash/image="uid://cihq1vmn44hrd"
+boot_splash/bg_color=Color(0.6637679, 0.6473402, 0.949037, 1)
+boot_splash/image="uid://corwf35megjbd"
 config/icon="res://icon.svg"
 
 [autoload]

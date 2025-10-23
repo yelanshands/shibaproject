@@ -1,5 +1,8 @@
 extends Node3D
+
 const NPC = preload("uid://ro3nbpeyv3v5")
+const bunker = preload("uid://cni0o27ay0kyj")
+
 @onready var enemy_plane1: MeshInstance3D = $Background/Slope1/plane
 @onready var enemy_plane2: MeshInstance3D = $Background/Slope2/plane
 @onready var enemy_plane3: MeshInstance3D = $Background/Slope3/plane
@@ -23,6 +26,8 @@ var enemy_planes: Array = []
 var slopes: Array = []
 var current_zloc: float
 var dropping: bool = true
+var structures: Array = [[], [], [], [], [], []]
+var structure_types: Array = []
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -32,6 +37,7 @@ func _ready() -> void:
 		spawn_wave(index)
 	
 	slopes = [slope1, slope2, slope3, slope4, slope5]
+	structure_types.append(bunker)
 
 	current_zloc = slope_mesh_size.x*3
 	
@@ -73,9 +79,17 @@ func _process(_delta: float) -> void:
 			
 			for enemy in enemies[slope_index]:
 				enemy.queue_free()
+				
+			for structure in structures[slope_index]:
+				structure.queue_free()
+				
 			enemies[slope_index].clear()
+			structures[slope_index].clear()
 			
-			spawn_wave((int(str(slopes[3].name)[5]))-1)
+			var index = (int(str(slopes[3].name)[5]))-1
+			
+			spawn_wave(index)
+			spawn_structure(index, structure_types.pick_random())
 			
 			slopes.append(slopes.pop_at(0))
 			current_zloc += slope_mesh_size.x*2
@@ -103,11 +117,16 @@ func spawn_wave(index: int) -> void:
 		var amount: int = enemies.size()
 		arrow_label.text = ((" ".repeat(int(6 * (amount - 3.5)))) if amount > 3 else "")  + "⮝" + ((" ".repeat(int(6 * (3.5 - amount)))) if amount <= 3 else "")
 
+func spawn_structure(index: int, structure: Resource) -> void:
+	if player.hp > 0:
+		var thing = structure.instantiate()
+		thing.rotation_degrees.z = 12.1
+		slopes[index].add_child(thing)
+		structures[index].append(thing)
+
 func enemy_died(enemy: Node) -> void:
 	if player.hp > 0:
 		enemies[enemy.plane_index].erase(enemy)
-		#if not enemies:
-			#spawn_wave(enemy.plane_index)
 		var amount: int = enemies.size()
 		arrow_label.text = ((" ".repeat(int(6 * (amount - 3.5)))) if amount > 3 else "")  + "⮝" + ((" ".repeat(int(6 * (3.5 - amount)))) if amount <= 3 else "")
 
