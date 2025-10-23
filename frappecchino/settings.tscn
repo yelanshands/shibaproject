@@ -272,6 +272,50 @@ theme_override_fonts/font = ExtResource("3_3lj6o")
 theme_override_font_sizes/font_size = 36
 text = "  110"
 
+[node name="volume" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/scroll"]
+layout_mode = 0
+offset_top = 450.0
+offset_right = 1280.0
+offset_bottom = 550.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/scroll/volume"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll/volume/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3lj6o")
+theme_override_font_sizes/font_size = 36
+text = "volume  |  "
+
+[node name="Value" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll/volume/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3lj6o")
+theme_override_font_sizes/font_size = 36
+text = "50"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/scroll/volume"]
+layout_mode = 2
+
+[node name="min" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll/volume/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3lj6o")
+theme_override_font_sizes/font_size = 36
+text = "0  "
+
+[node name="volume" type="HSlider" parent="Control/MarginContainer/VBoxContainer/scroll/volume/HBoxContainer"]
+modulate = Color(0.074750386, 0.42531613, 0.7030993, 1)
+custom_minimum_size = Vector2(700, 50)
+layout_mode = 2
+value = 50.0
+rounded = true
+scrollable = false
+
+[node name="max" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll/volume/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3lj6o")
+theme_override_font_sizes/font_size = 36
+text = "  100"
+
 [node name="aimassist" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/scroll"]
 layout_mode = 0
 offset_top = 300.0
@@ -392,4 +436,5 @@ libraries = {
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/quitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/scroll/MouseSens/HBoxContainer/MouseSensSlider" to="." method="_on_mouse_sens_slider_value_changed"]
 [connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/scroll/fov/HBoxContainer/fov" to="." method="_on_mouse_sens_slider_value_changed"]
+[connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/scroll/volume/HBoxContainer/volume" to="." method="_on_volume_value_changed"]
 [connection signal="toggled" from="Control/MarginContainer/VBoxContainer/scroll/aimassist/HBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]

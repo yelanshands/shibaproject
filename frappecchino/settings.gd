@@ -16,6 +16,8 @@ extends Node
 @onready var fov_label: Label = $Control/MarginContainer/VBoxContainer/scroll/fov/HBoxContainer2/Value
 @onready var aim_assist_toggle: CheckButton = $Control/MarginContainer/VBoxContainer/scroll/aimassist/HBoxContainer/CheckButton
 @onready var aim_assist_value: Label = $Control/MarginContainer/VBoxContainer/scroll/aimassist/HBoxContainer2/Value
+@onready var volume_slider: HSlider = $Control/MarginContainer/VBoxContainer/scroll/volume/HBoxContainer/volume
+@onready var volume_label: Label = $Control/MarginContainer/VBoxContainer/scroll/volume/HBoxContainer2/Value
 
 var rot_x = 0
 var rot_y = 0
@@ -29,6 +31,7 @@ func _ready() -> void:
 	mouse_sens_slider.value = globals.settings_data.mouse_sens
 	fov_slider.value = globals.settings_data.fov
 	aim_assist_toggle.button_pressed = globals.settings_data.aim_assist
+	volume_slider.value = globals.settings_data.volume
 
 func _process(_delta) -> void:
 	if crosshairs.visible == true and Input.is_action_just_pressed("ui_cancel"):
@@ -78,3 +81,9 @@ func _on_mouse_sens_slider_value_changed(value: float) -> void:
 func _on_check_button_toggled(toggled_on: bool) -> void:
 	aim_assist_value.text = "on" if toggled_on else "off"
 	globals.settings_data.aim_assist = toggled_on
+
+
+func _on_volume_value_changed(value: float) -> void:
+	volume_label.text = str(int(volume_slider.value))
+	globals.settings_data.volume = volume_slider.value
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(volume_slider.value/100))

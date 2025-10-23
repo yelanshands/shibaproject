@@ -27,7 +27,7 @@ var slopes: Array = []
 var current_zloc: float
 var dropping: bool = true
 var structures: Array = [[], [], [], [], [], []]
-var structure_types: Array = []
+var structure_types: Array = [null]
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -118,7 +118,7 @@ func spawn_wave(index: int) -> void:
 		arrow_label.text = ((" ".repeat(int(6 * (amount - 3.5)))) if amount > 3 else "")  + "⮝" + ((" ".repeat(int(6 * (3.5 - amount)))) if amount <= 3 else "")
 
 func spawn_structure(index: int, structure: Resource) -> void:
-	if player.hp > 0:
+	if player.hp > 0 and structure:
 		var thing = structure.instantiate()
 		thing.rotation_degrees.z = 12.1
 		slopes[index].add_child(thing)
