@@ -1,7 +1,8 @@
-[gd_scene load_steps=56 format=3 uid="uid://cni0o27ay0kyj"]
+[gd_scene load_steps=57 format=3 uid="uid://cni0o27ay0kyj"]
 
 [ext_resource type="Material" uid="uid://dmnablfa3o5ma" path="res://buildings/building.tres" id="1_5bpc0"]
 [ext_resource type="Material" uid="uid://ci4h013j56ocv" path="res://buildings/buildinglight.tres" id="2_ck4ko"]
+[ext_resource type="PackedScene" uid="uid://ro3nbpeyv3v5" path="res://npc.tscn" id="3_5bpc0"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_u7k2n"]
 material = ExtResource("1_5bpc0")
@@ -633,3 +634,11 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D15" type="CollisionShape3D" parent="exitroom"]
 transform = Transform3D(1.1702175e-06, 0, 21.6, 0, 0.5, 0, -15.5, 0, 1.6307547e-06, 112.9, 60.5, 0)
 shape = SubResource("ConvexPolygonShape3D_wiajo")
+
+[node name="NPC" parent="." instance=ExtResource("3_5bpc0")]
+transform = Transform3D(0.86602503, 0, 0.49999988, 0, 0.99999976, 0, -0.49999988, 0, 0.86602503, -271.66663, 0, -63.33332)
+enemy_type = "sharpshooter"
+
+[node name="NPC2" parent="." instance=ExtResource("3_5bpc0")]
+transform = Transform3D(-0.4999999, 0, 0.86602503, 0, 0.99999946, 0, -0.86602503, 0, -0.4999999, -459.99982, 0, 50)
+enemy_type = "sharpshooter"
