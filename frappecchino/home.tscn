@@ -1,9 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://mlr277p0vj6k"]
+[gd_scene load_steps=30 format=3 uid="uid://mlr277p0vj6k"]
 
 [ext_resource type="Script" uid="uid://d0qicxcwe28so" path="res://home.gd" id="1_1ey7h"]
 [ext_resource type="Theme" uid="uid://sr8bi06fqgm8" path="res://UI.tres" id="1_tt30a"]
 [ext_resource type="Texture2D" uid="uid://cohx5mp4q0v5q" path="res://assets/images/bg.png" id="2_2ayvv"]
 [ext_resource type="Script" uid="uid://ck64fms703vym" path="res://homescreencam.gd" id="4_2ayvv"]
+[ext_resource type="Texture2D" uid="uid://drhn1qqh0n3ob" path="res://assets/images/snowfallentitlesnow.png" id="4_tdh31"]
 [ext_resource type="AudioStream" uid="uid://yi6t8unvbaio" path="res://assets/audio/calm-night-312296.mp3" id="5_w1mvj"]
 [ext_resource type="Shader" uid="uid://bc4f6kq1t06ct" path="res://crosshair.gdshader" id="6_86xni"]
 [ext_resource type="Texture2D" uid="uid://rs66kiv43jvu" path="res://assets/images/crosshair.png" id="7_qq0qw"]
@@ -173,18 +174,17 @@ theme_override_constants/margin_bottom = 100
 layout_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
+[node name="title" type="TextureRect" parent="Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 420)
 layout_mode = 2
-theme = ExtResource("1_tt30a")
-theme_override_font_sizes/normal_font_size = 80
-text = "snowfallen"
+texture = ExtResource("4_tdh31")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 250)
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="playButton" type="TextureButton" parent="Control/MarginContainer/VBoxContainer"]

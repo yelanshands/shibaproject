@@ -168,7 +168,7 @@ points = PackedVector3Array(5, 5, 5, 5, 5, -5, -5, 5, 5, 5, -5, 5, 5, -5, -5, -5
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wiajo"]
 points = PackedVector3Array(5, 5, 5, 5, 5, -5, -5, 5, 5, 5, -5, 5, 5, -5, -5, -5, 5, -5, -5, -5, 5, -5, -5, -5)
 
-[node name="obstacle" type="Node3D"]
+[node name="bunker" type="Node3D"]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 
 [node name="entrance" type="StaticBody3D" parent="."]

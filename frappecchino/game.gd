@@ -36,7 +36,7 @@ func _ready() -> void:
 	for index in range(0, 3):
 		spawn_wave(index)
 	
-	slopes = [slope1, slope2, slope3, slope4, slope5]
+	slopes = [slope1, slope2, slope3, slope4, slope5, slope6]
 	structure_types.append(bunker)
 
 	current_zloc = slope_mesh_size.x*3
