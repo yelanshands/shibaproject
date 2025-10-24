@@ -214,6 +214,18 @@ theme_override_fonts/font = ExtResource("3_3lj6o")
 theme_override_font_sizes/font_size = 36
 text = "  100"
 
+[node name="spacer1" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll/volume/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3lj6o")
+theme_override_font_sizes/font_size = 36
+text = "    "
+
+[node name="resetVolume" type="Button" parent="Control/MarginContainer/VBoxContainer/scroll/volume/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3lj6o")
+theme_override_font_sizes/font_size = 32
+text = "Reset"
+
 [node name="spacer1" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
@@ -260,6 +272,18 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_3lj6o")
 theme_override_font_sizes/font_size = 36
 text = "  2.0"
+
+[node name="spacer1" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll/MouseSens/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3lj6o")
+theme_override_font_sizes/font_size = 36
+text = "    "
+
+[node name="resetMouseSens" type="Button" parent="Control/MarginContainer/VBoxContainer/scroll/MouseSens/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3lj6o")
+theme_override_font_sizes/font_size = 32
+text = "Reset"
 
 [node name="spacer2" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll"]
 layout_mode = 2
@@ -308,6 +332,18 @@ theme_override_fonts/font = ExtResource("3_3lj6o")
 theme_override_font_sizes/font_size = 36
 text = "  110"
 
+[node name="spacer1" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll/fov/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3lj6o")
+theme_override_font_sizes/font_size = 36
+text = "    "
+
+[node name="resetFov" type="Button" parent="Control/MarginContainer/VBoxContainer/scroll/fov/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3lj6o")
+theme_override_font_sizes/font_size = 32
+text = "Reset"
+
 [node name="spacer3" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
@@ -348,6 +384,18 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_3lj6o")
 theme_override_font_sizes/font_size = 36
 text = "  on"
+
+[node name="spacer1" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll/aimassist/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3lj6o")
+theme_override_font_sizes/font_size = 36
+text = "    "
+
+[node name="resetAimAssist" type="Button" parent="Control/MarginContainer/VBoxContainer/scroll/aimassist/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3lj6o")
+theme_override_font_sizes/font_size = 32
+text = "Reset"
 
 [node name="spacer4" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll"]
 layout_mode = 2
@@ -432,6 +480,10 @@ libraries = {
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/quitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/scroll/volume/HBoxContainer/volume" to="." method="_on_volume_value_changed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/scroll/volume/HBoxContainer/resetVolume" to="." method="_on_reset_volume_pressed"]
 [connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/scroll/MouseSens/HBoxContainer/MouseSensSlider" to="." method="_on_mouse_sens_slider_value_changed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/scroll/MouseSens/HBoxContainer/resetMouseSens" to="." method="_on_reset_mouse_sens_pressed"]
 [connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/scroll/fov/HBoxContainer/fov" to="." method="_on_mouse_sens_slider_value_changed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/scroll/fov/HBoxContainer/resetFov" to="." method="_on_reset_fov_pressed"]
 [connection signal="toggled" from="Control/MarginContainer/VBoxContainer/scroll/aimassist/HBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/scroll/aimassist/HBoxContainer/resetAimAssist" to="." method="_on_reset_aim_assist_pressed"]

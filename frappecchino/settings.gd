@@ -82,8 +82,19 @@ func _on_check_button_toggled(toggled_on: bool) -> void:
 	aim_assist_value.text = "on" if toggled_on else "off"
 	globals.settings_data.aim_assist = toggled_on
 
-
 func _on_volume_value_changed(value: float) -> void:
 	volume_label.text = str(int(volume_slider.value))
 	globals.settings_data.volume = volume_slider.value
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(volume_slider.value/100))
+
+func _on_reset_volume_pressed() -> void:
+	volume_slider.set_value(globals.settings_data.default_volume)
+
+func _on_reset_mouse_sens_pressed() -> void:
+	mouse_sens_slider.set_value(globals.settings_data.default_mouse_sens)
+
+func _on_reset_fov_pressed() -> void:
+	fov_slider.set_value(globals.settings_data.default_fov)
+
+func _on_reset_aim_assist_pressed() -> void:
+	aim_assist_toggle.button_pressed = globals.settings_data.default_aim_assist
