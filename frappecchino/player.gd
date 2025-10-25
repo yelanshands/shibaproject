@@ -87,6 +87,7 @@ var max_hp := 300.0
 var hp := max_hp
 var hp_taken := 0.0
 var high_scores: Array
+var inventory: Array = []
 
 var fov: float = 75.0
 var aim_assist: bool = true
