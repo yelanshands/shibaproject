@@ -122,7 +122,7 @@ func spawn_structure(index: int, structure: Resource) -> void:
 		var thing = structure.instantiate()
 		thing.rotation_degrees.z = 12.1
 		if structure == bunker:
-			thing.position.y += 2.0
+			thing.position.y += 1.0
 		slopes[index].add_child(thing)
 		structures[index].append(thing)
 

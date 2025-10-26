@@ -310,14 +310,26 @@ func _physics_process(delta: float) -> void:
 					if on_slope:
 						if abs(yrot) <= PI/3: 
 							if yrot > PI/5:
-								angle += 0.04 * clamp(((PI/3)-(abs(yrot)))/(PI/3), 0.0, 1.0)
+								angle += 0.05 * clamp(((PI/3)-yrot)/(PI/3), 0.0, 1.0)
+								print("1")
+							elif yrot > PI/12:
+								angle += 0.023*clamp(((PI/3)-yrot)/(PI/3), 0.0, 1.0)
+								print("2")
+							elif yrot > 0:
+								angle += 0.018*clamp(((PI/3)-yrot)/(PI/3), 0.0, 1.0)
+								print("6")
 							else:
-								angle += (0.027 if yrot > 0 else 0.0225)*clamp(((PI/3)-(abs(yrot)))/(PI/3), 0.0, 1.0)
+								angle += 0.014*clamp(((PI/3)-(abs(yrot)))/(PI/3), 0.0, 1.0)
+								print("7")
 						elif abs(yrot) <= 2*PI/3:
 							if rotation.y > 0:
-								angle += 0.0375 * (yrot/(2*PI/3))
+								angle += 0.04 * (yrot/(2*PI/3))
+								print("3")
 							else:
-								angle -= 0.04 * (yrot/(2*PI/3))
+								angle -= 0.09 * (yrot/(2*PI/3))
+								print("4")
+						else:
+							print("5")
 					rotation.y = lerp(rotation.y, angle, 0.4)
 				else:
 					target_enemy = null

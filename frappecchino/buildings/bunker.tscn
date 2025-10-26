@@ -645,4 +645,7 @@ enemy_type = "sharpshooter"
 transform = Transform3D(-0.90586674, 0, 3.3807406, 0, 3.5, 0, -3.3807406, 0, -0.90586674, -266.66653, 0, 63.33331)
 
 [node name="plushie" parent="." instance=ExtResource("5_q2am5")]
-transform = Transform3D(-1.5298986e-07, 0, 3.5000002, 0, 3.5000002, 0, -3.5000002, 0, -1.5298986e-07, 0, 0, 0)
+transform = Transform3D(-4.371139e-07, 0, 10, 0, 10, 0, -10, 0, -4.371139e-07, 0, 0, 0)
+on_ground = true
+
+[editable path="plushie"]
