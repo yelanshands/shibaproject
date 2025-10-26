@@ -37,7 +37,7 @@ extends CharacterBody3D
 @export var slide_accel: float = 100.0
 @export var floor_snap: float = 10.0
 @export var sprint_length: float = 15.0
-@export var bullet_speed: float= 1400.0
+@export var bullet_speed: float = 2000.0
 
 const footstep_stream = preload("res://assets/audio/concrete-footsteps-6752.mp3")
 const landing_stream = preload("res://assets/audio/land2-43790.mp3")

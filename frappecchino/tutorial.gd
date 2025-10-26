@@ -75,6 +75,7 @@ func _process(_delta: float) -> void:
 				player.free()
 				player = PlayerScene.instantiate()
 				add_child(player)
+				player.bullet_speed = 2000.0
 				player.global_position = checkpoint
 				player.global_rotation = checkpoint_rot
 		else:

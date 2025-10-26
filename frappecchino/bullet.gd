@@ -1,5 +1,7 @@
 extends RayCast3D
 
+const hitpoints = preload("res://hitpoints.tscn")
+
 @onready var remote_transform := RemoteTransform3D.new()
 @onready var player: CharacterBody3D = get_parent().get_parent().get_parent().get_parent()
 @onready var animation: AnimationPlayer = $AnimationPlayer
@@ -10,7 +12,6 @@ var speed: float
 
 var damage_amount := 25.0
 var crosshair_size: float
-var fov: float
 var enemy_dead: bool = false
 var hit: bool = false
 
@@ -18,7 +19,6 @@ signal crosshair_done
 
 func _ready() -> void:
 	crosshair_size = player.crosshair_size
-	fov = player.fov
 	set_process(false)
 	animation.play("fade_in")
 	speed = player.bullet_speed
@@ -56,6 +56,11 @@ func _physics_process(delta: float) -> void:
 					if current.hp <= damage_amount:
 						enemy_dead = true
 					current.apply_damage(damage_amount)
+					var hitpoint = hitpoints.instantiate()
+					get_tree().current_scene.add_child(hitpoint)
+					hitpoint.hitpointy.text = str(int(damage_amount))
+					#hitpoint.hitpointy.font_size = global_position.distance_to(player.global_position)*10.0
+					hitpoint.global_position = global_position + global_basis * Vector3.BACK * 30.0
 				break
 			current = current.get_parent()
 		collided.add_child(remote_transform)
