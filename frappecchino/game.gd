@@ -21,9 +21,10 @@ const bunker = preload("uid://cni0o27ay0kyj")
 @onready var slope6: StaticBody3D = $Background/Slope6
 @onready var fade_animation: AnimationPlayer = $CanvasLayer/AnimationPlayer
 
+var slopes: Array = []
+var default_slopes: Array = []
 var enemies: Array = [[], [], [], [], [], []]
 var enemy_planes: Array = []
-var slopes: Array = []
 var current_zloc: float
 var dropping: bool = true
 var structures: Array = [[], [], [], [], [], []]
@@ -37,6 +38,7 @@ func _ready() -> void:
 		spawn_wave(index)
 	
 	slopes = [slope1, slope2, slope3, slope4, slope5, slope6]
+	default_slopes = [slope1, slope2, slope3, slope4, slope5, slope6]
 	structure_types.append(bunker)
 
 	current_zloc = slope_mesh_size.x*3
@@ -123,7 +125,7 @@ func spawn_structure(index: int, structure: Resource) -> void:
 		thing.rotation_degrees.z = 12.1
 		if structure == bunker:
 			thing.position.y += 1.0
-		slopes[index].add_child(thing)
+		default_slopes[index].add_child(thing)
 		structures[index].append(thing)
 
 func enemy_died(enemy: Node) -> void:

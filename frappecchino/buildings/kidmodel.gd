@@ -14,6 +14,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if not happy:
 		if "plushie" in body.inventory:
 			body.inventory.erase("plushie")
+			body.update_score(1000)
 			happy = true
 			missing_billboard.visible = false
 			face.text = "^ ^"
