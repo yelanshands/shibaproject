@@ -63,7 +63,7 @@ func _ready() -> void:
 	checkpoint = player.global_position
 	checkpoint_rot = Vector3(0.0, -PI, 0.0)
 	
-func _process(_delta: float) -> void:	
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("skip") and not skipped:
 		skipped = true
 		if skip_animation.current_animation_position < 3.25:
