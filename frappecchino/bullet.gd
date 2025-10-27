@@ -59,8 +59,7 @@ func _physics_process(delta: float) -> void:
 					var hitpoint = hitpoints.instantiate()
 					get_tree().current_scene.add_child(hitpoint)
 					hitpoint.hitpointy.text = str(int(damage_amount))
-					#hitpoint.hitpointy.font_size = global_position.distance_to(player.global_position)*10.0
-					hitpoint.global_position = global_position + global_basis * Vector3.BACK * 30.0
+					hitpoint.global_position = global_position
 				break
 			current = current.get_parent()
 		collided.add_child(remote_transform)

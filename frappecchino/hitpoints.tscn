@@ -3,6 +3,9 @@
 [ext_resource type="FontFile" uid="uid://c0ox2v115c0rl" path="res://assets/fonts/immortal/IMMORTAL.ttf" id="1_jf1iu"]
 [ext_resource type="Script" uid="uid://qq5bepdj5tom" path="res://hitpoints.gd" id="2_tjr5a"]
 
+[sub_resource type="Animation" id="Animation_m21fe"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_b8jpf"]
 resource_name = "fadeinandout"
 tracks/0/type = "value"
@@ -15,7 +18,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.5, 0.6666667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(18.892157, 18.892157, 18.892157, 1), Color(18.892157, 18.892157, 18.892157, 1), Color(1, 1, 1, 0)]
 }
 tracks/1/type = "position_3d"
 tracks/1/imported = false
@@ -23,10 +26,7 @@ tracks/1/enabled = true
 tracks/1/path = NodePath("hitpointy")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.6666667, 1, 0, 2, 0)
-
-[sub_resource type="Animation" id="Animation_m21fe"]
-length = 0.001
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.6666667, 1, 0, 5, 0)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dp0mx"]
 _data = {
@@ -43,10 +43,14 @@ libraries = {
 }
 
 [node name="hitpointy" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 billboard = 1
+shaded = true
+no_depth_test = true
+fixed_size = true
+render_priority = 1
 modulate = Color(1, 1, 1, 0)
 outline_modulate = Color(0, 0, 0, 0)
-text = "3"
+text = "34"
 font = ExtResource("1_jf1iu")
-font_size = 750
+font_size = 14
+outline_size = 0

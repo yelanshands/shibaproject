@@ -24,6 +24,7 @@ tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
 fog_light_color = Color(0.22609633, 0.17157698, 0.38291568, 1)
+fog_density = 0.008
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ey7h"]
 albedo_color = Color(0.54, 0.632, 1, 1)

@@ -47,6 +47,9 @@ var checkpoint_rot: Vector3
 func _ready() -> void:
 	range_enemies = [n1, n2, n3, n4]
 	
+	player.max_hp = 500.0
+	player.hp = 500.0
+	
 	player_respawn = player.global_position
 	fade_animation.play_backwards("fade_out")
 	
@@ -76,6 +79,8 @@ func _process(_delta: float) -> void:
 				player = PlayerScene.instantiate()
 				add_child(player)
 				player.bullet_speed = 2000.0
+				player.max_hp = 500.0
+				player.hp = 500.0
 				player.global_position = checkpoint
 				player.global_rotation = checkpoint_rot
 		else:
