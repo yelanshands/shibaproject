@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=4 uid="uid://bc8j31swr481q"]
+[gd_scene load_steps=99 format=4 uid="uid://bc8j31swr481q"]
 
 [ext_resource type="Texture2D" uid="uid://ddqvntm0oc6d1" path="res://assets/models/structures/skyscraper_0.png" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://csvim2fw7hoyd" path="res://game.gd" id="1_ryrav"]
@@ -24,7 +24,8 @@ tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
 fog_light_color = Color(0.22609633, 0.17157698, 0.38291568, 1)
-fog_density = 0.008
+fog_light_energy = 0.1
+fog_density = 0.005
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ey7h"]
 albedo_color = Color(0.54, 0.632, 1, 1)
@@ -897,6 +898,12 @@ points = PackedVector3Array(-350, -75, -150, -350, -75, 150, 349.93152, 75, -150
 [sub_resource type="PlaneMesh" id="PlaneMesh_7jktm"]
 size = Vector2(450, 250)
 
+[sub_resource type="BoxMesh" id="BoxMesh_ryrav"]
+size = Vector3(1, 7, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eow3j"]
+size = Vector3(700, 1, 0.5)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_ryrav"]
 size = Vector3(50, 2000, 4200)
 
@@ -1368,6 +1375,340 @@ mesh = SubResource("PlaneMesh_7jktm")
 transform = Transform3D(-6.5567085e-09, -0.10480928, -0.35004643, 0, 0.48889163, -0.07504345, 0.15, -4.581359e-09, -1.5301016e-08, 0, 0.5, 0)
 skeleton = NodePath("../../..")
 
+[node name="outer" type="Node3D" parent="Background/Slope1"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Slope1/outer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.572794e-06, 0, 300)
+mesh = SubResource("PrismMesh_7jktm")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5wjh")
+
+[node name="snow2" parent="Background/Slope1/outer" instance=ExtResource("6_j5wjh")]
+transform = Transform3D(-6.5567085e-09, -0.10480928, -0.35004643, 0, 0.48889163, -0.07504345, 0.15, -4.581359e-09, -1.5301016e-08, -9.572794e-06, 0.5, 300)
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Slope1/outer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.572795e-06, 0, -300)
+mesh = SubResource("PrismMesh_7jktm")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5wjh")
+
+[node name="snow3" parent="Background/Slope1/outer" instance=ExtResource("6_j5wjh")]
+transform = Transform3D(-6.5567085e-09, -0.10480928, -0.35004643, 0, 0.48889163, -0.07504345, 0.15, -4.581359e-09, -1.5301016e-08, -9.572795e-06, 0.5, -300)
+skeleton = NodePath("../../../..")
+
+[node name="leftfence" type="Node3D" parent="Background/Slope1/outer"]
+transform = Transform3D(0.9973389, -0.20961857, 0, 0.21381094, 0.97778326, 0, 0, 0, 1, 15.5, -75, -8.742302e-08)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 350, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.000004, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.00001, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -350, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="rail" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 82.5, 150)
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="rail2" type="MeshInstance3D" parent="Background/Slope1/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="rightfence" type="Node3D" parent="Background/Slope1/outer"]
+transform = Transform3D(-0.9973389, -0.20961857, -8.742278e-08, -0.21381094, 0.97778326, 0, 8.719014e-08, 1.8325437e-08, -1, 15.5, -75, -8.742302e-08)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 350, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.000004, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.00001, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -350, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="rail" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 82.5, 150)
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="rail2" type="MeshInstance3D" parent="Background/Slope1/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_eow3j")
+
 [node name="Slope2" type="StaticBody3D" parent="Background"]
 transform = Transform3D(-8.742278e-08, 0, 1.5, 0, 2, 0, -2, 0, -6.556708e-08, 0, -300, 1400)
 collision_layer = 1031
@@ -1388,6 +1729,340 @@ mesh = SubResource("PlaneMesh_7jktm")
 [node name="snow" parent="Background/Slope2" instance=ExtResource("6_j5wjh")]
 transform = Transform3D(-6.5567085e-09, -0.10480927, -0.35004646, 0, 0.48889163, -0.07504345, 0.15, -4.581359e-09, -1.5301017e-08, 0, 0.5, 0)
 skeleton = NodePath("../../..")
+
+[node name="outer" type="Node3D" parent="Background/Slope2"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Slope2/outer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.572794e-06, 0, 300)
+mesh = SubResource("PrismMesh_7jktm")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5wjh")
+
+[node name="snow2" parent="Background/Slope2/outer" instance=ExtResource("6_j5wjh")]
+transform = Transform3D(-6.5567085e-09, -0.10480928, -0.35004643, 0, 0.48889163, -0.07504345, 0.15, -4.581359e-09, -1.5301016e-08, -9.572794e-06, 0.5, 300)
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Slope2/outer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.572795e-06, 0, -300)
+mesh = SubResource("PrismMesh_7jktm")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5wjh")
+
+[node name="snow3" parent="Background/Slope2/outer" instance=ExtResource("6_j5wjh")]
+transform = Transform3D(-6.5567085e-09, -0.10480928, -0.35004643, 0, 0.48889163, -0.07504345, 0.15, -4.581359e-09, -1.5301016e-08, -9.572795e-06, 0.5, -300)
+skeleton = NodePath("../../../..")
+
+[node name="leftfence" type="Node3D" parent="Background/Slope2/outer"]
+transform = Transform3D(0.9973389, -0.20961857, 0, 0.21381094, 0.97778326, 0, 0, 0, 1, 15.5, -75, -8.742302e-08)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 350, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.000004, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.00001, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -350, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="rail" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 82.5, 150)
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="rail2" type="MeshInstance3D" parent="Background/Slope2/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="rightfence" type="Node3D" parent="Background/Slope2/outer"]
+transform = Transform3D(-0.9973389, -0.20961857, -8.742278e-08, -0.21381094, 0.97778326, 0, 8.719014e-08, 1.8325437e-08, -1, 15.5, -75, -8.742302e-08)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 350, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.000004, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.00001, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -350, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="rail" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 82.5, 150)
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="rail2" type="MeshInstance3D" parent="Background/Slope2/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_eow3j")
 
 [node name="Slope3" type="StaticBody3D" parent="Background"]
 transform = Transform3D(-8.742278e-08, 0, 1.5, 0, 2, 0, -2, 0, -6.556708e-08, 0, -600, 2800)
@@ -1410,6 +2085,340 @@ mesh = SubResource("PlaneMesh_7jktm")
 transform = Transform3D(-6.5567085e-09, -0.10480928, -0.35004643, 0, 0.48889163, -0.07504345, 0.15, -4.581359e-09, -1.5301016e-08, 0, 0.5, 0)
 skeleton = NodePath("../../..")
 
+[node name="outer" type="Node3D" parent="Background/Slope3"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Slope3/outer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.572794e-06, 0, 300)
+mesh = SubResource("PrismMesh_7jktm")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5wjh")
+
+[node name="snow2" parent="Background/Slope3/outer" instance=ExtResource("6_j5wjh")]
+transform = Transform3D(-6.5567085e-09, -0.10480928, -0.35004643, 0, 0.48889163, -0.07504345, 0.15, -4.581359e-09, -1.5301016e-08, -9.572794e-06, 0.5, 300)
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Slope3/outer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.572795e-06, 0, -300)
+mesh = SubResource("PrismMesh_7jktm")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5wjh")
+
+[node name="snow3" parent="Background/Slope3/outer" instance=ExtResource("6_j5wjh")]
+transform = Transform3D(-6.5567085e-09, -0.10480928, -0.35004643, 0, 0.48889163, -0.07504345, 0.15, -4.581359e-09, -1.5301016e-08, -9.572795e-06, 0.5, -300)
+skeleton = NodePath("../../../..")
+
+[node name="leftfence" type="Node3D" parent="Background/Slope3/outer"]
+transform = Transform3D(0.9973389, -0.20961857, 0, 0.21381094, 0.97778326, 0, 0, 0, 1, 15.5, -75, -8.742302e-08)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 350, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.000004, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.00001, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -350, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="rail" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 82.5, 150)
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="rail2" type="MeshInstance3D" parent="Background/Slope3/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="rightfence" type="Node3D" parent="Background/Slope3/outer"]
+transform = Transform3D(-0.9973389, -0.20961857, -8.742278e-08, -0.21381094, 0.97778326, 0, 8.719014e-08, 1.8325437e-08, -1, 15.5, -75, -8.742302e-08)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 350, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.000004, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.00001, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -350, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="rail" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 82.5, 150)
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="rail2" type="MeshInstance3D" parent="Background/Slope3/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_eow3j")
+
 [node name="Slope4" type="StaticBody3D" parent="Background"]
 transform = Transform3D(-8.742278e-08, 0, 1.5, 0, 2, 0, -2, 0, -6.556708e-08, 0, -900, 4200)
 collision_layer = 1031
@@ -1430,6 +2439,340 @@ mesh = SubResource("PlaneMesh_7jktm")
 [node name="snow" parent="Background/Slope4" instance=ExtResource("6_j5wjh")]
 transform = Transform3D(-6.5567085e-09, -0.10480928, -0.35004643, 0, 0.48889163, -0.07504345, 0.15, -4.581359e-09, -1.5301016e-08, 0, 0.5, 0)
 skeleton = NodePath("../../..")
+
+[node name="outer" type="Node3D" parent="Background/Slope4"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Slope4/outer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.572794e-06, 0, 300)
+mesh = SubResource("PrismMesh_7jktm")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5wjh")
+
+[node name="snow2" parent="Background/Slope4/outer" instance=ExtResource("6_j5wjh")]
+transform = Transform3D(-6.5567085e-09, -0.10480928, -0.35004643, 0, 0.48889163, -0.07504345, 0.15, -4.581359e-09, -1.5301016e-08, -9.572794e-06, 0.5, 300)
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Slope4/outer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.572795e-06, 0, -300)
+mesh = SubResource("PrismMesh_7jktm")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5wjh")
+
+[node name="snow3" parent="Background/Slope4/outer" instance=ExtResource("6_j5wjh")]
+transform = Transform3D(-6.5567085e-09, -0.10480928, -0.35004643, 0, 0.48889163, -0.07504345, 0.15, -4.581359e-09, -1.5301016e-08, -9.572795e-06, 0.5, -300)
+skeleton = NodePath("../../../..")
+
+[node name="leftfence" type="Node3D" parent="Background/Slope4/outer"]
+transform = Transform3D(0.9973389, -0.20961857, 0, 0.21381094, 0.97778326, 0, 0, 0, 1, 15.5, -75, -8.742302e-08)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 350, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.000004, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.00001, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -350, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="rail" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 82.5, 150)
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="rail2" type="MeshInstance3D" parent="Background/Slope4/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="rightfence" type="Node3D" parent="Background/Slope4/outer"]
+transform = Transform3D(-0.9973389, -0.20961857, -8.742278e-08, -0.21381094, 0.97778326, 0, 8.719014e-08, 1.8325437e-08, -1, 15.5, -75, -8.742302e-08)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 350, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.000004, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.00001, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -350, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="rail" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 82.5, 150)
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="rail2" type="MeshInstance3D" parent="Background/Slope4/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_eow3j")
 
 [node name="Slope5" type="StaticBody3D" parent="Background"]
 transform = Transform3D(-8.742278e-08, 0, 1.5, 0, 2, 0, -2, 0, -6.556708e-08, 0, -1200, 5600)
@@ -1452,6 +2795,340 @@ mesh = SubResource("PlaneMesh_7jktm")
 transform = Transform3D(-6.5567085e-09, -0.10480928, -0.35004643, 0, 0.48889163, -0.07504345, 0.15, -4.581359e-09, -1.5301016e-08, 0, 0.5, 0)
 skeleton = NodePath("../../..")
 
+[node name="outer" type="Node3D" parent="Background/Slope5"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Slope5/outer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.572794e-06, 0, 300)
+mesh = SubResource("PrismMesh_7jktm")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5wjh")
+
+[node name="snow2" parent="Background/Slope5/outer" instance=ExtResource("6_j5wjh")]
+transform = Transform3D(-6.5567085e-09, -0.10480928, -0.35004643, 0, 0.48889163, -0.07504345, 0.15, -4.581359e-09, -1.5301016e-08, -9.572794e-06, 0.5, 300)
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Slope5/outer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.572795e-06, 0, -300)
+mesh = SubResource("PrismMesh_7jktm")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5wjh")
+
+[node name="snow3" parent="Background/Slope5/outer" instance=ExtResource("6_j5wjh")]
+transform = Transform3D(-6.5567085e-09, -0.10480928, -0.35004643, 0, 0.48889163, -0.07504345, 0.15, -4.581359e-09, -1.5301016e-08, -9.572795e-06, 0.5, -300)
+skeleton = NodePath("../../../..")
+
+[node name="leftfence" type="Node3D" parent="Background/Slope5/outer"]
+transform = Transform3D(0.9973389, -0.20961857, 0, 0.21381094, 0.97778326, 0, 0, 0, 1, 15.5, -75, -8.742302e-08)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 350, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.000004, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.00001, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -350, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="rail" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 82.5, 150)
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="rail2" type="MeshInstance3D" parent="Background/Slope5/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="rightfence" type="Node3D" parent="Background/Slope5/outer"]
+transform = Transform3D(-0.9973389, -0.20961857, -8.742278e-08, -0.21381094, 0.97778326, 0, 8.719014e-08, 1.8325437e-08, -1, 15.5, -75, -8.742302e-08)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 350, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.000004, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.00001, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -350, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="rail" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 82.5, 150)
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="rail2" type="MeshInstance3D" parent="Background/Slope5/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_eow3j")
+
 [node name="Slope6" type="StaticBody3D" parent="Background"]
 transform = Transform3D(-8.742278e-08, 0, 1.5, 0, 2, 0, -2, 0, -6.556708e-08, 0, -1500, 7000)
 collision_layer = 1031
@@ -1472,6 +3149,340 @@ mesh = SubResource("PlaneMesh_7jktm")
 [node name="snow" parent="Background/Slope6" instance=ExtResource("6_j5wjh")]
 transform = Transform3D(-6.5567085e-09, -0.10480928, -0.35004643, 0, 0.48889163, -0.07504345, 0.15, -4.581359e-09, -1.5301016e-08, 0, 0.5, 0)
 skeleton = NodePath("../../..")
+
+[node name="outer" type="Node3D" parent="Background/Slope6"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Slope6/outer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.572794e-06, 0, 300)
+mesh = SubResource("PrismMesh_7jktm")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5wjh")
+
+[node name="snow2" parent="Background/Slope6/outer" instance=ExtResource("6_j5wjh")]
+transform = Transform3D(-6.5567085e-09, -0.10480928, -0.35004643, 0, 0.48889163, -0.07504345, 0.15, -4.581359e-09, -1.5301016e-08, -9.572794e-06, 0.5, 300)
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Slope6/outer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.572795e-06, 0, -300)
+mesh = SubResource("PrismMesh_7jktm")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5wjh")
+
+[node name="snow3" parent="Background/Slope6/outer" instance=ExtResource("6_j5wjh")]
+transform = Transform3D(-6.5567085e-09, -0.10480928, -0.35004643, 0, 0.48889163, -0.07504345, 0.15, -4.581359e-09, -1.5301016e-08, -9.572795e-06, 0.5, -300)
+skeleton = NodePath("../../../..")
+
+[node name="leftfence" type="Node3D" parent="Background/Slope6/outer"]
+transform = Transform3D(0.9973389, -0.20961857, 0, 0.21381094, 0.97778326, 0, 0, 0, 1, 15.5, -75, -8.742302e-08)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 350, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.000004, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.00001, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -350, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="rail" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 82.5, 150)
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="rail2" type="MeshInstance3D" parent="Background/Slope6/outer/leftfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="rightfence" type="Node3D" parent="Background/Slope6/outer"]
+transform = Transform3D(-0.9973389, -0.20961857, -8.742278e-08, -0.21381094, 0.97778326, 0, 8.719014e-08, 1.8325437e-08, -1, 15.5, -75, -8.742302e-08)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 350, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.000004, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.00001, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 275, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 325, 80, 150)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -350, 80, 149.99998)
+mesh = SubResource("BoxMesh_ryrav")
+skeleton = NodePath("../..")
+
+[node name="rail" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 82.5, 150)
+mesh = SubResource("BoxMesh_eow3j")
+
+[node name="rail2" type="MeshInstance3D" parent="Background/Slope6/outer/rightfence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 150)
+mesh = SubResource("BoxMesh_eow3j")
 
 [node name="Barriers" type="StaticBody3D" parent="Background"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -600, 2800)
