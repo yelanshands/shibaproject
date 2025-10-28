@@ -78,6 +78,9 @@ func _process(_delta: float) -> void:
 			
 			slopes[0].position.z = last_slope_pos.z + slope_mesh_size.x*2
 			slopes[0].position.y = last_slope_pos.y - slope_mesh_size.y*2
+			slopes[0].get_node("MeshInstance3D").visible = true
+			slopes[0].get_node("snow").visible = true
+			slopes[0].get_node("CollisionShape3D2").set_deferred("disabled", false)
 			
 			for enemy in enemies[slope_index]:
 				enemy.queue_free()
