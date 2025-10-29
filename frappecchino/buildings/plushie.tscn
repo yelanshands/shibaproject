@@ -71,4 +71,20 @@ collision_mask = 8192
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_43nr4")
 
+[node name="guidearea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 8192
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="guidearea"]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0)
+shape = SubResource("SphereShape3D_43nr4")
+
+[node name="guide" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79186344, 0)
+billboard = 1
+font = ExtResource("1_hqq5v")
+font_size = 62
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="guidearea" to="." method="_on_guidearea_body_entered"]
+[connection signal="body_exited" from="guidearea" to="." method="_on_guidearea_body_exited"]

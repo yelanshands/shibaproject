@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3 uid="uid://4tjo8hmvtofo"]
+
+[ext_resource type="FontFile" uid="uid://c0ox2v115c0rl" path="res://assets/fonts/immortal/IMMORTAL.ttf" id="1_7hg4a"]
+[ext_resource type="Script" uid="uid://bwmc02g225u78" path="res://medkit.gd" id="1_22oi4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_p51vj"]
+size = Vector3(5, 1, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p51vj"]
+albedo_color = Color(0.831227, 0.78387153, 0.7836467, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7hg4a"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_22oi4"]
+albedo_color = Color(0.3553136, 0.35531354, 0.35531357, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_22oi4"]
+size = Vector3(2.5, 0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6guc2"]
+size = Vector3(0.5, 0.25, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_axhmu"]
+albedo_color = Color(0.9997706, 0.24495196, 0.1949952, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_22oi4"]
+radius = 1.5
+
+[node name="medkit" type="Node3D"]
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, 0, 0, 0)
+script = ExtResource("1_22oi4")
+
+[node name="medkit" type="StaticBody3D" parent="."]
+
+[node name="kit" type="MeshInstance3D" parent="medkit"]
+mesh = SubResource("BoxMesh_p51vj")
+surface_material_override/0 = SubResource("StandardMaterial3D_p51vj")
+
+[node name="kit2" type="MeshInstance3D" parent="medkit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2.25)
+mesh = SubResource("BoxMesh_7hg4a")
+surface_material_override/0 = SubResource("StandardMaterial3D_22oi4")
+
+[node name="kit3" type="MeshInstance3D" parent="medkit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2.25)
+mesh = SubResource("BoxMesh_7hg4a")
+surface_material_override/0 = SubResource("StandardMaterial3D_22oi4")
+
+[node name="kit4" type="MeshInstance3D" parent="medkit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.75)
+mesh = SubResource("BoxMesh_22oi4")
+surface_material_override/0 = SubResource("StandardMaterial3D_22oi4")
+
+[node name="cross" type="MeshInstance3D" parent="medkit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 0)
+mesh = SubResource("BoxMesh_6guc2")
+surface_material_override/0 = SubResource("StandardMaterial3D_axhmu")
+
+[node name="cross2" type="MeshInstance3D" parent="medkit"]
+transform = Transform3D(-0.00017456611, 0, 1, 0, 1, 0, -1, 0, -0.00017456611, 0, 0.625, 0)
+mesh = SubResource("BoxMesh_6guc2")
+surface_material_override/0 = SubResource("StandardMaterial3D_axhmu")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 8192
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0)
+shape = SubResource("SphereShape3D_22oi4")
+
+[node name="guidearea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 8192
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="guidearea"]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 0, 0, 0)
+shape = SubResource("SphereShape3D_22oi4")
+
+[node name="guide" type="Label3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 4.1362386, 0)
+billboard = 1
+font = ExtResource("1_7hg4a")
+font_size = 62
+
+[node name="popup" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="guidearea" to="." method="_on_guidearea_body_entered"]
+[connection signal="body_exited" from="guidearea" to="." method="_on_guidearea_body_exited"]

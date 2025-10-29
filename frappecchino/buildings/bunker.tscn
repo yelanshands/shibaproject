@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://cni0o27ay0kyj"]
+[gd_scene load_steps=62 format=3 uid="uid://cni0o27ay0kyj"]
 
 [ext_resource type="Material" uid="uid://dmnablfa3o5ma" path="res://buildings/building.tres" id="1_5bpc0"]
 [ext_resource type="Script" uid="uid://ben7cdtcfne6j" path="res://buildings/bunker.gd" id="1_u7k2n"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ro3nbpeyv3v5" path="res://npc.tscn" id="3_5bpc0"]
 [ext_resource type="PackedScene" uid="uid://d17xyt07x2u6w" path="res://buildings/kidmodel.tscn" id="4_ck4ko"]
 [ext_resource type="PackedScene" uid="uid://7lteb2apn7vj" path="res://buildings/plushie.tscn" id="5_q2am5"]
+[ext_resource type="PackedScene" uid="uid://4tjo8hmvtofo" path="res://medkit.tscn" id="7_3wac5"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_u7k2n"]
 material = ExtResource("1_5bpc0")
@@ -1198,5 +1199,10 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="closingentrance"]
 transform = Transform3D(-1.7484554e-07, 0.49999997, 1.7484554e-07, 0, -2.1855692e-08, 3.9999998, 3.9999998, 2.1855692e-08, 7.642742e-15, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_q2am5")
+
+[node name="furniture" type="Node3D" parent="."]
+
+[node name="medkit" parent="." instance=ExtResource("7_3wac5")]
+transform = Transform3D(-8.742276e-08, 0, 1.9999995, 0, 1.9999995, 0, -1.9999995, 0, -8.742276e-08, -924.99994, -279.99997, 0)
 
 [editable path="plushie"]

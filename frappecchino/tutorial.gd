@@ -10,15 +10,10 @@ const Npc = preload("res://npc.tscn")
 @onready var n2 = $n2
 @onready var n3 = $n3
 @onready var n4 = $n4
-@onready var dialogue_box: CanvasLayer = $Dialogue
-@onready var dialogue_text: Label = $Dialogue/DialogueBorder/DialogueBox/HBoxContainer/VBoxContainer/Dialogue
-@onready var animation: AnimationPlayer = $AnimationPlayer
-@onready var timer: Timer =  $building/Node/DialogueTimer
+@onready var dialogue: CanvasLayer = $Dialogue
 @onready var player: CharacterBody3D = $Player
 @onready var fade_animation: AnimationPlayer = $CanvasLayer/AnimationPlayer
 @onready var skip_animation: AnimationPlayer = $CanvasLayer/SkipAnimation
-
-@export var text_speed: float = 0.015
 
 var skipped: bool = false
 
@@ -31,7 +26,6 @@ var player_respawn: Vector3
 var range_enemies: Array
 var slide_enemies: Array
 var final_enemies: Array
-var current_dialogue_id = 0
 
 var area0text = "Hurry, before the explosion goes off. Use WASD to move. Jump moving forward and pressing SPACE."
 var area1text = "Shoot the targets with LEFT CLICK. Notice how headshots deal more damage than body shots? And body shots deal more than leg shots?"
@@ -56,9 +50,7 @@ func _ready() -> void:
 	player.bullet_speed = 2000.0
 	skip_animation.play("skip_fade_out")
 	
-	dialogue_box.visible = true
-	animation.play("slide_in")
-	streamDialogue($Player, area0text)
+	dialogue.streamDialogue(area0text)
 	
 	checkpoint = player.global_position
 	checkpoint_rot = Vector3(0.0, -PI, 0.0)
@@ -109,18 +101,6 @@ func _process(_delta: float) -> void:
 		checkpoint_rot = Vector3(0.0, -PI/2, 0.0)
 	if not barrier2 and finalbarrier and not enemiesAlive(final_enemies):
 		finalbarrier.free()
-
-func streamDialogue(body: Node3D, areatext: String) -> void:
-	if body.name == "Player":
-		current_dialogue_id += 1
-		var this_id = current_dialogue_id
-		dialogue_text.text = ""
-		
-		for letter in areatext:
-			if current_dialogue_id != this_id: return
-			timer.start(text_speed)
-			dialogue_text.text += letter
-			await timer.timeout
 			
 func enemiesAlive(enemies: Array) -> int:
 	var count: int = 0
@@ -131,19 +111,25 @@ func enemiesAlive(enemies: Array) -> int:
 	return count
 			
 func _on_area_1_body_entered(body: Node3D) -> void:
-	streamDialogue(body, area1text)
+	if body.name == "Player":
+		dialogue.streamDialogue(area1text)
 
 func _on_area_2_body_entered(body: Node3D) -> void:
-	streamDialogue(body, area2text)
+	if body.name == "Player":
+		dialogue.streamDialogue(area2text)
 
 func _on_area_3_body_entered(body: Node3D) -> void:
-	streamDialogue(body, area3text)
+	if body.name == "Player":
+		dialogue.streamDialogue(area3text)
 
 func _on_area_4_body_entered(body: Node3D) -> void:
-	streamDialogue(body, area4text)
+	if body.name == "Player":
+		dialogue.streamDialogue(area4text)
 
 func _on_area_5_body_entered(body: Node3D) -> void:
-	streamDialogue(body, area5text)
+	if body.name == "Player":
+		dialogue.streamDialogue(area5text)
 
 func _on_area_6_body_entered(body: Node3D) -> void:
-	streamDialogue(body, area6text)
+	if body.name == "Player":
+		dialogue.streamDialogue(area6text)

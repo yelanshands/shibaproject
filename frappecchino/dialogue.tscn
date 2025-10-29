@@ -1,0 +1,137 @@
+[gd_scene load_steps=4 format=3 uid="uid://bikla6j41kf30"]
+
+[ext_resource type="Script" uid="uid://1hrty1f0y1gb" path="res://dialogue.gd" id="1_758ep"]
+[ext_resource type="Texture2D" uid="uid://bqa13ypnqi1jl" path="res://assets/images/frappie_pfp.png" id="1_oi3j2"]
+[ext_resource type="FontFile" uid="uid://c0ox2v115c0rl" path="res://assets/fonts/immortal/IMMORTAL.ttf" id="2_758ep"]
+
+[node name="Dialogue" type="CanvasLayer"]
+script = ExtResource("1_758ep")
+
+[node name="DialogueBorderTop" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1050, 25)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -525.0
+offset_top = 75.0
+offset_right = 1025.0
+offset_bottom = 100.0
+grow_horizontal = 2
+scale = Vector2(0.7, 0.7)
+color = Color(0.2, 0.20784314, 0.27058825, 0.8862745)
+
+[node name="DialogueBorderBottom" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1050, 25)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -525.0
+offset_top = 289.0
+offset_right = 1025.0
+offset_bottom = 314.0
+grow_horizontal = 2
+scale = Vector2(0.7, 0.7)
+color = Color(0.2, 0.20784314, 0.27058825, 0.8862745)
+
+[node name="DialogueBorderLeft" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(25, 300)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -525.0
+offset_top = 75.0
+offset_right = -500.0
+offset_bottom = 405.0
+grow_horizontal = 2
+scale = Vector2(0.7, 0.7)
+color = Color(0.2, 0.20784314, 0.27058825, 0.8862745)
+
+[node name="DialogueBorderRight" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(25, 300)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 542.5
+offset_top = 75.0
+offset_right = 567.5
+offset_bottom = 405.0
+grow_horizontal = 2
+scale = Vector2(0.7, 0.7)
+color = Color(0.2, 0.20784314, 0.27058825, 0.8862745)
+
+[node name="DialogueBorder" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1050, 330)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -525.0
+offset_top = 75.0
+offset_right = 1025.0
+offset_bottom = 405.0
+grow_horizontal = 2
+scale = Vector2(0.7, 0.7)
+color = Color(0.21176471, 0.21176471, 0.21176471, 0)
+
+[node name="DialogueBox" type="ColorRect" parent="DialogueBorder"]
+custom_minimum_size = Vector2(1500, 280)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -140.0
+offset_right = 1525.0
+offset_bottom = 140.0
+grow_vertical = 2
+color = Color(0.63375676, 0.6337568, 0.63375676, 0.3647059)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogueBorder/DialogueBox"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -125.0
+offset_right = 1100.0
+offset_bottom = 125.0
+grow_vertical = 2
+
+[node name="Spacer1" type="Label" parent="DialogueBorder/DialogueBox/HBoxContainer"]
+layout_mode = 2
+text = "    "
+
+[node name="TextureRect" type="TextureRect" parent="DialogueBorder/DialogueBox/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_oi3j2")
+expand_mode = 3
+
+[node name="Spacer2" type="Label" parent="DialogueBorder/DialogueBox/HBoxContainer"]
+layout_mode = 2
+text = "    "
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogueBorder/DialogueBox/HBoxContainer"]
+custom_minimum_size = Vector2(1100, 0)
+layout_mode = 2
+
+[node name="Spacer1" type="Label" parent="DialogueBorder/DialogueBox/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+
+[node name="Name" type="Label" parent="DialogueBorder/DialogueBox/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_758ep")
+theme_override_font_sizes/font_size = 65
+text = "FRAPPIE"
+
+[node name="Spacer2" type="Label" parent="DialogueBorder/DialogueBox/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+
+[node name="Dialogue" type="Label" parent="DialogueBorder/DialogueBox/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_758ep")
+theme_override_font_sizes/font_size = 32
+text = "i 
+love
+arlecchino."
+autowrap_mode = 2

@@ -8,10 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://d0jme7ccna3n6" path="res://shelf.tscn" id="3_4t6hg"]
 [ext_resource type="PackedScene" uid="uid://4jwbfmwuytf7" path="res://table.tscn" id="4_7vrqn"]
 [ext_resource type="PackedScene" uid="uid://480acyh738qs" path="res://book.tscn" id="4_bhfnd"]
-[ext_resource type="Texture2D" uid="uid://bqa13ypnqi1jl" path="res://assets/images/frappie_pfp.png" id="5_rwowx"]
 [ext_resource type="PackedScene" uid="uid://0bamwawxdwtf" path="res://cactus.tscn" id="6_bhfnd"]
 [ext_resource type="PackedScene" uid="uid://bstrt2pie8c" path="res://lamp.tscn" id="7_tvjhf"]
 [ext_resource type="Texture2D" uid="uid://clsi7k4lwvg3s" path="res://assets/images/frappiewantedposter.png" id="8_vmw6g"]
+[ext_resource type="PackedScene" uid="uid://bikla6j41kf30" path="res://dialogue.tscn" id="11_vmw6g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rwowx"]
 sky_top_color = Color(0.0617302, 0.00643286, 0.177529, 1)
@@ -915,137 +915,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 198,
 [node name="n4" parent="." instance=ExtResource("2_yb1ct")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 198, 0, 111)
 
-[node name="Dialogue" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="DialogueBorderTop" type="ColorRect" parent="Dialogue"]
-custom_minimum_size = Vector2(1050, 25)
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -525.0
-offset_top = 75.0
-offset_right = 1025.0
-offset_bottom = 100.0
-grow_horizontal = 2
-scale = Vector2(0.7, 0.7)
-color = Color(0.2, 0.20784314, 0.27058825, 0.8862745)
-
-[node name="DialogueBorderBottom" type="ColorRect" parent="Dialogue"]
-custom_minimum_size = Vector2(1050, 25)
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -525.0
-offset_top = 289.0
-offset_right = 1025.0
-offset_bottom = 314.0
-grow_horizontal = 2
-scale = Vector2(0.7, 0.7)
-color = Color(0.2, 0.20784314, 0.27058825, 0.8862745)
-
-[node name="DialogueBorderLeft" type="ColorRect" parent="Dialogue"]
-custom_minimum_size = Vector2(25, 300)
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -525.0
-offset_top = 75.0
-offset_right = -500.0
-offset_bottom = 405.0
-grow_horizontal = 2
-scale = Vector2(0.7, 0.7)
-color = Color(0.2, 0.20784314, 0.27058825, 0.8862745)
-
-[node name="DialogueBorderRight" type="ColorRect" parent="Dialogue"]
-custom_minimum_size = Vector2(25, 300)
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 542.5
-offset_top = 75.0
-offset_right = 567.5
-offset_bottom = 405.0
-grow_horizontal = 2
-scale = Vector2(0.7, 0.7)
-color = Color(0.2, 0.20784314, 0.27058825, 0.8862745)
-
-[node name="DialogueBorder" type="ColorRect" parent="Dialogue"]
-custom_minimum_size = Vector2(1050, 330)
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -525.0
-offset_top = 75.0
-offset_right = 1025.0
-offset_bottom = 405.0
-grow_horizontal = 2
-scale = Vector2(0.7, 0.7)
-color = Color(0.21176471, 0.21176471, 0.21176471, 0)
-
-[node name="DialogueBox" type="ColorRect" parent="Dialogue/DialogueBorder"]
-custom_minimum_size = Vector2(1500, 280)
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 25.0
-offset_top = -140.0
-offset_right = 1525.0
-offset_bottom = 140.0
-grow_vertical = 2
-color = Color(0.63375676, 0.6337568, 0.63375676, 0.3647059)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Dialogue/DialogueBorder/DialogueBox"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -125.0
-offset_right = 1100.0
-offset_bottom = 125.0
-grow_vertical = 2
-
-[node name="Spacer1" type="Label" parent="Dialogue/DialogueBorder/DialogueBox/HBoxContainer"]
-layout_mode = 2
-text = "    "
-
-[node name="TextureRect" type="TextureRect" parent="Dialogue/DialogueBorder/DialogueBox/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("5_rwowx")
-expand_mode = 3
-
-[node name="Spacer2" type="Label" parent="Dialogue/DialogueBorder/DialogueBox/HBoxContainer"]
-layout_mode = 2
-text = "    "
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Dialogue/DialogueBorder/DialogueBox/HBoxContainer"]
-custom_minimum_size = Vector2(1100, 0)
-layout_mode = 2
-
-[node name="Spacer1" type="Label" parent="Dialogue/DialogueBorder/DialogueBox/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 10
-
-[node name="Name" type="Label" parent="Dialogue/DialogueBorder/DialogueBox/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5mrt3")
-theme_override_font_sizes/font_size = 65
-text = "FRAPPIE"
-
-[node name="Spacer2" type="Label" parent="Dialogue/DialogueBorder/DialogueBox/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 5
-
-[node name="Dialogue" type="Label" parent="Dialogue/DialogueBorder/DialogueBox/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1000, 0)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5mrt3")
-theme_override_font_sizes/font_size = 32
-text = "i 
-love
-arlecchino"
-autowrap_mode = 2
+[node name="Dialogue" parent="." instance=ExtResource("11_vmw6g")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
