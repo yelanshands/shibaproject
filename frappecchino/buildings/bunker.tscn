@@ -1177,15 +1177,15 @@ transform = Transform3D(-1.7484554e-07, 0.49999997, 1.7484554e-07, 0, -2.1855692
 shape = SubResource("ConcavePolygonShape3D_q2am5")
 
 [node name="openingdoor" type="StaticBody3D" parent="."]
-transform = Transform3D(1, -6.8546676e-08, 0, 6.8546676e-08, 1, 0, 0, 0, 1, -586.6664, -2.4999993, 0)
+transform = Transform3D(1, -6.8546676e-08, 0, 6.8546676e-08, 1, 0, 0, 0, 1, -586.666, -5, 0)
 
 [node name="floor" type="MeshInstance3D" parent="openingdoor"]
-transform = Transform3D(-1.7484557e-07, 7.1054274e-15, -8.2, 1.6940659e-21, 0.5, 6.82121e-13, 4, 0, -3.584334e-07, 41.000305, -2.3841858e-07, 0)
+transform = Transform3D(-1.7484555e-07, 1.0658141e-14, -8.2, 3.3881318e-21, 0.49999997, 7.3896445e-13, 3.9999998, 0, -3.5843334e-07, 41.000366, -2.3841858e-07, 0)
 mesh = SubResource("BoxMesh_i4dc2")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="openingdoor"]
-transform = Transform3D(-1.7484557e-07, 7.1054274e-15, -8.2, 1.6940659e-21, 0.5, 6.82121e-13, 4, 0, -3.584334e-07, 41.000305, -2.3841858e-07, 0)
+transform = Transform3D(-1.7484554e-07, 1.7763568e-14, -8.2, 5.0821977e-21, 0.4999999, 8.526513e-13, 3.9999993, 0, -3.5843334e-07, 41.000366, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_k2oh6")
 
 [node name="closingentrance" type="StaticBody3D" parent="."]

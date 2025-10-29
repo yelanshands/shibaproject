@@ -20,6 +20,7 @@ const bunker = preload("uid://cni0o27ay0kyj")
 @onready var slope5: StaticBody3D = $Background/Slope5
 @onready var slope6: StaticBody3D = $Background/Slope6
 @onready var fade_animation: AnimationPlayer = $CanvasLayer/AnimationPlayer
+@onready var dialogue: CanvasLayer = $Dialogue
 
 var slopes: Array = []
 var default_slopes: Array = []

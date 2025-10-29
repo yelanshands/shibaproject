@@ -1,18 +1,22 @@
 extends CanvasLayer
 
-@onready var dialogue_box: CanvasLayer = $Dialogue
-@onready var dialogue_name: Label = $Dialogue/DialogueBorder/DialogueBox/HBoxContainer/VBoxContainer/Name
-@onready var dialogue_text: Label = $Dialogue/DialogueBorder/DialogueBox/HBoxContainer/VBoxContainer/Dialogue
+@onready var dialogue_name: Label = $DialogueBorder/DialogueBox/HBoxContainer/VBoxContainer/Name
+@onready var dialogue_text: Label = $DialogueBorder/DialogueBox/HBoxContainer/VBoxContainer/Dialogue
 @onready var dialogue_animation: AnimationPlayer = $AnimationPlayer
-@onready var timer: Timer =  $building/Node/DialogueTimer
+@onready var timer: Timer = $Timer
 
 @export var text_speed: float = 0.015
+@export var popup: bool = false
 
 var current_dialogue_id = 0
 
+func _ready() -> void:
+	if popup:
+		dialogue_animation = $popup
+
 func streamDialogue(texty: String, namey: String = "FRAPPIE"):
-	if not dialogue_box.visible:
-		dialogue_box.visible = true
+	if not visible:
+		visible = true
 	
 	if namey != dialogue_name.text:
 		dialogue_animation.play("slide_in")
@@ -32,4 +36,4 @@ func endDialogue(idy: int = -1) -> void:
 	if idy == current_dialogue_id or idy < 0:
 		dialogue_animation.play_backwards("slide_in")
 		await dialogue_animation.animation_finished
-		dialogue_box.visible = false
+		visible = false

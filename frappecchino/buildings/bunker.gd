@@ -19,5 +19,7 @@ func _process(_delta: float) -> void:
 		closingdoor.position.y = 14.0
 		closingentrance.position.y = 14.0
 		openingdoor.scale.x = 0.01
-		snow.visible = false
 		set_process(false)
+	
+	if snow.position.y <= -1.75:
+		snow.visible = false
