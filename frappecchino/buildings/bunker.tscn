@@ -1104,7 +1104,7 @@ mesh = SubResource("BoxMesh_i4dc2")
 skeleton = NodePath("../../..")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="basement/basemententrance"]
-transform = Transform3D(-0.9999999, 0, 9.059748e-07, 0, 20, 0, -1.5099579e-07, 0, -5.9999995, -83.33334, -61.666668, -3.4769703e-06)
+transform = Transform3D(-0.9999999, 0, 9.059748e-07, 0, 20, 0, -1.5099579e-07, 0, -5.9999995, -83.33334, -62.166668, -3.4769703e-06)
 shape = SubResource("ConvexPolygonShape3D_u380s")
 
 [node name="close" type="MeshInstance3D" parent="basement/basemententrance"]
@@ -1113,7 +1113,7 @@ mesh = SubResource("BoxMesh_i4dc2")
 skeleton = NodePath("../../..")
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="basement/basemententrance"]
-transform = Transform3D(-0.9999999, 0, 9.059746e-07, 0, 29.999998, 0, -1.5099579e-07, 0, -5.9999995, 7.333252, -111.66669, -1.2914013e-06)
+transform = Transform3D(-0.9999999, 0, 9.059746e-07, 0, 29.999998, 0, -1.5099579e-07, 0, -5.9999995, 7.333252, -115.50003, -1.2914013e-06)
 shape = SubResource("ConvexPolygonShape3D_tyxab")
 
 [node name="basementtunnel" type="StaticBody3D" parent="basement"]
@@ -1152,7 +1152,7 @@ mesh = SubResource("BoxMesh_i4dc2")
 skeleton = NodePath("../../..")
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="basement/basementtunnel"]
-transform = Transform3D(-0.9999999, 0, 9.059748e-07, 0, 20, 0, -1.5099579e-07, 0, -5.9999995, 7.333252, -61.666668, -1.2914013e-06)
+transform = Transform3D(-0.9999999, -5.684342e-14, 9.059748e-07, -3.5527137e-15, 20, 3.3881318e-21, -1.5099579e-07, 0, -5.9999995, 9.833252, -61.666626, -1.2914013e-06)
 shape = SubResource("ConvexPolygonShape3D_tyxab")
 
 [node name="NPC" parent="." instance=ExtResource("3_5bpc0")]
@@ -1206,10 +1206,10 @@ shape = SubResource("ConcavePolygonShape3D_q2am5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -925, -280, 0)
 
 [node name="medkit" parent="furniture" instance=ExtResource("7_3wac5")]
-transform = Transform3D(-8.742276e-08, 0, 1.9999995, 0, 1.9999995, 0, -1.9999995, 0, -8.742276e-08, 0, 14.666626, 43.33333)
+transform = Transform3D(-0.9999998, 0, 1.7320502, 0, 1.9999995, 0, -1.7320502, 0, -0.9999998, 0, 0.33325195, -6.3578277e-06)
 
 [node name="table" parent="furniture" instance=ExtResource("8_mr67o")]
-transform = Transform3D(14.999997, 0, 0, 0, 9.999997, 0, 0, 0, 14.999997, 0, 0, 43.333324)
+transform = Transform3D(15, 0, 0, 0, 7, 0, 0, 0, 15, 0, 0, 43.333324)
 
 [node name="shelf" parent="furniture" instance=ExtResource("9_2gks7")]
 transform = Transform3D(-6.556707e-07, 0, -14.999997, 0, 14.999997, 0, 14.999997, 0, -6.556707e-07, 0, 0, 63.33333)

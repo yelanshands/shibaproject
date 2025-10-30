@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=4 uid="uid://bc8j31swr481q"]
+[gd_scene load_steps=102 format=4 uid="uid://bc8j31swr481q"]
 
 [ext_resource type="Texture2D" uid="uid://ddqvntm0oc6d1" path="res://assets/models/structures/skyscraper_0.png" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://csvim2fw7hoyd" path="res://game.gd" id="1_ryrav"]
@@ -899,10 +899,19 @@ points = PackedVector3Array(-350, -75, -150, -350, -75, 150, 349.93152, 75, -150
 [sub_resource type="PlaneMesh" id="PlaneMesh_7jktm"]
 size = Vector2(450, 250)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eow3j"]
+albedo_color = Color(0.3109676, 0.123271994, 0.046301596, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_ryrav"]
+material = SubResource("StandardMaterial3D_eow3j")
 size = Vector3(1, 7, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vef74"]
+albedo_color = Color(0.4510728, 0.4511224, 0.48609424, 1)
+metallic = 0.8
+
 [sub_resource type="BoxMesh" id="BoxMesh_eow3j"]
+material = SubResource("StandardMaterial3D_vef74")
 size = Vector3(700, 1, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ryrav"]

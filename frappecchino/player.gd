@@ -87,7 +87,7 @@ signal clickfinished
 var max_hp := 300.0
 var hp := max_hp
 var hp_taken := 0.0
-var damage_tint_target: int = 0
+var damage_tint_target: float = 0.0
 var high_scores: Array
 var inventory: Array = []
 
@@ -154,13 +154,13 @@ func _process(_delta):
 	
 	var current_damage_tint = damage_tint.modulate.a
 	print(damage_tint_target, "   ", current_damage_tint)
-	if current_damage_tint or (not current_damage_tint and not damage_tint_target):
-		if not damage_tint_target and current_damage_tint <= 1:
-			damage_tint.modulate.a = 0
+	if current_damage_tint or (not current_damage_tint and damage_tint_target):
+		if not damage_tint_target and current_damage_tint <= 0.001:
+			damage_tint.modulate.a = 0.0
 		else:
 			if damage_tint_target and current_damage_tint >= damage_tint_target * 0.99:
-				damage_tint_target = 0
-			damage_tint.modulate.a = lerp(current_damage_tint, damage_tint_target, 0.2)
+				damage_tint_target = 0.0
+			damage_tint.modulate.a = lerp(current_damage_tint, damage_tint_target, 0.1)
 	
 	if clicking:
 		hitmenu_cont.scale = Vector2(lerp(hitmenu_cont.scale.x, 0.8, 0.8), lerp(hitmenu_cont.scale.y, 0.8, 0.8))
@@ -428,7 +428,7 @@ func apply_damage(damage_amount):
 		hp_timer.start(1.0)
 	hp_taken += damage_amount
 	hp -= damage_amount
-	damage_tint_target = int(damage_amount/max_hp * 255.0)
+	damage_tint_target = (damage_amount/max_hp) * 5.0
 
 func update_score(amount: int):
 	if amount == 0:
@@ -458,7 +458,7 @@ func update_leaderboard() -> void:
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "glass" and animation.current_animation == "runslide" and animation.current_animation_position >= 0.1 and animation.current_animation_position <= 0.4:
 		body.free()
-		get_parent().animation.play_backwards("slide_in")
+		get_parent().dialogue.get_node("AnimationPlayer").play_backwards("slide_in")
 		audio.stop()
 		fade_and_change_scene("res://game.tscn")
 		
