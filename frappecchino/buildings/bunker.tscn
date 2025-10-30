@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://cni0o27ay0kyj"]
+[gd_scene load_steps=64 format=3 uid="uid://cni0o27ay0kyj"]
 
 [ext_resource type="Material" uid="uid://dmnablfa3o5ma" path="res://buildings/building.tres" id="1_5bpc0"]
 [ext_resource type="Script" uid="uid://ben7cdtcfne6j" path="res://buildings/bunker.gd" id="1_u7k2n"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://d17xyt07x2u6w" path="res://buildings/kidmodel.tscn" id="4_ck4ko"]
 [ext_resource type="PackedScene" uid="uid://7lteb2apn7vj" path="res://buildings/plushie.tscn" id="5_q2am5"]
 [ext_resource type="PackedScene" uid="uid://4tjo8hmvtofo" path="res://medkit.tscn" id="7_3wac5"]
+[ext_resource type="PackedScene" uid="uid://4jwbfmwuytf7" path="res://table.tscn" id="8_mr67o"]
+[ext_resource type="PackedScene" uid="uid://d0jme7ccna3n6" path="res://shelf.tscn" id="9_2gks7"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_u7k2n"]
 material = ExtResource("1_5bpc0")
@@ -1177,7 +1179,7 @@ transform = Transform3D(-1.7484554e-07, 0.49999997, 1.7484554e-07, 0, -2.1855692
 shape = SubResource("ConcavePolygonShape3D_q2am5")
 
 [node name="openingdoor" type="StaticBody3D" parent="."]
-transform = Transform3D(1, -6.8546676e-08, 0, 6.8546676e-08, 1, 0, 0, 0, 1, -586.666, -5, 0)
+transform = Transform3D(0.9999998, -6.8546676e-08, 0, 6.8546676e-08, 0.9999998, 0, 0, 0, 0.9999998, -586.666, -2.4999998, 0)
 
 [node name="floor" type="MeshInstance3D" parent="openingdoor"]
 transform = Transform3D(-1.7484555e-07, 1.0658141e-14, -8.2, 3.3881318e-21, 0.49999997, 7.3896445e-13, 3.9999998, 0, -3.5843334e-07, 41.000366, -2.3841858e-07, 0)
@@ -1201,8 +1203,15 @@ transform = Transform3D(-1.7484554e-07, 0.49999997, 1.7484554e-07, 0, -2.1855692
 shape = SubResource("ConcavePolygonShape3D_q2am5")
 
 [node name="furniture" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -925, -280, 0)
 
-[node name="medkit" parent="." instance=ExtResource("7_3wac5")]
-transform = Transform3D(-8.742276e-08, 0, 1.9999995, 0, 1.9999995, 0, -1.9999995, 0, -8.742276e-08, -924.99994, -279.99997, 0)
+[node name="medkit" parent="furniture" instance=ExtResource("7_3wac5")]
+transform = Transform3D(-8.742276e-08, 0, 1.9999995, 0, 1.9999995, 0, -1.9999995, 0, -8.742276e-08, 0, 14.666626, 43.33333)
+
+[node name="table" parent="furniture" instance=ExtResource("8_mr67o")]
+transform = Transform3D(14.999997, 0, 0, 0, 9.999997, 0, 0, 0, 14.999997, 0, 0, 43.333324)
+
+[node name="shelf" parent="furniture" instance=ExtResource("9_2gks7")]
+transform = Transform3D(-6.556707e-07, 0, -14.999997, 0, 14.999997, 0, 14.999997, 0, -6.556707e-07, 0, 0, 63.33333)
 
 [editable path="plushie"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://daiyf82t58v7s"]
+[gd_scene load_steps=43 format=3 uid="uid://daiyf82t58v7s"]
 
 [ext_resource type="Script" uid="uid://bwhyes7j5e77m" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://bl4ue4lvsx2v2" path="res://pewpew.tscn" id="2_i3pqv"]
@@ -15,6 +15,7 @@
 [ext_resource type="Theme" uid="uid://sr8bi06fqgm8" path="res://UI.tres" id="13_606se"]
 [ext_resource type="Texture2D" uid="uid://d2xmifqrtmypq" path="res://assets/images/hitcrosshair.png" id="13_urp6f"]
 [ext_resource type="PackedScene" uid="uid://cqyjx3nirqmu4" path="res://settings.tscn" id="14_bwjto"]
+[ext_resource type="Texture2D" uid="uid://bbqjb372fapm2" path="res://assets/images/red_vignette.png" id="15_u1c27"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2hs0m"]
 radius = 3.0
@@ -875,6 +876,16 @@ metadata/_edit_use_anchors_ = true
 libraries = {
 &"": SubResource("AnimationLibrary_nvl01")
 }
+
+[node name="damaged" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_u1c27")
+expand_mode = 1
 
 [node name="CrosshairMenu" type="CanvasLayer" parent="."]
 layer = 5

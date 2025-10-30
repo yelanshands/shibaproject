@@ -32,6 +32,7 @@ extends CharacterBody3D
 @onready var players: HBoxContainer = $CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players
 @onready var leaderboard: ColorRect = $CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard
 @onready var leaderboard_animation: AnimationPlayer = $CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/AnimationPlayer
+@onready var damage_tint: TextureRect = $CanvasLayer/damaged
 
 @export var friction: float = 0.25
 @export var slide_accel: float = 100.0
@@ -86,6 +87,7 @@ signal clickfinished
 var max_hp := 300.0
 var hp := max_hp
 var hp_taken := 0.0
+var damage_tint_target: int = 0
 var high_scores: Array
 var inventory: Array = []
 
@@ -150,6 +152,16 @@ func _process(_delta):
 			health_empty.size.y = lerp(health_empty.size.y, 0.0, 0.2)
 	red.position.y = green.position.y - green.size.y - 1
 	
+	var current_damage_tint = damage_tint.modulate.a
+	print(damage_tint_target, "   ", current_damage_tint)
+	if current_damage_tint or (not current_damage_tint and not damage_tint_target):
+		if not damage_tint_target and current_damage_tint <= 1:
+			damage_tint.modulate.a = 0
+		else:
+			if damage_tint_target and current_damage_tint >= damage_tint_target * 0.99:
+				damage_tint_target = 0
+			damage_tint.modulate.a = lerp(current_damage_tint, damage_tint_target, 0.2)
+	
 	if clicking:
 		hitmenu_cont.scale = Vector2(lerp(hitmenu_cont.scale.x, 0.8, 0.8), lerp(hitmenu_cont.scale.y, 0.8, 0.8))
 	
@@ -157,7 +169,7 @@ func _process(_delta):
 		hitmenu_cont.scale = Vector2(0.0, 0.0)
 		clicking = false
 		emit_signal("clickfinished")
-
+		
 func _physics_process(delta: float) -> void:
 	var current_vel = velocity
 	var input = Input.get_vector("strafe_left", "strafe_right", "move_forward", "move_back")
@@ -416,6 +428,7 @@ func apply_damage(damage_amount):
 		hp_timer.start(1.0)
 	hp_taken += damage_amount
 	hp -= damage_amount
+	damage_tint_target = int(damage_amount/max_hp * 255.0)
 
 func update_score(amount: int):
 	if amount == 0:

@@ -4,7 +4,7 @@ extends Node3D
 @onready var game: Node3D = get_tree().current_scene
 @onready var timer: Timer = $popup
 
-@export var value: int = 150
+@export var value: int = 50
 var dialogue_id: int
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
