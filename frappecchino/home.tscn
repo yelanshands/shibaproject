@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://mlr277p0vj6k"]
+[gd_scene load_steps=26 format=3 uid="uid://mlr277p0vj6k"]
 
 [ext_resource type="Script" uid="uid://d0qicxcwe28so" path="res://home.gd" id="1_1ey7h"]
 [ext_resource type="Theme" uid="uid://sr8bi06fqgm8" path="res://UI.tres" id="1_tt30a"]
@@ -6,43 +6,15 @@
 [ext_resource type="Script" uid="uid://ck64fms703vym" path="res://homescreencam.gd" id="4_2ayvv"]
 [ext_resource type="Texture2D" uid="uid://drhn1qqh0n3ob" path="res://assets/images/snowfallentitlesnow.png" id="4_tdh31"]
 [ext_resource type="AudioStream" uid="uid://yi6t8unvbaio" path="res://assets/audio/calm-night-312296.mp3" id="5_w1mvj"]
+[ext_resource type="Texture2D" uid="uid://w265uy7i2o5i" path="res://assets/images/start.png" id="5_wh0ls"]
 [ext_resource type="Shader" uid="uid://bc4f6kq1t06ct" path="res://crosshair.gdshader" id="6_86xni"]
+[ext_resource type="Texture2D" uid="uid://de5866pk78i6o" path="res://assets/images/start_hover.png" id="6_sa43c"]
 [ext_resource type="Texture2D" uid="uid://rs66kiv43jvu" path="res://assets/images/crosshair.png" id="7_qq0qw"]
+[ext_resource type="Texture2D" uid="uid://3dw0brf5ok36" path="res://assets/images/settings.png" id="8_nnxq8"]
 [ext_resource type="Texture2D" uid="uid://d2xmifqrtmypq" path="res://assets/images/hitcrosshair.png" id="8_q6q8i"]
+[ext_resource type="Texture2D" uid="uid://bu6dalldgdebx" path="res://assets/images/settings_hover.png" id="9_c6lok"]
 [ext_resource type="AudioStream" uid="uid://y2ef6e4yn2mw" path="res://assets/audio/silenced-gunshot-81063.mp3" id="9_qq0qw"]
 [ext_resource type="PackedScene" uid="uid://cqyjx3nirqmu4" path="res://settings.tscn" id="10_q6q8i"]
-
-[sub_resource type="Gradient" id="Gradient_2ayvv"]
-colors = PackedColorArray(1, 1, 1, 0.784314, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_lxycn"]
-gradient = SubResource("Gradient_2ayvv")
-width = 1280
-height = 100
-
-[sub_resource type="Gradient" id="Gradient_w1mvj"]
-colors = PackedColorArray(1, 1, 1, 0.196078, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_o1ld7"]
-gradient = SubResource("Gradient_w1mvj")
-width = 1280
-height = 100
-
-[sub_resource type="Gradient" id="Gradient_lxycn"]
-colors = PackedColorArray(1, 1, 1, 0.784314, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_vqw7c"]
-gradient = SubResource("Gradient_lxycn")
-width = 1280
-height = 100
-
-[sub_resource type="Gradient" id="Gradient_vqw7c"]
-colors = PackedColorArray(1, 1, 1, 0.196078, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_w1mvj"]
-gradient = SubResource("Gradient_vqw7c")
-width = 1280
-height = 100
 
 [sub_resource type="Gradient" id="Gradient_86xni"]
 colors = PackedColorArray(1, 1, 1, 0.784314, 1, 1, 1, 0)
@@ -184,17 +156,20 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 
 [node name="playButton" type="TextureButton" parent="Control/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 100)
+custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_pressed = SubResource("GradientTexture2D_lxycn")
-texture_hover = SubResource("GradientTexture2D_o1ld7")
+texture_normal = ExtResource("5_wh0ls")
+texture_hover = ExtResource("6_sa43c")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/playButton"]
+visible = false
 custom_minimum_size = Vector2(1280, 100)
 layout_mode = 0
 offset_right = 100.0
@@ -205,14 +180,20 @@ theme_override_font_sizes/normal_font_size = 50
 text = " play"
 vertical_alignment = 1
 
+[node name="spacer" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
 [node name="settingsButton" type="TextureButton" parent="Control/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1280, 100)
+custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-texture_pressed = SubResource("GradientTexture2D_vqw7c")
-texture_hover = SubResource("GradientTexture2D_w1mvj")
+texture_normal = ExtResource("8_nnxq8")
+texture_hover = ExtResource("9_c6lok")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/settingsButton"]
+visible = false
 custom_minimum_size = Vector2(1280, 100)
 layout_mode = 0
 offset_right = 100.0
@@ -224,7 +205,8 @@ text = " settings"
 vertical_alignment = 1
 
 [node name="quitButton" type="TextureButton" parent="Control/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 100)
+visible = false
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 texture_pressed = SubResource("GradientTexture2D_qq0qw")
@@ -337,4 +319,3 @@ visible = false
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/playButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/settingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/quitButton" to="." method="_on_quit_button_pressed"]

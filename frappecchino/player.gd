@@ -153,7 +153,6 @@ func _process(_delta):
 	red.position.y = green.position.y - green.size.y - 1
 	
 	var current_damage_tint = damage_tint.modulate.a
-	print(damage_tint_target, "   ", current_damage_tint)
 	if current_damage_tint or (not current_damage_tint and damage_tint_target):
 		if not damage_tint_target and current_damage_tint <= 0.001:
 			damage_tint.modulate.a = 0.0
@@ -428,7 +427,7 @@ func apply_damage(damage_amount):
 		hp_timer.start(1.0)
 	hp_taken += damage_amount
 	hp -= damage_amount
-	damage_tint_target = (damage_amount/max_hp) * 5.0
+	damage_tint_target = clamp((damage_amount/max_hp) * 5.0, 0.0, 100.0)
 
 func update_score(amount: int):
 	if amount == 0:
