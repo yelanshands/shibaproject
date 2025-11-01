@@ -3,6 +3,7 @@ extends Node3D
 const NPC = preload("uid://ro3nbpeyv3v5")
 const bunker = preload("uid://cni0o27ay0kyj")
 const tree1 = preload("uid://cynf1wjef4r23")
+const rock1 = preload("uid://c82xxyrp0ed0r")
 
 @onready var enemy_plane1: MeshInstance3D = $Background/Slope1/plane
 @onready var enemy_plane2: MeshInstance3D = $Background/Slope2/plane
@@ -37,16 +38,17 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	enemy_planes = [enemy_plane1, enemy_plane2, enemy_plane3, enemy_plane4, enemy_plane5, enemy_plane6]
-	for index in range(0, 3):
-		spawn_wave(index)
-	
 	slopes = [slope1, slope2, slope3, slope4, slope5, slope6]
 	default_slopes = [slope1, slope2, slope3, slope4, slope5, slope6]
 	
 	structure_types.append(bunker)
-	
 	nature_types.append(tree1)
-
+	nature_types.append(rock1)
+	
+	for index in range(0, 3):
+		spawn_wave(index)
+		spawn_nature(index)
+		
 	current_zloc = slope_mesh_size.x*3
 	
 	fade_animation.play_backwards("fade_out")
@@ -131,13 +133,20 @@ func spawn_wave(index: int) -> void:
 
 func spawn_nature(index: int) -> void:
 	if player.hp > 0:
-		for x in randi_range(3, 10):
+		print("   " + str(player.global_position))
+		for x in randi_range(10, 15):
 			var nature = nature_types.pick_random().instantiate()
-			nature.position = get_random_point_on_sloped_plane(enemy_planes[index])
-			nature.position.x = clamp(nature.position.x, -125.0, 125.0)
-			nature.position.y -= 10.5
 			default_slopes[index].add_child(nature)
+			nature.global_position = get_random_point_on_sloped_plane(enemy_planes[index])
+			nature.global_position.x = clamp(nature.position.x, -125.0, 125.0)
+			nature.position.y -= 10.5
+			nature.rotation.y = randf_range(-PI/2, PI/2)
+			nature.rotation_degrees.z = 12.1
+			print(nature.rotation)
+			
 			structures[index].append(nature)
+			
+			print(nature.global_position)
 
 func spawn_structure(index: int, structure: Resource) -> void:
 	if player.hp > 0 and structure:

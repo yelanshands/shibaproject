@@ -329,8 +329,10 @@ func _physics_process(delta: float) -> void:
 							elif yrot > 0:
 								angle += 0.015*clamp(((PI/3)-yrot)/(PI/3), 0.0, 1.0)
 								#print("3")
-							elif yrot > -PI/30:
-								angle += 0.012*clamp(((PI/3)-(abs(yrot)))/(PI/3), 0.0, 1.0)
+							elif yrot > -PI/80:
+								angle -= 0.014*clamp(((PI/3)-(abs(yrot)))/(PI/3), 0.0, 1.0)
+							elif yrot > -PI/20:
+								angle += 0.014*clamp(((PI/3)-(abs(yrot)))/(PI/3), 0.0, 1.0)
 								#print("4")
 							else:
 								angle += 0.02*clamp(((PI/3)-(abs(yrot)))/(PI/3), 0.0, 1.0)

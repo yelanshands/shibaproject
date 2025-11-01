@@ -9,9 +9,8 @@ top_radius = 1.2
 bottom_radius = 2.0
 height = 20.0
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_0vsy7"]
-height = 20.0
-radius = 1.8
+[sub_resource type="BoxShape3D" id="BoxShape3D_0vsy7"]
+size = Vector3(3.6, 20, 3.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h5wjy"]
 albedo_color = Color(0.1116158, 0.2883971, 0.14672899, 1)
@@ -50,6 +49,7 @@ bottom_radius = 16.0
 height = 15.0
 
 [node name="tree1" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.75, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="tree" type="StaticBody3D" parent="."]
 
@@ -58,8 +58,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 mesh = SubResource("CylinderMesh_0vsy7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="tree"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
-shape = SubResource("CylinderShape3D_0vsy7")
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 10, 0)
+shape = SubResource("BoxShape3D_0vsy7")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="tree"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.35393, 0)
