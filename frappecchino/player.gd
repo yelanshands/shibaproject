@@ -322,25 +322,25 @@ func _physics_process(delta: float) -> void:
 						if abs(yrot) <= PI/3: 
 							if yrot > PI/5:
 								angle += 0.07 * clamp(((PI/3)-yrot)/(PI/3), 0.0, 1.0)
-								print("1")
+								#print("1")
 							elif yrot > PI/30:
 								angle += 0.02*clamp(((PI/3)-yrot)/(PI/3), 0.0, 1.0)
-								print("2")
+								#print("2")
 							elif yrot > 0:
 								angle += 0.015*clamp(((PI/3)-yrot)/(PI/3), 0.0, 1.0)
-								print("3")
-							elif yrot > -PI/20:
-								angle += 0.014*clamp(((PI/3)-(abs(yrot)))/(PI/3), 0.0, 1.0)
-								print("4")
+								#print("3")
+							elif yrot > -PI/30:
+								angle += 0.012*clamp(((PI/3)-(abs(yrot)))/(PI/3), 0.0, 1.0)
+								#print("4")
 							else:
 								angle += 0.02*clamp(((PI/3)-(abs(yrot)))/(PI/3), 0.0, 1.0)
-								print("5")
+								#print("5")
 						elif yrot <= 2*PI/3 and yrot > -3*PI/5:
 							if rotation.y > 0:
 								angle += 0.04 * (yrot/(2*PI/3))
-								print("6")
-						else:
-							print("7")
+								#print("6")
+						#else:
+							#print("7")
 					rotation.y = lerp(rotation.y, angle, 0.4)
 				else:
 					target_enemy = null
@@ -427,7 +427,7 @@ func apply_damage(damage_amount):
 		hp_timer.start(1.0)
 	hp_taken += damage_amount
 	hp -= damage_amount
-	damage_tint_target = clamp((damage_amount/max_hp) * 5.0, 0.0, 100.0)
+	damage_tint_target = clamp((damage_amount/max_hp) * 5.0, 0.0, 0.5)
 
 func update_score(amount: int):
 	if amount == 0:

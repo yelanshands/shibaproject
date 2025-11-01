@@ -14,7 +14,7 @@ func _process(_delta: float) -> void:
 		closingdoor.position.y = lerp(closingdoor.position.y, 14.0, 0.15)
 		closingentrance.position.y = lerp(closingentrance.position.y, 14.0, 0.15)
 		openingdoor.scale.x = lerp(openingscale, 0.01, 0.05)
-		snow.position.y = lerp(snow.position.y, -2.0, 0.05)
+		snow.position.y = lerp(snow.position.y, -2.0, 0.2)
 	else:
 		closingdoor.position.y = 14.0
 		closingentrance.position.y = 14.0
