@@ -150,7 +150,7 @@ text = "settings"
 scroll_active = false
 
 [node name="japanese" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(625, 100)
+custom_minimum_size = Vector2(600, 100)
 layout_mode = 2
 theme = ExtResource("4_82xqq")
 theme_override_font_sizes/normal_font_size = 80
@@ -205,7 +205,6 @@ text = "english  "
 
 [node name="languagetoggle" type="CheckButton" parent="Control/MarginContainer/VBoxContainer/scroll/language/HBoxContainer"]
 layout_mode = 2
-toggle_mode = false
 
 [node name="max" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll/language/HBoxContainer"]
 layout_mode = 2

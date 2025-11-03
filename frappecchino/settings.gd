@@ -18,6 +18,7 @@ extends Node
 @onready var aim_assist_value: Label = $Control/MarginContainer/VBoxContainer/scroll/aimassist/HBoxContainer2/Value
 @onready var volume_slider: HSlider = $Control/MarginContainer/VBoxContainer/scroll/volume/HBoxContainer/volume
 @onready var volume_label: Label = $Control/MarginContainer/VBoxContainer/scroll/volume/HBoxContainer2/Value
+@onready var language_toggle: CheckButton = $Control/MarginContainer/VBoxContainer/scroll/language/HBoxContainer/languagetoggle
 
 var rot_x = 0
 var rot_y = 0
@@ -31,6 +32,7 @@ func _ready() -> void:
 	mouse_sens_slider.value = globals.settings_data.mouse_sens
 	fov_slider.value = globals.settings_data.fov
 	aim_assist_toggle.button_pressed = globals.settings_data.aim_assist
+	language_toggle.button_pressed = globals.settings_data.language
 	volume_slider.value = globals.settings_data.volume
 
 func _process(_delta) -> void:

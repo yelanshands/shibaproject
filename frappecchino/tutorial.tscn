@@ -907,8 +907,8 @@ libraries = {
 [node name="Label" type="Label" parent="CanvasLayer"]
 offset_left = 709.0
 offset_top = 984.0
-offset_right = 1402.0
-offset_bottom = 1045.0
+offset_right = 1875.0
+offset_bottom = 1052.0
 theme_override_fonts/font = ExtResource("2_5mrt3")
 theme_override_font_sizes/font_size = 48
 text = "Press ENTER to skip tutorial."

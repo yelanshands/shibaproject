@@ -9,6 +9,7 @@ extends Control
 var skipped: bool = false
 
 func _ready() -> void:
+	if globals.settings_data.language: label.text = "「ENTERキーでスキップ。」"
 	label.modulate.a = 0.0
 	animation_player.play_backwards("fade_out")
 	await animation_player.animation_finished

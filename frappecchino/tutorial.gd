@@ -14,6 +14,7 @@ const Npc = preload("res://npc.tscn")
 @onready var player: CharacterBody3D = $Player
 @onready var fade_animation: AnimationPlayer = $CanvasLayer/AnimationPlayer
 @onready var skip_animation: AnimationPlayer = $CanvasLayer/SkipAnimation
+@onready var skip_label: Label = $CanvasLayer/Label
 
 var skipped: bool = false
 
@@ -47,6 +48,10 @@ var checkpoint: Vector3
 var checkpoint_rot: Vector3
 
 func _ready() -> void:
+	if globals.settings_data.language: 
+		skip_label.text = "「ENTERキーでチュートリアルをスキップ。」"
+		skip_label.position.x = 600
+	
 	range_enemies = [n1, n2, n3, n4]
 	
 	player.max_hp = 500.0
