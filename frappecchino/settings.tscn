@@ -15,7 +15,7 @@ colors = PackedColorArray(1, 1, 1, 0.784314, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qq0qw"]
 gradient = SubResource("Gradient_86xni")
-width = 165
+width = 315
 height = 100
 
 [sub_resource type="Gradient" id="Gradient_qq0qw"]
@@ -23,7 +23,7 @@ colors = PackedColorArray(1, 1, 1, 0.196078, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_2ayvv"]
 gradient = SubResource("Gradient_qq0qw")
-width = 165
+width = 315
 height = 100
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_86xni"]
@@ -142,11 +142,20 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Settings" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(1000, 100)
+custom_minimum_size = Vector2(325, 100)
 layout_mode = 2
 theme = ExtResource("4_82xqq")
 theme_override_font_sizes/normal_font_size = 80
 text = "settings"
+scroll_active = false
+
+[node name="japanese" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(625, 100)
+layout_mode = 2
+theme = ExtResource("4_82xqq")
+theme_override_font_sizes/normal_font_size = 80
+text = "設定"
+scroll_active = false
 
 [node name="quitButton" type="TextureButton" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(165, 100)
@@ -163,15 +172,56 @@ offset_bottom = 100.0
 mouse_filter = 2
 theme = ExtResource("4_82xqq")
 theme_override_font_sizes/normal_font_size = 50
-text = " close"
+text = " close 閉じる"
 vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 75)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
 [node name="scroll" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="language" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/scroll"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/scroll/language"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll/language/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3lj6o")
+theme_override_font_sizes/font_size = 36
+text = "language 言語 "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/scroll/language"]
+layout_mode = 2
+
+[node name="min" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll/language/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3lj6o")
+theme_override_font_sizes/font_size = 36
+text = "english  "
+
+[node name="languagetoggle" type="CheckButton" parent="Control/MarginContainer/VBoxContainer/scroll/language/HBoxContainer"]
+layout_mode = 2
+toggle_mode = false
+
+[node name="max" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll/language/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3lj6o")
+theme_override_font_sizes/font_size = 36
+text = "  日本語"
+
+[node name="spacer1" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll/language/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3lj6o")
+theme_override_font_sizes/font_size = 36
+text = "    "
+
+[node name="spacer4" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
 
 [node name="volume" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/scroll"]
 layout_mode = 2
@@ -183,7 +233,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_3lj6o")
 theme_override_font_sizes/font_size = 36
-text = "volume  |  "
+text = "volume 音量 |  "
 
 [node name="Value" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll/volume/HBoxContainer2"]
 layout_mode = 2
@@ -224,11 +274,11 @@ text = "    "
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_3lj6o")
 theme_override_font_sizes/font_size = 32
-text = "Reset"
+text = "↻"
 
 [node name="spacer1" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 
 [node name="MouseSens" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/scroll"]
 layout_mode = 2
@@ -240,7 +290,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_3lj6o")
 theme_override_font_sizes/font_size = 36
-text = "mouse sensitivity  |  "
+text = "mouse sensitivity マウス感度 |  "
 
 [node name="Value" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll/MouseSens/HBoxContainer2"]
 layout_mode = 2
@@ -283,11 +333,11 @@ text = "    "
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_3lj6o")
 theme_override_font_sizes/font_size = 32
-text = "Reset"
+text = "↻"
 
 [node name="spacer2" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 
 [node name="fov" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/scroll"]
 layout_mode = 2
@@ -299,7 +349,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_3lj6o")
 theme_override_font_sizes/font_size = 36
-text = "FOV  |  "
+text = "FOV 視野角 |  "
 
 [node name="Value" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll/fov/HBoxContainer2"]
 layout_mode = 2
@@ -342,11 +392,11 @@ text = "    "
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_3lj6o")
 theme_override_font_sizes/font_size = 32
-text = "Reset"
+text = "↻"
 
 [node name="spacer3" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 
 [node name="aimassist" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/scroll"]
 layout_mode = 2
@@ -358,7 +408,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_3lj6o")
 theme_override_font_sizes/font_size = 36
-text = "aim assist  |  "
+text = "aim assist エイムアシスト |  "
 
 [node name="Value" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll/aimassist/HBoxContainer2"]
 layout_mode = 2
@@ -395,11 +445,7 @@ text = "    "
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_3lj6o")
 theme_override_font_sizes/font_size = 32
-text = "Reset"
-
-[node name="spacer4" type="Label" parent="Control/MarginContainer/VBoxContainer/scroll"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
+text = "↻"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_y43lv")
@@ -479,6 +525,7 @@ libraries = {
 }
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/quitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="toggled" from="Control/MarginContainer/VBoxContainer/scroll/language/HBoxContainer/languagetoggle" to="." method="_on_languagetoggle_toggled"]
 [connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/scroll/volume/HBoxContainer/volume" to="." method="_on_volume_value_changed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/scroll/volume/HBoxContainer/resetVolume" to="." method="_on_reset_volume_pressed"]
 [connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/scroll/MouseSens/HBoxContainer/MouseSensSlider" to="." method="_on_mouse_sens_slider_value_changed"]

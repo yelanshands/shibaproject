@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c82xxyrp0ed0r"]
+[gd_scene load_steps=3 format=3 uid="uid://l8s7flqe7epa"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_drm8p"]
 radius = 2.5
@@ -6,23 +6,23 @@ height = 5.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_drm8p"]
 
-[node name="rock1" type="Node3D"]
+[node name="rock2" type="Node3D"]
 
 [node name="rock" type="StaticBody3D" parent="."]
 collision_layer = 65
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="rock"]
-transform = Transform3D(1.3685555, 0, 0.40936577, 0, 0.5, 0, -0.61404884, 0, 0.91237044, -0.5458338, 0.23120642, -1.2513375)
+transform = Transform3D(0.13311845, 0, 0.1792323, 0, 0.099999994, 0, -0.26884842, 0, 0.088745624, -0.6487592, 0.23120642, 0.7249726)
 mesh = SubResource("CapsuleMesh_drm8p")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="rock"]
-transform = Transform3D(0.6383324, 0.063538335, 0.4440303, -0.18058832, 0.29273272, -0.074093714, -0.7482777, -0.016445134, 0.39667016, 2.881182, 0.49579716, 0.7938142)
+transform = Transform3D(-0.29773164, 0.14054197, -0.2610613, 0.13697872, 0.2646288, 0.15328617, 0.3776145, 0.014817465, -0.26143897, 0.7160022, 0.49579716, 0.3854762)
 mesh = SubResource("CapsuleMesh_drm8p")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="rock"]
-transform = Transform3D(0.41272923, 0, 0.28223145, 0, 0.2, 0, -0.28223145, 0, 0.41272923, 0.4513569, 0.026001215, 1.8405972)
+transform = Transform3D(0.21132226, 0, 0.24782951, 0, 0.15, 0, -0.30978686, 0, 0.16905782, -0.21255907, 0.026001215, -0.6762947)
 mesh = SubResource("CapsuleMesh_drm8p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="rock"]
-transform = Transform3D(3.535534, 0, 3.535534, 0, 1.5, 0, -3.535534, 0, 3.535534, 0, 1.25, 0)
+transform = Transform3D(2.1213202, 0, 2.1213202, 0, 0.9, 0, -2.1213202, 0, 2.1213202, 0, 0.4994626, 0)
 shape = SubResource("BoxShape3D_drm8p")

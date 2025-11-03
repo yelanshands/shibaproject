@@ -35,6 +35,14 @@ var area4text = "Now slide and jump at the same time to get through the gap."
 var area5text = "Press C to aim. Aiming zooms in, decreases sensitivity, and decreases recoil, allowing for better accuracy. Shoot the target."
 var area6text = "Slide and jump to break the glass and escape."
 
+var area0text_jp = "「爆発が起こる前に急げ。WASDで移動。前進しながらSPACEでジャンプ。」"
+var area1text_jp = "「LEFT CLICKで標的を撃て。ヘッドショットは胴体よりも大きなダメージを与えるぞ。脚よりも胴体の方が強いダメージだ。」"
+var area2text_jp = "「前進しながらSHIFTでスライディング。」"
+var area3text_jp = "「標的を排除して、もう一度SHIFTでスライディング。」"
+var area4text_jp = "「スライディングしながらジャンプして、隙間を通り抜けろ。」"
+var area5text_jp = "「Cを押してエイム。エイム中はズームインし、感度と反動が減少し、命中精度が上がる。標的を撃て。」"
+var area6text_jp = "「スライディングとジャンプでガラスを破り、脱出しろ。」"
+
 var checkpoint: Vector3
 var checkpoint_rot: Vector3
 
@@ -112,24 +120,24 @@ func enemiesAlive(enemies: Array) -> int:
 			
 func _on_area_1_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
-		dialogue.streamDialogue(area1text)
+		dialogue.streamDialogue(area1text_jp if globals.settings_data.language else area1text)
 
 func _on_area_2_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
-		dialogue.streamDialogue(area2text)
+		dialogue.streamDialogue(area2text_jp if globals.settings_data.language else area2text)
 
 func _on_area_3_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
-		dialogue.streamDialogue(area3text)
+		dialogue.streamDialogue(area3text_jp if globals.settings_data.language else area3text)
 
 func _on_area_4_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
-		dialogue.streamDialogue(area4text)
+		dialogue.streamDialogue(area4text_jp if globals.settings_data.language else area4text)
 
 func _on_area_5_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
-		dialogue.streamDialogue(area5text)
+		dialogue.streamDialogue(area5text_jp if globals.settings_data.language else area5text)
 
 func _on_area_6_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
-		dialogue.streamDialogue(area6text)
+		dialogue.streamDialogue(area6text_jp if globals.settings_data.language else area6text)

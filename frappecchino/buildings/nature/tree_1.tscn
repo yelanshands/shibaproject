@@ -52,6 +52,7 @@ height = 15.0
 transform = Transform3D(1, 0, 0, 0, 0.75, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="tree" type="StaticBody3D" parent="."]
+collision_layer = 65
 
 [node name="trunk" type="MeshInstance3D" parent="tree"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)

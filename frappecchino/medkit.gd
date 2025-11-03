@@ -12,7 +12,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		body.apply_damage((-value) if body.hp + value <= body.max_hp else (-(body.max_hp - body.hp)))
 		self.visible = false
 		dialogue_id = game.dialogue.current_dialogue_id + 1
-		game.dialogue.streamDialogue("Healed 150 HP.", "Medkit obtained!")
+		game.dialogue.streamDialogue("150 HP 回復。" if globals.settings_data.language else "Healed 150 HP.", "「回復キットを入手！」" if globals.settings_data.language else "Medkit obtained!")
 		timer.start(5.0)
 		await timer.timeout
 		game.dialogue.endDialogue(dialogue_id)

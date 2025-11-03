@@ -87,6 +87,9 @@ func _on_volume_value_changed(value: float) -> void:
 	globals.settings_data.volume = volume_slider.value
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(volume_slider.value/100))
 
+func _on_languagetoggle_toggled(toggled_on: bool) -> void:
+	globals.settings_data.language = toggled_on
+
 func _on_reset_volume_pressed() -> void:
 	volume_slider.set_value(globals.settings_data.default_volume)
 
