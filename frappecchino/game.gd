@@ -34,6 +34,7 @@ var dropping: bool = true
 var structures: Array = [[], [], [], [], [], []]
 var structure_types: Array = []
 var nature_types: Array = []
+var slope_surface_y: float
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -68,6 +69,8 @@ func _process(_delta: float) -> void:
 	var player_pos = player.global_position
 	barriers.global_position.y = player_pos.y
 	barriers.global_position.z = player_pos.z
+	
+	slope_surface_y = -tan(slope_mesh_size.y/slope_mesh_size.x) * player_pos.z
 	
 	if player.hp <= 0: 
 		if player.animation.assigned_animation == "dying":

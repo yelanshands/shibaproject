@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://cni0o27ay0kyj"]
+[gd_scene load_steps=65 format=3 uid="uid://cni0o27ay0kyj"]
 
 [ext_resource type="Material" uid="uid://dmnablfa3o5ma" path="res://buildings/building.tres" id="1_5bpc0"]
 [ext_resource type="Script" uid="uid://ben7cdtcfne6j" path="res://buildings/bunker.gd" id="1_u7k2n"]
@@ -170,6 +170,8 @@ points = PackedVector3Array(5, 5, 5, 5, 5, -5, -5, 5, 5, 5, -5, 5, 5, -5, -5, -5
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wiajo"]
 points = PackedVector3Array(5, 5, 5, 5, 5, -5, -5, 5, 5, 5, -5, 5, 5, -5, -5, -5, 5, -5, -5, -5, 5, -5, -5, -5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mr67o"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_q2am5"]
 data = PackedVector3Array(-5, 5, 5, 5, 5, 5, -5, -5, 5, 5, 5, 5, 5, -5, 5, -5, -5, 5, 5, 5, -5, -5, 5, -5, 5, -5, -5, -5, 5, -5, -5, -5, -5, 5, -5, -5, 5, 5, 5, 5, 5, -5, 5, -5, 5, 5, 5, -5, 5, -5, -5, 5, -5, 5, -5, 5, -5, -5, 5, 5, -5, -5, -5, -5, 5, 5, -5, -5, 5, -5, -5, -5, 5, 5, 5, -5, 5, 5, 5, 5, -5, -5, 5, 5, -5, 5, -5, 5, 5, -5, -5, -5, 5, 5, -5, 5, -5, -5, -5, 5, -5, 5, 5, -5, -5, -5, -5, -5)
@@ -479,21 +481,21 @@ transform = Transform3D(1.5, 0, 0, 0, 7, 0, 0, 0, 4, -290.2, 33, 65.799995)
 shape = SubResource("ConvexPolygonShape3D_ya64h")
 
 [node name="leftwalllight" type="MeshInstance3D" parent="pillars"]
-transform = Transform3D(0.5, 0, 0, 0, 6.7, 0, 0, 0, 1, -290, 32, 41.99998)
+transform = Transform3D(0.49999997, 0, 0, 0, 6.6999993, 0, 0, 0, 0.99999994, -289.99997, 31.999998, 45.333313)
 mesh = SubResource("BoxMesh_3wac5")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="pillars"]
-transform = Transform3D(0.5, 0, 0, 0, 6.7, 0, 0, 0, 1, -290, 32, 41.99998)
+transform = Transform3D(0.49999997, 0, 0, 0, 6.6999993, 0, 0, 0, 0.99999994, -289.99997, 31.999998, 45.333313)
 shape = SubResource("ConvexPolygonShape3D_4qto5")
 
 [node name="rightwalllight" type="MeshInstance3D" parent="pillars"]
-transform = Transform3D(0.5, 0, 0, 0, 6.7, 0, 0, 0, 1, -290, 32, -42)
+transform = Transform3D(0.49999997, 0, 0, 0, 6.6999993, 0, 0, 0, 0.99999994, -289.99997, 31.999998, -45.333332)
 mesh = SubResource("BoxMesh_3wac5")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="pillars"]
-transform = Transform3D(0.5, 0, 0, 0, 6.7, 0, 0, 0, 1, -290, 32, -42)
+transform = Transform3D(0.49999997, 0, 0, 0, 6.6999993, 0, 0, 0, 0.99999994, -289.99997, 31.999998, -45.333332)
 shape = SubResource("ConvexPolygonShape3D_ugy7u")
 
 [node name="exitroom" type="StaticBody3D" parent="."]
@@ -721,12 +723,21 @@ transform = Transform3D(5.7275653, 0, 0.7071067, 0, 6, 0, -5.7275653, 0, 0.70710
 shape = SubResource("ConvexPolygonShape3D_2gks7")
 
 [node name="frontcenter" type="MeshInstance3D" parent="basement/exit2"]
-transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 4.1, 0, 45, 0)
+transform = Transform3D(0.9999999, 0, -5.826451e-14, 0, 6.999999, 0, 1.4210855e-14, 0, 4.1, 0, 25.000015, 0)
 mesh = SubResource("BoxMesh_i4dc2")
 skeleton = NodePath("../../..")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="basement/exit2"]
-transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 4.1, 0, 45, 0)
+transform = Transform3D(0.9999999, 0, -5.826451e-14, 0, 6.999999, 0, 1.4210855e-14, 0, 4.1, 0, 25.000015, 0)
+shape = SubResource("ConvexPolygonShape3D_eleah")
+
+[node name="elevatorfloor" type="MeshInstance3D" parent="basement/exit2"]
+transform = Transform3D(-4.3711363e-08, -10, -7.549789e-07, 0.9999999, -4.371139e-07, 7.549784e-07, -1.5099566e-07, -1.5099578e-06, 5, -35, -9.999939, -5.284848e-06)
+mesh = SubResource("BoxMesh_i4dc2")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="basement/exit2"]
+transform = Transform3D(-4.3711363e-08, -10, -7.549789e-07, 0.9999999, -4.371139e-07, 7.549784e-07, -1.5099566e-07, -1.5099578e-06, 5, -35, -9.999939, -5.284848e-06)
 shape = SubResource("ConvexPolygonShape3D_eleah")
 
 [node name="leftwall" type="MeshInstance3D" parent="basement/exit2"]
@@ -755,6 +766,24 @@ skeleton = NodePath("../../..")
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="basement/exit2"]
 transform = Transform3D(-1.7484555e-07, 0, -8, 0, 0.5, 0, 4, 0, -3.496911e-07, -35, 62.5, -1.5298986e-06)
 shape = SubResource("ConvexPolygonShape3D_iga71")
+
+[node name="rightwalllight" type="MeshInstance3D" parent="basement/exit2"]
+transform = Transform3D(0.67, 0, -8.526513e-14, 0, 6.6999993, 0, 2.1316282e-14, 0, 0.9999999, -75.50061, 27.00003, -21.99995)
+mesh = SubResource("BoxMesh_3wac5")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="basement/exit2"]
+transform = Transform3D(0.67, 0, -8.526513e-14, 0, 6.6999993, 0, 2.1316282e-14, 0, 0.9999999, -75.50061, 27.00003, -21.99995)
+shape = SubResource("ConvexPolygonShape3D_ugy7u")
+
+[node name="leftwalllight" type="MeshInstance3D" parent="basement/exit2"]
+transform = Transform3D(0.67, 0, -8.526513e-14, 0, 6.6999993, 0, 2.1316282e-14, 0, 0.9999999, -75.501, 27, 22)
+mesh = SubResource("BoxMesh_3wac5")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="basement/exit2"]
+transform = Transform3D(0.67, 0, -8.526513e-14, 0, 6.6999993, 0, 2.1316282e-14, 0, 0.9999999, -75.50061, 27.00003, -21.99995)
+shape = SubResource("ConvexPolygonShape3D_ugy7u")
 
 [node name="enterroom2" type="StaticBody3D" parent="basement"]
 transform = Transform3D(-0.99999976, 0, -1.5099575e-07, 0, 0.99999976, 0, 1.5099575e-07, 0, -0.99999976, -724.99976, -280.6664, -3.059797e-06)
@@ -920,21 +949,21 @@ transform = Transform3D(1.5, 0, 0, 0, 7, 0, 0, 0, 4, -290.2, 33, 65.799995)
 shape = SubResource("ConvexPolygonShape3D_ya64h")
 
 [node name="leftwalllight" type="MeshInstance3D" parent="basement/pillars2"]
-transform = Transform3D(0.5, 0, 0, 0, 6.7, 0, 0, 0, 1, -290, 32, 41.99998)
+transform = Transform3D(0.49999997, 0, 0, 0, 6.6999993, 0, 0, 0, 0.99999994, -290.00006, 32.000015, 45.333313)
 mesh = SubResource("BoxMesh_3wac5")
 skeleton = NodePath("../../..")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="basement/pillars2"]
-transform = Transform3D(0.5, 0, 0, 0, 6.7, 0, 0, 0, 1, -290, 32, 41.99998)
+transform = Transform3D(0.49999997, 0, 0, 0, 6.6999993, 0, 0, 0, 0.99999994, -290.00006, 32.000015, 45.333313)
 shape = SubResource("ConvexPolygonShape3D_4qto5")
 
 [node name="rightwalllight" type="MeshInstance3D" parent="basement/pillars2"]
-transform = Transform3D(0.5, 0, 0, 0, 6.7, 0, 0, 0, 1, -290, 32, -42)
+transform = Transform3D(0.49999997, 0, 0, 0, 6.6999993, 0, 0, 0, 0.99999994, -290.00006, 32.000015, -45.333332)
 mesh = SubResource("BoxMesh_3wac5")
 skeleton = NodePath("../../..")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="basement/pillars2"]
-transform = Transform3D(0.5, 0, 0, 0, 6.7, 0, 0, 0, 1, -290, 32, -42)
+transform = Transform3D(0.49999997, 0, 0, 0, 6.6999993, 0, 0, 0, 0.99999994, -290.00006, 32.000015, -45.333332)
 shape = SubResource("ConvexPolygonShape3D_ugy7u")
 
 [node name="exitroom2" type="StaticBody3D" parent="basement"]
@@ -1155,6 +1184,15 @@ skeleton = NodePath("../../..")
 transform = Transform3D(-0.9999999, -5.684342e-14, 9.059748e-07, -3.5527137e-15, 20, 3.3881318e-21, -1.5099579e-07, 0, -5.9999995, 9.833252, -61.666626, -1.2914013e-06)
 shape = SubResource("ConvexPolygonShape3D_tyxab")
 
+[node name="exit" type="Area3D" parent="basement"]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -1199.9995, -268.3333, 0)
+collision_layer = 0
+collision_mask = 8192
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="basement/exit"]
+transform = Transform3D(80, 0, 0, 0, 80, 0, 0, 0, 80, 0, 11.666687, 0)
+shape = SubResource("BoxShape3D_mr67o")
+
 [node name="NPC" parent="." instance=ExtResource("3_5bpc0")]
 transform = Transform3D(0.86602503, 0, 0.49999988, 0, 0.99999976, 0, -0.49999988, 0, 0.86602503, -271.66663, 0, -63.33332)
 enemy_type = "sharpshooter"
@@ -1213,5 +1251,7 @@ transform = Transform3D(15, 0, 0, 0, 7, 0, 0, 0, 15, 0, 0, 43.333324)
 
 [node name="shelf" parent="furniture" instance=ExtResource("9_2gks7")]
 transform = Transform3D(-6.556707e-07, 0, -14.999997, 0, 14.999997, 0, 14.999997, 0, -6.556707e-07, 0, 0, 63.33333)
+
+[connection signal="body_entered" from="basement/exit" to="." method="_on_exit_body_entered"]
 
 [editable path="plushie"]

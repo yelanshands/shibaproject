@@ -493,3 +493,10 @@ func _on_quit_button_pressed() -> void:
 	if not button_pressed:
 		button_pressed = true
 		fade_and_change_scene("res://home.tscn")
+		
+func yteleport_fade(target_ypos: float) -> void:
+	fade_animation.play("fade_out")
+	await fade_animation.animation_finished
+	fade_animation.play_backwards("fade_out")
+	global_position.y = target_ypos
+	
