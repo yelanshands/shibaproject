@@ -6,6 +6,7 @@ const tree1 = preload("uid://cynf1wjef4r23")
 const rock1 = preload("uid://c82xxyrp0ed0r")
 const rock2 = preload("uid://l8s7flqe7epa")
 const obstacle1 = preload("uid://i0nyemop5t6f")
+const obstacle2 = preload("uid://brqrbx206i0p7")
 
 @onready var enemy_plane1: MeshInstance3D = $Background/Slope1/plane
 @onready var enemy_plane2: MeshInstance3D = $Background/Slope2/plane
@@ -26,6 +27,8 @@ const obstacle1 = preload("uid://i0nyemop5t6f")
 @onready var fade_animation: AnimationPlayer = $CanvasLayer/AnimationPlayer
 @onready var dialogue: CanvasLayer = $Dialogue
 
+@export var obstacle_yoffset: float = 200.0
+
 var slopes: Array = []
 var default_slopes: Array = []
 var enemies: Array = [[], [], [], [], [], []]
@@ -34,8 +37,11 @@ var current_zloc: float
 var dropping: bool = true
 var structures: Array = [[], [], [], [], [], []]
 var structure_types: Array = []
+var obstacle_types: Array = []
 var nature_types: Array = []
 var slope_surface_y: float
+var slope_ratio: float
+var slope_deg: float
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -44,14 +50,18 @@ func _ready() -> void:
 	slopes = [slope1, slope2, slope3, slope4, slope5, slope6]
 	default_slopes = [slope1, slope2, slope3, slope4, slope5, slope6]
 	
-	structure_types = [null, bunker, obstacle1]
+	structure_types = [null, bunker]
+	obstacle_types = [null, obstacle1, obstacle2]
 	nature_types = [tree1, rock1, rock2]
 	
 	for index in range(0, 3):
 		spawn_wave(index)
 		spawn_nature(index)
+		spawn_obstacle(index)
 		
 	current_zloc = slope_mesh_size.x*3
+	slope_ratio = slope_mesh_size.y/slope_mesh_size.x
+	slope_deg = rad_to_deg(atan(slope_ratio))
 	
 	fade_animation.play_backwards("fade_out")
 	player.velocity = Vector3.ZERO
@@ -71,7 +81,9 @@ func _process(_delta: float) -> void:
 	barriers.global_position.y = player_pos.y
 	barriers.global_position.z = player_pos.z
 	
-	slope_surface_y = -tan(slope_mesh_size.y/slope_mesh_size.x) * player_pos.z
+	slope_surface_y = -tan(slope_ratio) * player_pos.z
+	
+	print("    " + str(player_pos))
 	
 	if player.hp <= 0: 
 		if player.animation.assigned_animation == "dying":
@@ -107,6 +119,7 @@ func _process(_delta: float) -> void:
 			
 			spawn_wave(index)
 			spawn_structure(index, structure_types.pick_random())
+			spawn_obstacle(index)
 			spawn_nature(index)
 			
 			slopes.append(slopes.pop_at(0))
@@ -135,6 +148,21 @@ func spawn_wave(index: int) -> void:
 		var amount: int = enemies.size()
 		arrow_label.text = ((" ".repeat(int(6 * (amount - 3.5)))) if amount > 3 else "")  + "⮝" + ((" ".repeat(int(6 * (3.5 - amount)))) if amount <= 3 else "")
 
+func spawn_obstacle(index: int) -> void:
+	if player.hp > 0:
+		for x in range(1, 3):
+			var rand_obstacle = obstacle_types.pick_random()
+			if rand_obstacle:
+				var obstacle = rand_obstacle.instantiate()
+				obstacle.rotation_degrees.z = slope_deg
+				var obstacle_zpos = default_slopes[index].global_position.z - slope_mesh_size.x/2 + x * slope_mesh_size.x/3
+				obstacle.global_position = Vector3(0.0, get_slope_surface_y(obstacle_zpos), obstacle_zpos)
+				
+				default_slopes[index].add_child(obstacle)
+				structures[index].append(obstacle)
+				
+				print(obstacle.global_position)
+			
 func spawn_nature(index: int) -> void:
 	if player.hp > 0:
 		for x in randi_range(10, 15):
@@ -143,17 +171,14 @@ func spawn_nature(index: int) -> void:
 			nature.global_position = get_random_point_on_sloped_plane(enemy_planes[index])
 			nature.global_position.x = clamp(nature.position.x, -125.0, 125.0)
 			nature.position.y -= 10.5
-			#nature.rotation.y = randf_range(-PI/2, PI/2)
-			nature.rotation_degrees.z = 12.1
+			nature.rotation_degrees.z = slope_deg
 			
 			structures[index].append(nature)
-			
-			print(nature.global_position)
 
 func spawn_structure(index: int, structure: Resource) -> void:
 	if player.hp > 0 and structure:
 		var thing = structure.instantiate()
-		thing.rotation_degrees.z = 12.1
+		thing.rotation_degrees.z = slope_deg
 		if structure == bunker:
 			thing.position.y += 1.0
 		default_slopes[index].add_child(thing)
@@ -187,3 +212,6 @@ func get_y_on_plane(plane: MeshInstance3D, x: float, z: float) -> float:
 		return p0.y
 	
 	return ((n.x * (p0.x - x)) + (n.z * (p0.z - z)) + (n.y * p0.y)) / n.y
+
+func get_slope_surface_y(delta_y: float) -> float:
+	return -tan(slope_ratio) * delta_y

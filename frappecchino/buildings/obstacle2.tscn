@@ -1,56 +1,56 @@
-[gd_scene load_steps=7 format=3 uid="uid://i0nyemop5t6f"]
+[gd_scene load_steps=7 format=3 uid="uid://brqrbx206i0p7"]
 
-[ext_resource type="Material" uid="uid://dmnablfa3o5ma" path="res://buildings/building.tres" id="2_npc50"]
+[ext_resource type="Material" uid="uid://dmnablfa3o5ma" path="res://buildings/building.tres" id="1_n8mdr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_joxgp"]
-material = ExtResource("2_npc50")
+material = ExtResource("1_n8mdr")
 size = Vector3(10, 10, 10)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_joxgp"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_n8mdr"]
 points = PackedVector3Array(5, 5, 5, 5, 5, -5, -5, 5, 5, 5, -5, 5, 5, -5, -5, -5, 5, -5, -5, -5, 5, -5, -5, -5)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_i3hum"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_irhpp"]
 points = PackedVector3Array(5, 5, 5, 5, 5, -5, -5, 5, 5, 5, -5, 5, 5, -5, -5, -5, 5, -5, -5, -5, 5, -5, -5, -5)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6g48u"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uvrqs"]
 points = PackedVector3Array(5, 5, 5, 5, 5, -5, -5, 5, 5, 5, -5, 5, 5, -5, -5, -5, 5, -5, -5, -5, 5, -5, -5, -5)
 
 [sub_resource type="PrismMesh" id="PrismMesh_joxgp"]
-material = ExtResource("2_npc50")
+material = ExtResource("1_n8mdr")
 size = Vector3(10, 10, 10)
 
 [node name="obstacle1" type="Node3D"]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+transform = Transform3D(-0.59999996, 0, 5.2453665e-08, 0, 0.59999996, 0, -5.2453665e-08, 0, -0.59999996, 0, 0, 0)
 
 [node name="pillars" type="StaticBody3D" parent="."]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 58.33333, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="pillars"]
-transform = Transform3D(5, 0, 0, 0, 13.680806, -4.698463, 0, 37.587704, 1.7101008, 0, 0, -36.666668)
+transform = Transform3D(1.9318511, 0.9023011, -1.2891719, -0.5176384, 3.3674443, -4.8112507, 1.788139e-07, 39.84779, 0.43577927, 0, -23.333332, -36.666668)
 mesh = SubResource("BoxMesh_joxgp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pillars"]
-transform = Transform3D(5, 0, 0, 0, 13.680806, -4.698463, 0, 37.587704, 1.7101008, 0, 0, -36.666668)
-shape = SubResource("ConvexPolygonShape3D_joxgp")
+transform = Transform3D(1.9318511, 0.9023011, -1.2891719, -0.5176384, 3.3674443, -4.8112507, 1.788139e-07, 39.84779, 0.43577927, 0, -23.333332, -36.666668)
+shape = SubResource("ConvexPolygonShape3D_n8mdr")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="pillars"]
-transform = Transform3D(5, 0, 0, 0, 32.76608, 2.8678825, 0, -22.94306, 4.09576, 0, -1.1666679, 238.33334)
+transform = Transform3D(3.393016, -17.54421, 0.88881594, 1.25, 22.584534, 1.2178102, -3.4532504, -9.063086, 1.3141323, 41.666664, -1.1666679, 178.33331)
 mesh = SubResource("BoxMesh_joxgp")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="pillars"]
-transform = Transform3D(5, 0, 0, 0, 32.76608, 2.8678825, 0, -22.94306, 4.09576, 0, -1.1666679, 238.33334)
-shape = SubResource("ConvexPolygonShape3D_i3hum")
+transform = Transform3D(3.393016, -17.54421, 0.88881594, 1.25, 22.584534, 1.2178102, -3.4532504, -9.063086, 1.3141323, 41.666664, -1.1666679, 178.33331)
+shape = SubResource("ConvexPolygonShape3D_irhpp")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="pillars"]
-transform = Transform3D(2.4999998, 34.641018, 1.7206382e-07, 0, 1.5894575e-06, -5, -4.3301272, 20, 9.934108e-08, 0, -34.999992, 50.000004)
+transform = Transform3D(-1.2940958, 28.977772, -8.444392e-08, 0, -1.3113415e-06, -1.9999999, -4.8296285, -7.764575, 2.2626688e-08, 0, -54.99999, 50.000004)
 mesh = SubResource("BoxMesh_joxgp")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="pillars"]
-transform = Transform3D(2.4999998, 34.641018, 1.7206382e-07, 0, 1.5894575e-06, -5, -4.3301272, 20, 9.934108e-08, 0, -34.999992, 50.000004)
-shape = SubResource("ConvexPolygonShape3D_6g48u")
+transform = Transform3D(-1.2940958, 28.977772, -8.444392e-08, 0, -1.3113415e-06, -1.9999999, -4.8296285, -7.764575, 2.2626688e-08, 0, -54.99999, 50.000004)
+shape = SubResource("ConvexPolygonShape3D_uvrqs")
 
 [node name="bits1" type="StaticBody3D" parent="."]
-transform = Transform3D(1.4488884, 0, -0.3882285, 0, 1.4999998, 0, 0.3882285, 0, 1.4488884, 48.33333, 0, -119.999954)
+transform = Transform3D(1.4999996, 0, 0, 0, 1.4999998, 0, 0, 0, 1.4999996, 84.99997, 3.3333242, -4.9999866)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="bits1"]
 transform = Transform3D(0.86602503, -0.49999988, 0, 0.43301266, 0.7499996, -0.49999988, 0.24999994, 0.43301252, 0.86602503, -6.666666, 0, 0)
@@ -65,7 +65,7 @@ transform = Transform3D(-0.38963056, -1.256144, -0.61277485, 0.23554596, 0.74532
 mesh = SubResource("PrismMesh_joxgp")
 
 [node name="bits2" type="StaticBody3D" parent="."]
-transform = Transform3D(1.0392303, 0, -0.59999985, 0, 1.1999997, 0, 0.59999985, 0, 1.0392303, 8.333293, 1.6666663, 228.33331)
+transform = Transform3D(1.0392303, 0, -0.59999985, 0, 1.1999997, 0, 0.59999985, 0, 1.0392303, 21.666624, 1.6666663, 179.99997)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="bits2"]
 transform = Transform3D(0.7891488, -0.047367364, -0.61237234, -0.43559548, 0.6597393, -0.61237234, 0.43301272, 0.7499996, 0.49999955, 5.361473, 0, -20.833328)
@@ -88,7 +88,7 @@ transform = Transform3D(0.32796982, -1.3123947, 1.3122367, -1.761252, -0.6658543
 mesh = SubResource("PrismMesh_joxgp")
 
 [node name="bits3" type="StaticBody3D" parent="."]
-transform = Transform3D(1.0392303, 0, -0.59999985, 0, 1.1999997, 0, 0.59999985, 0, 1.0392303, -121.666695, 1.6666663, -71.666626)
+transform = Transform3D(0.49999988, 0, -0.8660252, 0, 0.99999976, 0, 0.8660252, 0, 0.49999988, -41.666702, 1.6666663, -151.6666)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="bits3"]
 transform = Transform3D(0.5832752, 1.1334168, -0.2552568, -0.6069917, 0.54082763, 1.014429, 0.9906316, -0.3359633, 0.7718662, -6.666664, 0, -13.888889)
@@ -111,5 +111,5 @@ transform = Transform3D(-0.31800467, -0.10172889, 1.3512787, -1.2426261, 0.20907
 mesh = SubResource("PrismMesh_joxgp")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="bits3"]
-transform = Transform3D(2.2944455, -0.3824492, 0.9161073, -0.9624852, -1.4221534, 1.8168925, 0.24319041, -2.020201, -1.4524626, -0.8725281, 5.0000033, 6.5696487)
+transform = Transform3D(2.4030435, -0.2249583, 0.65174985, -0.6872756, -0.9703713, 2.1990967, 0.055093467, -2.2929838, -0.9945823, -12.032776, -6.666664, 5.8997917)
 mesh = SubResource("PrismMesh_joxgp")
