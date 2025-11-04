@@ -1,0 +1,128 @@
+[gd_scene load_steps=8 format=3 uid="uid://i0nyemop5t6f"]
+
+[ext_resource type="Material" uid="uid://dmnablfa3o5ma" path="res://buildings/building.tres" id="2_npc50"]
+[ext_resource type="PackedScene" uid="uid://ro3nbpeyv3v5" path="res://npc.tscn" id="4_s6k2h"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_joxgp"]
+material = ExtResource("2_npc50")
+size = Vector3(10, 10, 10)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_joxgp"]
+points = PackedVector3Array(5, 5, 5, 5, 5, -5, -5, 5, 5, 5, -5, 5, 5, -5, -5, -5, 5, -5, -5, -5, 5, -5, -5, -5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_i3hum"]
+points = PackedVector3Array(5, 5, 5, 5, 5, -5, -5, 5, 5, 5, -5, 5, 5, -5, -5, -5, 5, -5, -5, -5, 5, -5, -5, -5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6g48u"]
+points = PackedVector3Array(5, 5, 5, 5, 5, -5, -5, 5, 5, 5, -5, 5, 5, -5, -5, -5, 5, -5, -5, -5, 5, -5, -5, -5)
+
+[sub_resource type="PrismMesh" id="PrismMesh_joxgp"]
+material = ExtResource("2_npc50")
+size = Vector3(10, 10, 10)
+
+[node name="obstacle1" type="Node3D"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="pillars" type="StaticBody3D" parent="."]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 58.33333, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="pillars"]
+transform = Transform3D(5, 0, 0, 0, 13.680806, -4.698463, 0, 37.587704, 1.7101008, 0, 0, -36.666668)
+mesh = SubResource("BoxMesh_joxgp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pillars"]
+transform = Transform3D(5, 0, 0, 0, 13.680806, -4.698463, 0, 37.587704, 1.7101008, 0, 0, -36.666668)
+shape = SubResource("ConvexPolygonShape3D_joxgp")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="pillars"]
+transform = Transform3D(5, 0, 0, 0, 32.76608, 2.8678825, 0, -22.94306, 4.09576, 0, -1.1666679, 238.33334)
+mesh = SubResource("BoxMesh_joxgp")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="pillars"]
+transform = Transform3D(5, 0, 0, 0, 32.76608, 2.8678825, 0, -22.94306, 4.09576, 0, -1.1666679, 238.33334)
+shape = SubResource("ConvexPolygonShape3D_i3hum")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="pillars"]
+transform = Transform3D(2.4999998, 34.641018, 1.7206382e-07, 0, 1.5894575e-06, -5, -4.3301272, 20, 9.934108e-08, 0, -34.999992, 50.000004)
+mesh = SubResource("BoxMesh_joxgp")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="pillars"]
+transform = Transform3D(2.4999998, 34.641018, 1.7206382e-07, 0, 1.5894575e-06, -5, -4.3301272, 20, 9.934108e-08, 0, -34.999992, 50.000004)
+shape = SubResource("ConvexPolygonShape3D_6g48u")
+
+[node name="bits1" type="StaticBody3D" parent="."]
+transform = Transform3D(1.4488884, 0, -0.3882285, 0, 1.4999998, 0, 0.3882285, 0, 1.4488884, 48.33333, 0, -119.999954)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bits1"]
+transform = Transform3D(0.86602503, -0.49999988, 0, 0.43301266, 0.7499996, -0.49999988, 0.24999994, 0.43301252, 0.86602503, -6.666666, 0, 0)
+mesh = SubResource("PrismMesh_joxgp")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="bits1"]
+transform = Transform3D(0.47274193, -0.18118607, -0.86237204, -0.30618584, 0.8838832, -0.35355332, 0.8262953, 0.43118602, 0.36237228, -10.000011, -1.6666663, -14.9999895)
+mesh = SubResource("PrismMesh_joxgp")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="bits1"]
+transform = Transform3D(-0.38963056, -1.256144, -0.61277485, 0.23554596, 0.7453231, -1.0317472, 1.9474868, -0.3414606, 0.002191582, 6.666653, -3.3333325, -4.9999914)
+mesh = SubResource("PrismMesh_joxgp")
+
+[node name="bits2" type="StaticBody3D" parent="."]
+transform = Transform3D(1.0392303, 0, -0.59999985, 0, 1.1999997, 0, 0.59999985, 0, 1.0392303, 8.333293, 1.6666663, 228.33331)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bits2"]
+transform = Transform3D(0.7891488, -0.047367364, -0.61237234, -0.43559548, 0.6597393, -0.61237234, 0.43301272, 0.7499996, 0.49999955, 5.361473, 0, -20.833328)
+mesh = SubResource("PrismMesh_joxgp")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="bits2"]
+transform = Transform3D(0.66389227, -0.2578617, -0.701964, -0.6511446, 0.26230365, -0.7121848, 0.367773, 0.9298945, 0.006235913, 17.777767, -1.6666663, -14.999985)
+mesh = SubResource("PrismMesh_joxgp")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="bits2"]
+transform = Transform3D(0.6150829, 0.1325744, -0.49406177, -0.30896723, -0.51952344, -0.5240559, -0.40769133, 0.59373343, -0.34823605, 28.888885, -4.444444, -6.6666565)
+mesh = SubResource("PrismMesh_joxgp")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="bits2"]
+transform = Transform3D(-0.4323002, -0.6000827, -1.0770137, 0.71169466, 0.6078038, -0.8798643, 0.99830246, -0.6931636, 0.16087458, 2.4999924, -1.9444435, -9.8112335)
+mesh = SubResource("PrismMesh_joxgp")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="bits2"]
+transform = Transform3D(0.32796982, -1.3123947, 1.3122367, -1.761252, -0.66585433, -0.5681288, 0.88905984, -0.83493847, -1.6095567, 18.744644, 2.2222242, 1.6585999)
+mesh = SubResource("PrismMesh_joxgp")
+
+[node name="bits3" type="StaticBody3D" parent="."]
+transform = Transform3D(1.0392303, 0, -0.59999985, 0, 1.1999997, 0, 0.59999985, 0, 1.0392303, -121.666695, 1.6666663, -71.666626)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bits3"]
+transform = Transform3D(0.5832752, 1.1334168, -0.2552568, -0.6069917, 0.54082763, 1.014429, 0.9906316, -0.3359633, 0.7718662, -6.666664, 0, -13.888889)
+mesh = SubResource("PrismMesh_joxgp")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="bits3"]
+transform = Transform3D(0.7849455, -0.72478765, 1.3223252, 0.5832636, 1.5206511, 0.48726153, -1.3905623, 0.22869982, 0.95080566, 22.536499, 2.7777786, 6.1369286)
+mesh = SubResource("PrismMesh_joxgp")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="bits3"]
+transform = Transform3D(0.91060126, 0.28995898, -0.72576106, -0.7813737, 0.31476453, -0.8546218, -0.0161345, 1.1210921, 0.42765936, 17.777771, -1.6666663, -14.999989)
+mesh = SubResource("PrismMesh_joxgp")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="bits3"]
+transform = Transform3D(-0.58027196, -0.5499689, -0.028609842, 0.19391353, -0.24294479, 0.7371399, -0.51544344, 0.52774227, 0.3095256, 28.888885, -3.055555, -6.6666603)
+mesh = SubResource("PrismMesh_joxgp")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="bits3"]
+transform = Transform3D(-0.31800467, -0.10172889, 1.3512787, -1.2426261, 0.20907274, -0.31365916, -0.21155182, -1.0751466, -0.18885031, 6.6666565, -1.9444435, -2.5943565)
+mesh = SubResource("PrismMesh_joxgp")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="bits3"]
+transform = Transform3D(2.2944455, -0.3824492, 0.9161073, -0.9624852, -1.4221534, 1.8168925, 0.24319041, -2.020201, -1.4524626, -0.8725281, 5.0000033, 6.5696487)
+mesh = SubResource("PrismMesh_joxgp")
+
+[node name="NPC" parent="." instance=ExtResource("4_s6k2h")]
+transform = Transform3D(0.7071066, 0, 0.7071066, 0, 0.99999976, 0, -0.7071066, 0, 0.7071066, 38.33333, 0, -88.33333)
+enemy_type = "snowshooter"
+
+[node name="NPC2" parent="." instance=ExtResource("4_s6k2h")]
+transform = Transform3D(0.8660252, 0, -0.49999988, 0, 0.99999976, 0, 0.49999988, 0, 0.8660252, -48.33332, 0, -151.66663)
+enemy_type = "snowshooter"
+
+[node name="NPC3" parent="." instance=ExtResource("4_s6k2h")]
+transform = Transform3D(-0.2588188, 0, 0.96592546, 0, 0.99999976, 0, -0.96592546, 0, -0.2588188, -1.6666633, 0, 218.33327)
+enemy_type = "sharpshooter"

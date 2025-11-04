@@ -5,6 +5,7 @@ const bunker = preload("uid://cni0o27ay0kyj")
 const tree1 = preload("uid://cynf1wjef4r23")
 const rock1 = preload("uid://c82xxyrp0ed0r")
 const rock2 = preload("uid://l8s7flqe7epa")
+const obstacle1 = preload("uid://i0nyemop5t6f")
 
 @onready var enemy_plane1: MeshInstance3D = $Background/Slope1/plane
 @onready var enemy_plane2: MeshInstance3D = $Background/Slope2/plane
@@ -43,7 +44,7 @@ func _ready() -> void:
 	slopes = [slope1, slope2, slope3, slope4, slope5, slope6]
 	default_slopes = [slope1, slope2, slope3, slope4, slope5, slope6]
 	
-	structure_types = [null, bunker]
+	structure_types = [null, bunker, obstacle1]
 	nature_types = [tree1, rock1, rock2]
 	
 	for index in range(0, 3):

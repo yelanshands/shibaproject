@@ -454,7 +454,7 @@ func change_collision(enabled: bool) -> void:
 func update_leaderboard() -> void:
 	for entry_index in range(high_scores.size()):
 		players.get_node("Names/" + str(entry_index + 1)).text = high_scores[entry_index][0]
-		players.get_node("Scores/" + str(entry_index + 1)).text = str(high_scores[entry_index][1])
+		players.get_node("Scores/Control/" + str(entry_index + 1)).text = str(high_scores[entry_index][1])
 						
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "glass" and animation.current_animation == "runslide" and animation.current_animation_position >= 0.1 and animation.current_animation_position <= 0.4:

@@ -732,12 +732,10 @@ libraries = {
 [node name="vbox" type="VBoxContainer" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard"]
 layout_mode = 0
 offset_left = -4.0
-offset_right = -4.0
-offset_bottom = 400.0
+offset_right = 342.0
+offset_bottom = 310.0
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox"]
-clip_contents = true
-custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
@@ -745,14 +743,15 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="Label" type="Label" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/MarginContainer"]
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("7_dw050")
 theme_override_font_sizes/font_size = 32
 text = " Leaderboard (WIP)"
 
 [node name="bottom" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox"]
 clip_contents = true
-custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
@@ -761,21 +760,59 @@ theme_override_constants/margin_bottom = 5
 
 [node name="Players" type="HBoxContainer" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom"]
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="spacer1" type="Label" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_dw050")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 16
 text = " "
 
+[node name="Places" type="VBoxContainer" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players"]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="1" type="Label" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players/Places"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_dw050")
+theme_override_font_sizes/font_size = 32
+text = "1"
+clip_text = true
+
+[node name="2" type="Label" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players/Places"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_dw050")
+theme_override_font_sizes/font_size = 32
+text = "2"
+
+[node name="3" type="Label" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players/Places"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_dw050")
+theme_override_font_sizes/font_size = 32
+text = "3"
+
+[node name="4" type="Label" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players/Places"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_dw050")
+theme_override_font_sizes/font_size = 32
+text = "4"
+
+[node name="5" type="Label" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players/Places"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_dw050")
+theme_override_font_sizes/font_size = 32
+text = "5"
+
 [node name="Names" type="VBoxContainer" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
 [node name="1" type="Label" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players/Names"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_dw050")
 theme_override_font_sizes/font_size = 32
-text = "---"
+text = "frappecchino"
+clip_text = true
 
 [node name="2" type="Label" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players/Names"]
 layout_mode = 2
@@ -805,38 +842,62 @@ text = "---"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_dw050")
 theme_override_font_sizes/font_size = 32
-text = "            "
+text = "      "
 
 [node name="Scores" type="VBoxContainer" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players"]
 layout_mode = 2
 
-[node name="1" type="Label" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players/Scores"]
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players/Scores"]
+layout_direction = 3
 layout_mode = 2
+mouse_filter = 2
+
+[node name="1" type="Label" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players/Scores/Control"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 21.0
+offset_bottom = 39.666668
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("7_dw050")
+theme_override_font_sizes/font_size = 32
+text = "67"
+
+[node name="2" type="Label" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players/Scores/Control"]
+layout_mode = 0
+offset_top = 43.0
+offset_right = 21.0
+offset_bottom = 83.66667
+size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("7_dw050")
 theme_override_font_sizes/font_size = 32
 text = "0"
-horizontal_alignment = 2
 
-[node name="2" type="Label" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players/Scores"]
-layout_mode = 2
+[node name="3" type="Label" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players/Scores/Control"]
+layout_mode = 0
+offset_top = 87.0
+offset_right = 21.0
+offset_bottom = 127.66667
+size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("7_dw050")
 theme_override_font_sizes/font_size = 32
 text = "0"
 
-[node name="3" type="Label" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players/Scores"]
-layout_mode = 2
+[node name="4" type="Label" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players/Scores/Control"]
+layout_mode = 0
+offset_top = 131.0
+offset_right = 21.0
+offset_bottom = 171.66667
+size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("7_dw050")
 theme_override_font_sizes/font_size = 32
 text = "0"
 
-[node name="4" type="Label" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players/Scores"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("7_dw050")
-theme_override_font_sizes/font_size = 32
-text = "0"
-
-[node name="5" type="Label" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players/Scores"]
-layout_mode = 2
+[node name="5" type="Label" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players/Scores/Control"]
+layout_mode = 0
+offset_top = 175.0
+offset_right = 21.0
+offset_bottom = 215.66667
+size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("7_dw050")
 theme_override_font_sizes/font_size = 32
 text = "0"
