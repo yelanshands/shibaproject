@@ -54,14 +54,14 @@ func _ready() -> void:
 	obstacle_types = [null, obstacle1, obstacle2]
 	nature_types = [tree1, rock1, rock2]
 	
+	current_zloc = slope_mesh_size.x*3
+	slope_ratio = slope_mesh_size.y/slope_mesh_size.x
+	slope_deg = rad_to_deg(atan(slope_ratio))
+	
 	for index in range(0, 3):
 		spawn_wave(index)
 		spawn_nature(index)
 		spawn_obstacle(index)
-		
-	current_zloc = slope_mesh_size.x*3
-	slope_ratio = slope_mesh_size.y/slope_mesh_size.x
-	slope_deg = rad_to_deg(atan(slope_ratio))
 	
 	fade_animation.play_backwards("fade_out")
 	player.velocity = Vector3.ZERO
@@ -154,15 +154,12 @@ func spawn_obstacle(index: int) -> void:
 			var rand_obstacle = obstacle_types.pick_random()
 			if rand_obstacle:
 				var obstacle = rand_obstacle.instantiate()
-				obstacle.rotation_degrees.z = slope_deg
-				var obstacle_zpos = default_slopes[index].global_position.z - slope_mesh_size.x/2 + x * slope_mesh_size.x/3
-				obstacle.global_position = Vector3(0.0, get_slope_surface_y(obstacle_zpos), obstacle_zpos)
-				
+				var obstacle_zpos = default_slopes[index].global_position.z - slope_mesh_size.x + x * (2 * slope_mesh_size.x/3)
 				default_slopes[index].add_child(obstacle)
+				obstacle.global_position = Vector3(0.0, get_slope_surface_y(obstacle_zpos), obstacle_zpos)
+				obstacle.global_rotation_degrees.z = slope_deg
 				structures[index].append(obstacle)
 				
-				print(obstacle.global_position)
-			
 func spawn_nature(index: int) -> void:
 	if player.hp > 0:
 		for x in randi_range(10, 15):
@@ -213,5 +210,5 @@ func get_y_on_plane(plane: MeshInstance3D, x: float, z: float) -> float:
 	
 	return ((n.x * (p0.x - x)) + (n.z * (p0.z - z)) + (n.y * p0.y)) / n.y
 
-func get_slope_surface_y(delta_y: float) -> float:
-	return -tan(slope_ratio) * delta_y
+func get_slope_surface_y(delta_z: float) -> float:
+	return -tan(slope_ratio) * delta_z
