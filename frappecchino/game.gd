@@ -156,7 +156,7 @@ func spawn_obstacle(index: int) -> void:
 				var obstacle = rand_obstacle.instantiate()
 				var obstacle_zpos = default_slopes[index].global_position.z - slope_mesh_size.x + x * (2 * slope_mesh_size.x/3)
 				default_slopes[index].add_child(obstacle)
-				obstacle.global_position = Vector3(0.0, get_slope_surface_y(obstacle_zpos), obstacle_zpos)
+				obstacle.global_position = Vector3(0.0, get_slope_surface_y(obstacle_zpos) + 5.0, obstacle_zpos)
 				obstacle.global_rotation_degrees.z = slope_deg
 				structures[index].append(obstacle)
 				
