@@ -84,7 +84,7 @@ var upper_torso: Node
 signal on_ground
 signal clickfinished
 
-var max_hp := 300.0
+var max_hp := 500.0
 var hp := max_hp
 var hp_taken := 0.0
 var damage_tint_target: float = 0.0

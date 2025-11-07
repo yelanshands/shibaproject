@@ -8,8 +8,6 @@ const Npc = preload("res://npc.tscn")
 @onready var finalbarrier = $building/innerwalls/finalbarrier
 @onready var n1 = $n1
 @onready var n2 = $n2
-@onready var n3 = $n3
-@onready var n4 = $n4
 @onready var dialogue: CanvasLayer = $Dialogue
 @onready var player: CharacterBody3D = $Player
 @onready var fade_animation: AnimationPlayer = $CanvasLayer/AnimationPlayer
@@ -52,10 +50,7 @@ func _ready() -> void:
 		skip_label.text = "「ENTERキーでチュートリアルをスキップ。」"
 		skip_label.position.x = 600
 	
-	range_enemies = [n1, n2, n3, n4]
-	
-	player.max_hp = 500.0
-	player.hp = 500.0
+	range_enemies = [n1, n2]
 	
 	player_respawn = player.global_position
 	fade_animation.play_backwards("fade_out")

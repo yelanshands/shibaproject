@@ -134,7 +134,7 @@ func _process(_delta: float) -> void:
 
 func spawn_wave(index: int) -> void:
 	if player.hp > 0:
-		for x in randi_range(2, 4):
+		for x in randi_range(2, 3):
 			var enemy = NPC.instantiate()
 			enemy.enemy_type = "snowshooter"
 			enemy.position = get_random_point_on_sloped_plane(enemy_planes[index])
@@ -162,7 +162,7 @@ func spawn_obstacle(index: int) -> void:
 				
 func spawn_nature(index: int) -> void:
 	if player.hp > 0:
-		for x in randi_range(10, 15):
+		for x in randi_range(8, 12):
 			var nature = nature_types.pick_random().instantiate()
 			default_slopes[index].add_child(nature)
 			nature.global_position = get_random_point_on_sloped_plane(enemy_planes[index])

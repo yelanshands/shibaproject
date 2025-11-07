@@ -316,6 +316,7 @@ max_db = -1.0
 
 [node name="Outline" type="MeshInstance3D" parent="SpringArmPivot/SpringArm3D/PlayerCamera"]
 transform = Transform3D(1, -1.7763564e-15, -2.7818146e-08, 4.5000256e-15, 0.99999994, 3.5527137e-15, 2.7818146e-08, 3.5527137e-15, 1, 0, 0, -0.403)
+visible = false
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_b26j0")
 skeleton = NodePath("../../..")

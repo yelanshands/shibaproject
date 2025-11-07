@@ -150,7 +150,7 @@ text = "settings"
 scroll_active = false
 
 [node name="japanese" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(600, 100)
+custom_minimum_size = Vector2(550, 100)
 layout_mode = 2
 theme = ExtResource("4_82xqq")
 theme_override_font_sizes/normal_font_size = 80
@@ -457,9 +457,12 @@ layer = 5
 visible = false
 
 [node name="MarginContainer" type="MarginContainer" parent="Crosshair"]
+clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1380.0
+offset_bottom = -1020.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

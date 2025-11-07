@@ -4,10 +4,12 @@ extends CharacterBody3D
 @onready var animation: AnimationPlayer = enemy.get_node("AnimationPlayer")
 @onready var skeleton: Skeleton3D = enemy.get_node("Node/Skeleton3D")
 @onready var timer: Timer = $Timer
-@onready var fov_collision: CollisionShape3D = $fov/CollisionShape3D
 @onready var attention_timer: Timer = $AttentionTimer
 @onready var pewpew: Node3D = $Pewpew
 @onready var aimassist: CollisionShape3D = $aimassist/aimassist
+@onready var player_check: Timer = $PlayerCheck
+@onready var lineofsight_check: Timer = $LineofsightCheck
+
 @export var enemy_type: String = "none"
 @export var max_hp: int = 100
 @export var attention_min: float = 8.0
@@ -31,11 +33,11 @@ var upper_torso: Node
 var idle_rot_y: float
 var attention_timer_started: bool = true
 var hp: = max_hp
-var target_node
 
 var plane_index: int
 
 func _ready() -> void:
+	player = get_tree().current_scene.get_node("Player")
 	animation.play("IdleAiming0")
 	head_bone = skeleton.get_node("mixamorigHeadTop_End")
 	upper_torso = skeleton.get_node("uppertorso/body")
@@ -55,18 +57,23 @@ func _ready() -> void:
 	
 	attention_timer.start(randf_range(attention_min, attention_max))
 	idle_rot_y = global_rotation.y
-	fov_collision.scale *= detection_range
 
 func _process(_delta: float) -> void:
 	if player:
 		if player.hp <= 0:
-			player = null
 			player_seen = false
 			player_in_fov = false
-	
+		
+		if player_check.is_stopped():
+			if global_position.distance_to(player.global_position) <= detection_range * 200.0:
+				player_in_fov = true
+			else:
+				player_in_fov = false
+			player_check.start(0.5)
+		
 	if alive:
 		if player_seen:
-			var dir = target_node.global_position - global_position
+			var dir = player.global_position - global_position
 			var target_rot_y = atan2(dir.x, dir.z)
 			global_rotation.y = lerp_angle(global_rotation.y, target_rot_y, lock_in)
 			if global_rotation.y <= target_rot_y + fire_confidence and global_rotation.y >= target_rot_y - fire_confidence and animation.current_animation != "FiringRifle0":
@@ -85,7 +92,6 @@ func _process(_delta: float) -> void:
 			animation.play_section("Dying0", 0.22, 4.4, 0.5)
 			alive = false
 			timer.start(30.0)
-			fov_collision.disabled = true
 			aimassist.disabled = true
 			player_seen = false
 			player_in_fov = false
@@ -104,7 +110,8 @@ func _process(_delta: float) -> void:
 			queue_free()
 		
 func _physics_process(delta):
-	if alive and player_in_fov:
+	if alive and player_in_fov and lineofsight_check.is_stopped():
+		lineofsight_check.start(0.5)
 		var space_state = get_world_3d().direct_space_state
 		var query = PhysicsRayQueryParameters3D.create(head_bone.global_position, player.head_bone.global_position, (1 << 0) | (1 << 6), [player.get_rid()])
 		var result = space_state.intersect_ray(query)
@@ -126,21 +133,9 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 	else:
 		velocity.y = 0.0
-	move_and_slide()
+		
+	if velocity != Vector3.ZERO or not is_on_floor():
+		move_and_slide()
 	
 func apply_damage(damage_amount):
 	hp -= damage_amount
-
-func _on_fov_body_entered(body: Node3D) -> void:
-	if body.name == "Player":
-		player_in_fov = true
-		if not player:
-			player = body
-			if target == "head":
-				target_node = player.head_bone
-			elif target == "uppertorso":
-				target_node = player.upper_torso
-
-func _on_fov_body_exited(body: Node3D) -> void:
-	if body.name == "Player":
-		player_in_fov = false

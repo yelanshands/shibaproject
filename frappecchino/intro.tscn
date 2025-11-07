@@ -80,8 +80,10 @@ script = ExtResource("1_s2ta7")
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Node2D"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 66.0
+offset_top = 2.0
+offset_right = 2946.0
+offset_bottom = 2162.0
 stream = ExtResource("2_u2rf6")
 
 [node name="Camera2D" type="Camera2D" parent="Node2D"]
