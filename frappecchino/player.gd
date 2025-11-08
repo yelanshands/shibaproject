@@ -33,7 +33,7 @@ extends CharacterBody3D
 @onready var leaderboard: ColorRect = $CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard
 @onready var leaderboard_animation: AnimationPlayer = $CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/AnimationPlayer
 @onready var damage_tint: TextureRect = $CanvasLayer/damaged
-@onready var keyboard: Control = $keyboard
+@onready var keyboard: Control = $CanvasLayer/keyboard
 
 @export var friction: float = 0.25
 @export var slide_accel: float = 100.0
@@ -78,6 +78,7 @@ var default_font_size := 48
 var in_game: bool = false
 var button_pressed: bool = false
 var clicking: bool = false
+var leaderboard_updated: bool = false
 
 var head_bone: Node
 var upper_torso: Node
@@ -118,7 +119,7 @@ func _ready() -> void:
 	aim_assist = globals.settings_data.aim_assist
 	
 func _input(event):
-	if not buttons.visible:
+	if not buttons.visible and not keyboard.visible:
 		if event.is_action_pressed("ui_cancel"):
 			if not get_tree().paused:
 				Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -203,20 +204,22 @@ func _physics_process(delta: float) -> void:
 				score_label.text = "\nyou died .\n" + str(score)
 				big_crosshair_cont.visible = false
 				Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-				for entry_index in range(high_scores.size()):
-					if score > high_scores[entry_index][1]:
-						keyboard.visible = true
-						await keyboard.ok
-						keyboard.visible = false
-						globals.settings_data.high_scores.insert(entry_index, [keyboard.player_name, score])
-						globals.settings_data.high_scores.pop_back()
-						update_leaderboard()
-						break
-				buttons.visible = true
-				leaderboard.visible = true
-				crosshairs.visible = true
-				fade_animation.play("buttons_fade_in")
-				leaderboard_animation.play("fade_in")
+				if leaderboard_updated == false:
+					leaderboard_updated = true
+					for entry_index in range(high_scores.size()):
+						if score > high_scores[entry_index][1]:
+							keyboard.visible = true
+							await keyboard.ok
+							keyboard.visible = false
+							globals.settings_data.high_scores.insert(entry_index, [keyboard.player_name, score])
+							globals.settings_data.high_scores.pop_back()
+							update_leaderboard()
+							break
+					buttons.visible = true
+					leaderboard.visible = true
+					crosshairs.visible = true
+					fade_animation.play("buttons_fade_in")
+					leaderboard_animation.play("fade_in")
 			else:
 				fade_animation.play("fade_out")
 		elif (animation.current_animation_position >= 2.4 or buttons.visible) and not deadbg_animation.assigned_animation:
