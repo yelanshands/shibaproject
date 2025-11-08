@@ -26,21 +26,37 @@ var range_enemies: Array
 var slide_enemies: Array
 var final_enemies: Array
 
-var area0text = "Hurry, before the explosion goes off. Use WASD to move. Jump moving forward and pressing SPACE."
-var area1text = "Shoot the targets with LEFT CLICK. Notice how headshots deal more damage than body shots? And body shots deal more than leg shots?"
-var area2text = "Slide under by moving forward and pressing SHIFT."
-var area3text = "Eliminate the targets and slide again with SHIFT."
+var area0text = "Hurry, before the explosion goes off. Use the left joystick to move. Look around with the right joystick. Jump by moving forward and pressing the white button."
+var area1text = "Shoot the targets with the big red button. Notice how headshots deal more damage than body shots? And body shots deal more than leg shots?"
+var area2text = "Slide under by moving forward and pressing the blue button."
+var area3text = "Eliminate the targets and slide again with the blue button."
 var area4text = "Now slide and jump at the same time to get through the gap."
-var area5text = "Press C to aim. Aiming zooms in, decreases sensitivity, and decreases recoil, allowing for better accuracy. Shoot the target."
+var area5text = "Shoot the target across the room."
 var area6text = "Slide and jump to break the glass and escape."
 
-var area0text_jp = "「爆発が起こる前に急げ。WASDで移動。前進しながらSPACEでジャンプ。」"
-var area1text_jp = "「LEFT CLICKで標的を撃て。ヘッドショットは胴体よりも大きなダメージを与えるぞ。脚よりも胴体の方が強いダメージだ。」"
-var area2text_jp = "「前進しながらSHIFTでスライディング。」"
-var area3text_jp = "「標的を排除して、もう一度SHIFTでスライディング。」"
+var area0text_jp = "「爆発が起こる前に急げ。左ジョイスティックで移動。右ジョイスティックで周囲を見渡せ。前進しながら白ボタンでジャンプ。」"
+var area1text_jp = "「大きな赤ボタンで標的を撃て。ヘッドショットは胴体よりも大きなダメージを与えるぞ。脚よりも胴体の方が強いダメージだ。」"
+var area2text_jp = "「前進しながら青ボタンでスライディング。」"
+var area3text_jp = "「標的を排除して、もう一度青ボタンでスライディング。」"
 var area4text_jp = "「スライディングしながらジャンプして、隙間を通り抜けろ。」"
-var area5text_jp = "「Cを押してエイム。エイム中はズームインし、感度と反動が減少し、命中精度が上がる。標的を撃て。」"
+var area5text_jp = "「部屋の向こう側の標的を撃て。」"
 var area6text_jp = "「スライディングとジャンプでガラスを破り、脱出しろ。」"
+
+#var area0text = "Hurry, before the explosion goes off. Use WASD to move. Jump moving forward and pressing SPACE."
+#var area1text = "Shoot the targets with LEFT CLICK. Notice how headshots deal more damage than body shots? And body shots deal more than leg shots?"
+#var area2text = "Slide under by moving forward and pressing SHIFT."
+#var area3text = "Eliminate the targets and slide again with SHIFT."
+#var area4text = "Now slide and jump at the same time to get through the gap."
+#var area5text = "Press C to aim. Aiming zooms in, decreases sensitivity, and decreases recoil, allowing for better accuracy. Shoot the target."
+#var area6text = "Slide and jump to break the glass and escape."
+#
+#var area0text_jp = "「爆発が起こる前に急げ。WASDで移動。前進しながらSPACEでジャンプ。」"
+#var area1text_jp = "「LEFT CLICKで標的を撃て。ヘッドショットは胴体よりも大きなダメージを与えるぞ。脚よりも胴体の方が強いダメージだ。」"
+#var area2text_jp = "「前進しながらSHIFTでスライディング。」"
+#var area3text_jp = "「標的を排除して、もう一度SHIFTでスライディング。」"
+#var area4text_jp = "「スライディングしながらジャンプして、隙間を通り抜けろ。」"
+#var area5text_jp = "「Cを押してエイム。エイム中はズームインし、感度と反動が減少し、命中精度が上がる。標的を撃て。」"
+#var area6text_jp = "「スライディングとジャンプでガラスを破り、脱出しろ。」"
 
 var checkpoint: Vector3
 var checkpoint_rot: Vector3

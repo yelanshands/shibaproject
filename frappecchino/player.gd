@@ -33,6 +33,7 @@ extends CharacterBody3D
 @onready var leaderboard: ColorRect = $CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard
 @onready var leaderboard_animation: AnimationPlayer = $CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/AnimationPlayer
 @onready var damage_tint: TextureRect = $CanvasLayer/damaged
+@onready var keyboard: Control = $keyboard
 
 @export var friction: float = 0.25
 @export var slide_accel: float = 100.0
@@ -200,20 +201,22 @@ func _physics_process(delta: float) -> void:
 		elif ((animation.current_animation_position >= 3.4 or Input.is_action_just_pressed("left_click")) and (fade_animation.assigned_animation != "buttons_fade_in" and fade_animation.assigned_animation != "fade_out")):
 			if in_game:
 				score_label.text = "\nyou died .\n" + str(score)
+				big_crosshair_cont.visible = false
+				Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 				for entry_index in range(high_scores.size()):
 					if score > high_scores[entry_index][1]:
-						var player_name = "frappie"
-						globals.settings_data.high_scores.insert(entry_index, [player_name, score])
+						keyboard.visible = true
+						await keyboard.ok
+						keyboard.visible = false
+						globals.settings_data.high_scores.insert(entry_index, [keyboard.player_name, score])
 						globals.settings_data.high_scores.pop_back()
 						update_leaderboard()
 						break
-				big_crosshair_cont.visible = false
 				buttons.visible = true
-				crosshairs.visible = true
 				leaderboard.visible = true
+				crosshairs.visible = true
 				fade_animation.play("buttons_fade_in")
 				leaderboard_animation.play("fade_in")
-				Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 			else:
 				fade_animation.play("fade_out")
 		elif (animation.current_animation_position >= 2.4 or buttons.visible) and not deadbg_animation.assigned_animation:

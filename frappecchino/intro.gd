@@ -3,13 +3,13 @@ extends Control
 @onready var animation_player: AnimationPlayer = $CanvasLayer/AnimationPlayer
 @onready var video_stream_player: VideoStreamPlayer = $Node2D/VideoStreamPlayer
 @onready var skip_animation: AnimationPlayer = $CanvasLayer/SkipAnimation
-@onready var label: Label = $CanvasLayer/Label
+@onready var label: Label = $CanvasLayer/Control/Label
 @onready var audio_stream_player: AudioStreamPlayer = $Node2D/AudioStreamPlayer
 
 var skipped: bool = false
 
 func _ready() -> void:
-	if globals.settings_data.language: label.text = "「ENTERキーでスキップ。」"
+	if globals.settings_data.language: label.text = "「赤ボタンでスキップ！」"
 	label.modulate.a = 0.0
 	animation_player.play_backwards("fade_out")
 	await animation_player.animation_finished

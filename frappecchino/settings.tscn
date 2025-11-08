@@ -171,7 +171,7 @@ offset_right = 100.0
 offset_bottom = 100.0
 mouse_filter = 2
 theme = ExtResource("4_82xqq")
-theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/normal_font_size = 42
 text = " close 閉じる"
 vertical_alignment = 1
 

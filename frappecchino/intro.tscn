@@ -24,7 +24,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Label:modulate")
+tracks/1/path = NodePath("Control/Label:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -55,7 +55,7 @@ length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Label:modulate")
+tracks/0/path = NodePath("Control/Label:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -154,13 +154,21 @@ libraries = {
 &"": SubResource("AnimationLibrary_dl7dh")
 }
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 891.0
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_direction = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 37.0
 offset_top = 998.0
-offset_right = 1401.0
-offset_bottom = 1059.0
+offset_right = 820.0
+offset_bottom = 1130.0
 theme_override_fonts/font = ExtResource("3_y6ycx")
 theme_override_font_sizes/font_size = 48
-text = "Press ENTER to skip."
+text = "Press the RED BUTTON to skip."
 
 [connection signal="finished" from="Node2D/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

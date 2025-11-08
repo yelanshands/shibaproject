@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://daiyf82t58v7s"]
+[gd_scene load_steps=44 format=3 uid="uid://daiyf82t58v7s"]
 
 [ext_resource type="Script" uid="uid://bwhyes7j5e77m" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://bl4ue4lvsx2v2" path="res://pewpew.tscn" id="2_i3pqv"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://d2xmifqrtmypq" path="res://assets/images/hitcrosshair.png" id="13_urp6f"]
 [ext_resource type="PackedScene" uid="uid://cqyjx3nirqmu4" path="res://settings.tscn" id="14_bwjto"]
 [ext_resource type="Texture2D" uid="uid://bbqjb372fapm2" path="res://assets/images/red_vignette.png" id="15_u1c27"]
+[ext_resource type="PackedScene" uid="uid://d4j0ek6aee1vx" path="res://keyboard.tscn" id="17_op7ga"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2hs0m"]
 radius = 3.0
@@ -723,7 +724,7 @@ visible = false
 custom_minimum_size = Vector2(400, 350)
 layout_mode = 2
 mouse_filter = 2
-color = Color(0.30980393, 0.2509804, 0.5882353, 0.48235294)
+color = Color(0.18279028, 0.14168283, 0.36938056, 0.48235294)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard"]
 libraries = {
@@ -739,9 +740,9 @@ offset_bottom = 310.0
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_bottom = 0
 
 [node name="Label" type="Label" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/MarginContainer"]
 custom_minimum_size = Vector2(350, 0)
@@ -749,7 +750,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("7_dw050")
 theme_override_font_sizes/font_size = 32
-text = " Leaderboard (WIP)"
+text = " Leaderboard  ランキング"
 
 [node name="bottom" type="MarginContainer" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox"]
 clip_contents = true
@@ -812,7 +813,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_dw050")
 theme_override_font_sizes/font_size = 32
-text = "frappecchino"
+text = "---"
 clip_text = true
 
 [node name="2" type="Label" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players/Names"]
@@ -861,7 +862,7 @@ offset_bottom = 39.666668
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("7_dw050")
 theme_override_font_sizes/font_size = 32
-text = "67"
+text = "0"
 
 [node name="2" type="Label" parent="CanvasLayer/MarginContainer/ScoreContainer/hbox/vbox/Leaderboard/vbox/bottom/Players/Scores/Control"]
 layout_mode = 0
@@ -949,6 +950,9 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("15_u1c27")
 expand_mode = 1
+
+[node name="keyboard" parent="CanvasLayer" instance=ExtResource("17_op7ga")]
+visible = false
 
 [node name="CrosshairMenu" type="CanvasLayer" parent="."]
 layer = 5

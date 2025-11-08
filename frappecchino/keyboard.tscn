@@ -1,0 +1,392 @@
+[gd_scene load_steps=9 format=3 uid="uid://d4j0ek6aee1vx"]
+
+[ext_resource type="Script" uid="uid://doiv3t44m62it" path="res://keyboard.gd" id="1_yo7bg"]
+[ext_resource type="FontFile" uid="uid://c0ox2v115c0rl" path="res://assets/fonts/immortal/IMMORTAL.ttf" id="2_rpc6l"]
+[ext_resource type="FontFile" uid="uid://fd30c4ps4rty" path="res://assets/fonts/immortal/IMMRTLT_.ttf" id="3_d8yjl"]
+[ext_resource type="Shader" uid="uid://bc4f6kq1t06ct" path="res://crosshair.gdshader" id="4_b3m6d"]
+[ext_resource type="Texture2D" uid="uid://rs66kiv43jvu" path="res://assets/images/crosshair.png" id="5_efd6q"]
+[ext_resource type="Texture2D" uid="uid://d2xmifqrtmypq" path="res://assets/images/hitcrosshair.png" id="6_sryu3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8t13d"]
+shader = ExtResource("4_b3m6d")
+shader_parameter/alpha_strength = 0.70000003325
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_se432"]
+shader = ExtResource("4_b3m6d")
+shader_parameter/alpha_strength = 0.7
+
+[node name="keyboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yo7bg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.627451)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+color = Color(0.056291588, 0.056291603, 0.056291595, 0.78431374)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="ColorRect/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/MarginContainer/VBoxContainer"]
+modulate = Color(0.5330372, 0.53303653, 0.5330367, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "Name  名前"
+horizontal_alignment = 1
+
+[node name="pp" type="Label" parent="ColorRect/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 1
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 7
+
+[node name="A" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "a"
+
+[node name="B" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "b"
+
+[node name="C" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "c"
+
+[node name="D" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "d"
+
+[node name="E" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "e"
+
+[node name="F" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "f"
+
+[node name="G" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "g"
+
+[node name="H" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "h"
+
+[node name="I" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "i"
+
+[node name="J" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "j"
+
+[node name="K" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "k"
+
+[node name="L" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "l"
+
+[node name="M" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "m"
+
+[node name="N" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "n"
+
+[node name="O" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "o"
+
+[node name="P" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "p"
+
+[node name="Q" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "q"
+
+[node name="R" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "r"
+
+[node name="S" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "s"
+
+[node name="T" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "t"
+
+[node name="U" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "u"
+
+[node name="V" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "v"
+
+[node name="W" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "w"
+
+[node name="X" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "x"
+
+[node name="Y" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "y"
+
+[node name="Z" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "z"
+
+[node name="<-" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_d8yjl")
+theme_override_font_sizes/font_size = 48
+text = "<-"
+
+[node name="Ok" type="Button" parent="ColorRect/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rpc6l")
+theme_override_font_sizes/font_size = 48
+text = "OK"
+
+[node name="Crosshair" type="CanvasLayer" parent="."]
+layer = 5
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="Crosshair"]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1380.0
+offset_bottom = -1020.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Crosshair" type="TextureRect" parent="Crosshair/MarginContainer"]
+material = SubResource("ShaderMaterial_8t13d")
+clip_contents = true
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("5_efd6q")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="HitContainer" type="Control" parent="Crosshair"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.7853982
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(20, 20)
+mouse_filter = 2
+
+[node name="HitCrosshair" type="TextureRect" parent="Crosshair/HitContainer"]
+material = SubResource("ShaderMaterial_se432")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("6_sryu3")
+expand_mode = 1
+stretch_mode = 3
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/A" to="." method="key_pressed" binds= ["a"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/B" to="." method="key_pressed" binds= ["b"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/C" to="." method="key_pressed" binds= ["c"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/D" to="." method="key_pressed" binds= ["d"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/E" to="." method="key_pressed" binds= ["e"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/F" to="." method="key_pressed" binds= ["f"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/G" to="." method="key_pressed" binds= ["g"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/H" to="." method="key_pressed" binds= ["h"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/I" to="." method="key_pressed" binds= ["i"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/J" to="." method="key_pressed" binds= ["j"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/K" to="." method="key_pressed" binds= ["k"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/L" to="." method="key_pressed" binds= ["l"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/M" to="." method="key_pressed" binds= ["m"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/N" to="." method="key_pressed" binds= ["n"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/O" to="." method="key_pressed" binds= ["o"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/P" to="." method="key_pressed" binds= ["p"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/Q" to="." method="key_pressed" binds= ["q"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/R" to="." method="key_pressed" binds= ["r"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/S" to="." method="key_pressed" binds= ["s"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/T" to="." method="key_pressed" binds= ["t"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/U" to="." method="key_pressed" binds= ["u"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/V" to="." method="key_pressed" binds= ["v"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/W" to="." method="key_pressed" binds= ["w"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/X" to="." method="key_pressed" binds= ["x"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/Y" to="." method="key_pressed" binds= ["y"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/Z" to="." method="key_pressed" binds= ["z"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/<-" to="." method="key_pressed" binds= ["back"]]
+[connection signal="pressed" from="ColorRect/VBoxContainer/GridContainer/Ok" to="." method="key_pressed" binds= ["ok"]]

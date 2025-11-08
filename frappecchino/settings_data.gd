@@ -3,7 +3,7 @@ class_name SettingsData
 
 @export var mouse_sens := 1.0
 @export var volume := 25
-@export var high_scores := [["frappie", 0], ["frappie", 0], ["frappie", 0], ["frappie", 0], ["frappie", 0]]
+@export var high_scores := [["---", 0], ["---", 0], ["---", 0], ["---", 0], ["---", 0]]
 @export var fov = 75
 @export var aim_assist: bool = true
 @export var language: bool = false
