@@ -1,17 +1,17 @@
-extends Node
-
-const DPI = 400
-const DEADZONE = 0.01
-
-var left_pressed := false
-var right_pressed := false
-
-func _physics_process(delta: float) -> void:
-	var left_stick_vector = Input.get_vector("vm_left", "vm_right", "vm_up", "vm_down")
-	
-	if left_stick_vector.length() > DEADZONE:
-		get_viewport().warp_mouse(get_viewport().get_mouse_position() + left_stick_vector * DPI * delta)
-	
+#extends Node
+#
+#const DPI = 400
+#const DEADZONE = 0.01
+#
+#var left_pressed := false
+#var right_pressed := false
+#
+#func _physics_process(delta: float) -> void:
+	#var right_stick_vector = Input.get_vector("vm_left", "vm_right", "vm_up", "vm_down")
+	#
+	#if right_stick_vector.length() > DEADZONE:
+		#get_viewport().warp_mouse(get_viewport().get_mouse_position() + right_stick_vector * DPI * delta)
+	#
 	#var mouse_pos = get_viewport().get_mouse_position()
 	#
 	#if Input.is_action_just_pressed("left_click") and not left_pressed:

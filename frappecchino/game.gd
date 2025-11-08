@@ -83,7 +83,7 @@ func _process(_delta: float) -> void:
 	
 	slope_surface_y = -tan(slope_ratio) * player_pos.z
 	
-	print("    " + str(player_pos))
+	# print("    " + str(player_pos))
 	
 	if player.hp <= 0: 
 		if player.animation.assigned_animation == "dying":

@@ -899,6 +899,7 @@ libraries = {
 }
 
 [node name="Control" type="Control" parent="CanvasLayer"]
+visible = false
 layout_direction = 3
 layout_mode = 3
 anchors_preset = 0
