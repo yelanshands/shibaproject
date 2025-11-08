@@ -63,8 +63,7 @@ var checkpoint_rot: Vector3
 
 func _ready() -> void:
 	if globals.settings_data.language: 
-		skip_label.text = "「ENTERキーでチュートリアルをスキップ。」"
-		skip_label.position.x = 600
+		skip_label.text = "「赤ボタンでチュートリアルをスキップ。」"
 	
 	range_enemies = [n1, n2]
 	
@@ -80,7 +79,7 @@ func _ready() -> void:
 	checkpoint_rot = Vector3(0.0, -PI, 0.0)
 	
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("skip") and not skipped:
+	if Input.is_action_just_pressed("left_click") and not skipped:
 		skipped = true
 		if skip_animation.current_animation_position < 3.25:
 			skip_animation.seek(3.25, true)
