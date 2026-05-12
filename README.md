@@ -1,2 +1,2 @@
-# shibaproject
-project for Shiba Hack Club event
+# snowfallen
+third-person shooter kinda
